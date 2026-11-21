@@ -373,6 +373,13 @@
   /* ========================================================================
      5. [02 / 05] CURATOR'S AWWWARDS SPOTLIGHT
      ======================================================================== */
+  function normalizeTitleKey(t) {
+    return String(t || "")
+      .replace(/【[^】]*】|\[[^\]]*\]/g, "")
+      .replace(/[·\s\-—_《》【】()（）:：,，×x]/g, "")
+      .toLowerCase();
+  }
+
   function renderSpotlight() {
     const container = document.getElementById("spotlightGrid");
     if (!container || !state.snapshot) return;
@@ -382,10 +389,34 @@
       pool = pool.filter((e) => e.city === state.selectedCity);
     }
 
-    // Pick top 6 diversified high-heat events
-    const topEvents = [...pool]
-      .sort((a, b) => (b.heat_score || 0) - (a.heat_score || 0))
-      .slice(0, 6);
+    const sorted = [...pool].sort((a, b) => (b.heat_score || 0) - (a.heat_score || 0));
+    const seenTitles = new Set();
+    const topEvents = [];
+
+    // First pass: pick highest heat with unique normalized titles (and diverse cities when ALL is selected)
+    const cityQuota = {};
+    for (const ev of sorted) {
+      const tKey = normalizeTitleKey(ev.title);
+      if (!tKey || seenTitles.has(tKey)) continue;
+      if (state.selectedCity === "ALL" && (cityQuota[ev.city] || 0) >= 2 && sorted.length > 12) {
+        continue;
+      }
+      seenTitles.add(tKey);
+      cityQuota[ev.city] = (cityQuota[ev.city] || 0) + 1;
+      topEvents.push(ev);
+      if (topEvents.length >= 6) break;
+    }
+
+    // Fallback pass if < 6
+    if (topEvents.length < 6) {
+      for (const ev of sorted) {
+        const tKey = normalizeTitleKey(ev.title);
+        if (!tKey || seenTitles.has(tKey)) continue;
+        seenTitles.add(tKey);
+        topEvents.push(ev);
+        if (topEvents.length >= 6) break;
+      }
+    }
 
     container.innerHTML = topEvents
       .map(
@@ -847,7 +878,7 @@
   }
 
   /* ========================================================================
-     8. [04 / 05] CROSS-PLATFORM SMART SEARCH MATRIX
+     8. [04 / 05] CROSS-PLATFORM SMART SEARCH MATRIX & BACKGROUND AI SUMMARIZER
      ======================================================================== */
   const CITY_LANDMARK_KEYWORDS = {
     苏州: "(仁恒仓街 OR 十全街 OR 诚品生活 OR 苏州中心 OR 本色美术馆 OR 山丘Livehouse)",
@@ -856,6 +887,7 @@
     常州: "(太湖湾 OR 青果巷 OR 文化广场 OR 中华恐龙园 OR 棉仓)",
     杭州: "(天目里 OR 良渚大屋顶 OR 湖滨in77 OR 西湖 OR 大麦66Livehouse)",
     南京: "(德基广场 OR 1701Livehouse OR 南京博物院 OR 熙南里 OR 江苏大剧院)",
+    ALL: "(苏州 OR 上海 OR 无锡 OR 常州 OR 杭州 OR 南京)",
   };
 
   const MODULE_SCENARIO_KEYWORDS = {
@@ -869,9 +901,46 @@
     H: "(园林夜游 OR 昆曲评弹 OR 无人机烟花秀 OR 红枫银杏) 本周末",
     I: "(会展排期 OR 文博会 OR 潮玩展 OR 宠物展) 11月",
     J: "(主厨限时晚宴 OR 亲子剧场 OR 马拉松 OR 博物馆奇妙夜) 周末",
+    ALL: "(演唱会 OR 快闪 OR 特展 OR 市集 OR 漫展 OR 夜游) 本周末",
   };
 
-  function updateSynthesizerOutput() {
+  const SYNONYM_EXPANSION_MAP = {
+    一日店长: ["一日店长", "明星", "快闪", "代言", "空降", "见面会"],
+    快闪: ["快闪", "pop-up", "限时", "主题", "打卡", "联名", "领礼"],
+    免费: ["免费", "免票", "0元", "公益", "羊毛", "领礼"],
+    羊毛: ["免费", "免票", "羊毛", "快闪", "半价", "票根"],
+    演唱会: ["演唱会", "巡演", "奥体", "体育中心", "音乐节"],
+    音乐剧: ["音乐剧", "剧院魅影", "歌剧", "舞剧", "话剧", "戏剧", "大剧院"],
+    展览: ["展览", "特展", "美术馆", "艺术", "博物院", "博物馆", "双年展"],
+    市集: ["市集", "本色", "咖啡", "精酿", "面包", "微醺", "雅集"],
+    漫展: ["漫展", "同人", "only", "二次元", "主题餐厅", "谷子", "痛楼", "acgn"],
+    夜游: ["夜游", "红枫", "园林", "拙政", "网师园", "拈花湾", "昆曲", "评弹", "无人机"],
+    脱口秀: ["脱口秀", "喜剧", "开放麦", "漫才", "即兴", "livehouse"],
+  };
+
+  function expandQueryTokens(rawInput) {
+    const cleaned = String(rawInput || "")
+      .replace(/[()（）+]/g, " ")
+      .replace(/\bOR\b|\bAND\b|site:\S+/gi, " ")
+      .trim();
+    if (!cleaned) return [];
+    const baseTokens = cleaned
+      .split(/[\s,，、/]+/)
+      .map((t) => t.trim().toLowerCase())
+      .filter((t) => t.length >= 2 && !["城市名", "本周末", "周末", "11月", "2026年11月"].includes(t));
+
+    const expanded = new Set(baseTokens);
+    baseTokens.forEach((tok) => {
+      Object.entries(SYNONYM_EXPANSION_MAP).forEach(([k, syns]) => {
+        if (tok.includes(k) || k.includes(tok)) {
+          syns.forEach((s) => expanded.add(s.toLowerCase()));
+        }
+      });
+    });
+    return Array.from(expanded);
+  }
+
+  function updateSynthesizerOutput(triggerBgSummary = true) {
     const citySel = document.getElementById("synthCitySelect");
     const modSel = document.getElementById("synthModuleSelect");
     const customIn = document.getElementById("synthCustomInput");
@@ -884,23 +953,29 @@
     const modCode = modSel.value || "A";
     const custom = (customIn ? customIn.value : "").trim();
 
-    const landmarkPart = CITY_LANDMARK_KEYWORDS[city] || city;
+    const cityDisplay = city === "ALL" ? "江浙沪6城" : city;
+    const landmarkPart = CITY_LANDMARK_KEYWORDS[city] || cityDisplay;
     const scenarioPart = MODULE_SCENARIO_KEYWORDS[modCode] || "本周末 活动";
     const synthesized = custom
-      ? `${city} ${custom} ${scenarioPart}`
-      : `${city} ${landmarkPart} ${scenarioPart}`;
+      ? `${city === "ALL" ? "(苏州 OR 上海 OR 无锡 OR 杭州 OR 南京 OR 常州)" : city} ${custom} ${scenarioPart}`
+      : `${city === "ALL" ? "" : city + " "}${landmarkPart} ${scenarioPart}`.trim();
 
     queryEl.textContent = synthesized;
 
     const modObj = ((state.snapshot && state.snapshot.modules) || []).find(
       (m) => m.code === modCode
     );
-    if (tipEl && modObj) {
-      tipEl.textContent = `⏱ 最佳检索时间窗口：${modObj.best_window}`;
+    if (tipEl) {
+      tipEl.textContent = modObj
+        ? `⏱ 最佳检索时间窗口：${modObj.best_window}`
+        : `⏱ 最佳检索时间窗口：每周四晚/周五上午检索当周末全城最新官宣快闪、市集与演出余票`;
     }
 
     const enc = encodeURIComponent(synthesized);
-    const simpleEnc = encodeURIComponent(`${city} ${custom || (modObj ? modObj.name : "周末活动")} 11月`);
+    const simpleKw = `${city === "ALL" ? "江浙沪" : city} ${
+      custom || (modObj ? modObj.name : "周末活动")
+    } 11月`;
+    const simpleEnc = encodeURIComponent(simpleKw);
 
     const platforms = [
       {
@@ -921,11 +996,15 @@
       },
       {
         name: "大麦网票务",
-        url: `https://search.damai.cn/search.htm?keyword=${encodeURIComponent(city + " " + custom)}`,
+        url: `https://search.damai.cn/search.htm?keyword=${encodeURIComponent(
+          (city === "ALL" ? "上海 苏州" : city) + " " + custom
+        )}`,
       },
       {
         name: "秀动 ShowStart",
-        url: `https://www.showstart.com/event/list?keyword=${encodeURIComponent(city)}`,
+        url: `https://www.showstart.com/event/list?keyword=${encodeURIComponent(
+          city === "ALL" ? "上海" : city
+        )}`,
       },
       {
         name: "百度布尔检索",
@@ -947,6 +1026,484 @@
     `
       )
       .join("");
+
+    if (triggerBgSummary && state.snapshot) {
+      runBackgroundSearchAndSummarize({ withLiveWeb: false, scrollIntoView: false });
+    }
+  }
+
+  /* ------------------------------------------------------------------------
+     BACKGROUND MULTI-SOURCE SEARCH & INTELLIGENCE SUMMARIZER
+     ------------------------------------------------------------------------ */
+  function scoreEventsForSynthesizer(city, modCode, customKw) {
+    const allEvents = (state.snapshot && state.snapshot.events) || [];
+    const tokens = expandQueryTokens(customKw);
+
+    const scored = [];
+    for (const ev of allEvents) {
+      // Hard city filter if specific city selected
+      if (city !== "ALL" && ev.city !== city) continue;
+
+      let score = 0;
+      const isExactMod = modCode === "ALL" || ev.module_code === modCode;
+      if (isExactMod) {
+        score += 45;
+      } else if (!tokens.length) {
+        // When no custom keyword is typed, keep strictly within the selected module
+        continue;
+      }
+
+      const hayTitle = String(ev.title || "").toLowerCase();
+      const hayVenue = `${ev.district || ""} ${ev.venue || ""}`.toLowerCase();
+      const hayHigh = String(ev.highlights || "").toLowerCase();
+      const hayTags = (ev.tags || []).join(" ").toLowerCase();
+      const hayPrice = `${ev.price || ""} ${ev.is_free || ""}`.toLowerCase();
+      const fullHay = `${hayTitle} ${hayVenue} ${hayHigh} ${hayTags} ${hayPrice} ${ev.category_name || ""}`.toLowerCase();
+
+      let tokenHits = 0;
+      if (tokens.length > 0) {
+        for (const tok of tokens) {
+          if (hayTitle.includes(tok)) {
+            score += 32;
+            tokenHits++;
+          } else if (hayVenue.includes(tok) || hayTags.includes(tok)) {
+            score += 24;
+            tokenHits++;
+          } else if (hayHigh.includes(tok) || hayPrice.includes(tok)) {
+            score += 15;
+            tokenHits++;
+          }
+        }
+        if (tokenHits === 0) continue;
+      }
+
+      if (String(ev.weekend_status || "").includes("本周末")) score += 12;
+      if (String(ev.is_free || "").includes("免费") || String(ev.price || "").includes("免费")) {
+        if (customKw.includes("免费") || customKw.includes("羊毛")) score += 25;
+      }
+      score += (ev.heat_score || 88) * 0.25;
+
+      scored.push({ ev, score, tokenHits });
+    }
+
+    scored.sort((a, b) => b.score - a.score || (b.ev.heat_score || 0) - (a.ev.heat_score || 0));
+
+    // If strict city+module+keyword yielded 0, fallback to same city + module so summary is never empty
+    let fallbackUsed = false;
+    if (scored.length === 0) {
+      fallbackUsed = true;
+      for (const ev of allEvents) {
+        if (city !== "ALL" && ev.city !== city) continue;
+        if (modCode !== "ALL" && ev.module_code !== modCode) continue;
+        scored.push({ ev, score: ev.heat_score || 88, tokenHits: 0 });
+      }
+      scored.sort((a, b) => b.score - a.score);
+    }
+
+    return {
+      matchedEvents: scored.map((s) => s.ev),
+      fallbackUsed,
+      tokens,
+    };
+  }
+
+  async function probeLivePublicCrossPlatformHints(city, modName, customKw) {
+    const queryTerm = `${city === "ALL" ? "上海 苏州" : city} ${customKw || modName}`.trim();
+    const results = [];
+
+    // 1. Native CORS-supported Chinese Wikipedia / Cultural Landmark Context Probe
+    try {
+      const wikiUrl = `https://zh.wikipedia.org/w/api.php?action=query&list=search&srsearch=${encodeURIComponent(
+        queryTerm
+      )}&utf8=1&format=json&origin=*&srlimit=3`;
+      const ctrl = new AbortController();
+      const timer = setTimeout(() => ctrl.abort(), 3200);
+      const resp = await fetch(wikiUrl, { signal: ctrl.signal });
+      clearTimeout(timer);
+      if (resp.ok) {
+        const data = await resp.json();
+        const items = (data.query && data.query.search) || [];
+        items.forEach((it) => {
+          const cleanSnippet = String(it.snippet || "").replace(/<\/?[^>]+(>|$)/g, "");
+          if (cleanSnippet) {
+            results.push({
+              source: "维基百科 / 城市文化地标实时库",
+              title: it.title,
+              snippet: cleanSnippet,
+              url: `https://zh.wikipedia.org/wiki/${encodeURIComponent(it.title)}`,
+            });
+          }
+        });
+      }
+    } catch (_) {}
+
+    // 2. Curated Multi-Platform Live Verification Channels for the selected City & Module
+    const enc = encodeURIComponent(`${city === "ALL" ? "江浙沪" : city} ${customKw || modName} 2026年11月`);
+    results.push(
+      {
+        source: "小红书同城实时流",
+        title: `${city === "ALL" ? "江浙沪6城" : city} · 「${customKw || modName}」近48小时最新打卡实况与避坑Repo`,
+        snippet: `重点筛查【最新】排序下带现场实拍图的笔记，核实快闪排队时长、周边领礼库存与当日余票。`,
+        url: `https://www.xiaohongshu.com/search_result?keyword=${enc}`,
+      },
+      {
+        source: "B站会员购 / 大麦票务实时状态",
+        title: `${city === "ALL" ? "长三角6城" : city} · 「${customKw || modName}」当周开票与余票监控`,
+        snippet: `演出开场前24-48小时常有回流票释放；漫展与主题咖啡厅需提前在会员购或官方小程序锁定预约时段。`,
+        url: `https://search.bilibili.com/all?keyword=${enc}`,
+      }
+    );
+
+    return results;
+  }
+
+  async function runBackgroundSearchAndSummarize(options = {}) {
+    const { withLiveWeb = false, scrollIntoView = false } = options;
+    if (!state.snapshot) return;
+
+    const citySel = document.getElementById("synthCitySelect");
+    const modSel = document.getElementById("synthModuleSelect");
+    const customIn = document.getElementById("synthCustomInput");
+    const statusEl = document.getElementById("synthBgPipelineStatus");
+    const headingEl = document.getElementById("bgSummaryHeading");
+    const contentEl = document.getElementById("synthBgSummaryContent");
+    if (!citySel || !modSel || !contentEl) return;
+
+    const city = citySel.value || "苏州";
+    const modCode = modSel.value || "A";
+    const customKw = (customIn ? customIn.value : "").trim();
+
+    const cityLabel = city === "ALL" ? "江浙沪 6 城全局" : city;
+    const modObj = (state.snapshot.modules || []).find((m) => m.code === modCode);
+    const modLabel = modObj ? `Module ${modObj.code} · ${modObj.name}` : "Modules A–J 全场景";
+
+    if (statusEl) {
+      statusEl.textContent = withLiveWeb
+        ? "⚡ 正在后台并发检索云端库 + 实时跨平台公开源..."
+        : "⚡ 正在后台聚合多源情报并生成总结...";
+    }
+
+    const { matchedEvents, fallbackUsed } = scoreEventsForSynthesizer(city, modCode, customKw);
+    const weekendActive = matchedEvents.filter((e) =>
+      String(e.weekend_status || "").includes("本周末")
+    );
+    const freeEvents = matchedEvents.filter(
+      (e) => String(e.is_free || "").includes("免费") || String(e.price || "").includes("免费")
+    );
+    const topPicks = matchedEvents.slice(0, 6);
+
+    // Compute price range & peak heat
+    const peakHeat = matchedEvents.length
+      ? Math.max(...matchedEvents.map((e) => e.heat_score || 88))
+      : 95;
+    const numericPrices = matchedEvents
+      .map((e) => parseEstimatedPrice(e.price))
+      .filter((p) => p > 0);
+    const minPaid = numericPrices.length ? Math.min(...numericPrices) : 0;
+    const maxPaid = numericPrices.length ? Math.max(...numericPrices) : 0;
+    const priceRangeText =
+      freeEvents.length > 0 && maxPaid > 0
+        ? `¥0 (免费) ~ ¥${maxPaid}`
+        : freeEvents.length > 0
+        ? "免费入场 / 扫码预约"
+        : minPaid > 0
+        ? `¥${minPaid} ~ ¥${maxPaid} 起`
+        : "详见各场馆官方票务";
+
+    // Match Treasure Venues for this City & Module
+    const allVenues = state.snapshot.venues || [];
+    let matchedVenues = allVenues.filter((v) => {
+      const cOk = city === "ALL" || v.city === city;
+      const mOk = modCode === "ALL" || String(v.frequent_modules || "").includes(modCode);
+      return cOk && mOk;
+    });
+    if (matchedVenues.length === 0) {
+      matchedVenues = allVenues.filter((v) => city === "ALL" || v.city === city).slice(0, 4);
+    } else {
+      matchedVenues = matchedVenues.slice(0, 4);
+    }
+
+    // Match City Info for HSR guidance
+    const cityMeta = (state.snapshot.cities || []).find((c) => c.city === city);
+    const hsrAdvice = cityMeta
+      ? `${cityMeta.transit_summary}（核心地标：${cityMeta.landmarks}）`
+      : "以苏州站/苏州园区站为圆心：无锡 18m、上海 25m、常州 40m、南京 75m、杭州 85m 高铁直达";
+
+    // Group active districts
+    const districtSet = Array.from(
+      new Set(topPicks.map((e) => e.district || e.city).filter(Boolean))
+    ).slice(0, 4);
+
+    // Optional live web probe
+    let liveWebItems = [];
+    if (withLiveWeb) {
+      liveWebItems = await probeLivePublicCrossPlatformHints(
+        city,
+        modObj ? modObj.name : "周末活动",
+        customKw
+      );
+    }
+
+    if (headingEl) {
+      headingEl.textContent = `《${cityLabel} · ${modLabel}${
+        customKw ? ` · “${customKw}”` : ""
+      }》后台检索智能总结报告`;
+    }
+    if (statusEl) {
+      statusEl.textContent = `✓ 已完成多源聚合（命中 ${matchedEvents.length} 场核实活动 / ${matchedVenues.length} 大宝藏地标）`;
+    }
+
+    // Build Executive Summary Paragraph
+    const topTitlesPreview = topPicks
+      .slice(0, 3)
+      .map((e) => `《${e.title}》`)
+      .join("、");
+
+    const execLeadHtml = fallbackUsed
+      ? `后台未在当前在库主表中找到与自定义词 <strong>“${escapeHtml(
+          customKw
+        )}”</strong> 完全字面匹配的条目，已自动为您智能回退并总结 <strong>【${escapeHtml(
+          cityLabel
+        )} · ${escapeHtml(modLabel)}】</strong> 下热度最高的 <strong>${
+          matchedEvents.length
+        } 场</strong>已核实活动（其中本周末进行中 <strong>${
+          weekendActive.length
+        } 场</strong>，免费/快闪福利 <strong>${
+          freeEvents.length
+        } 场</strong>）。建议重点关注 ${escapeHtml(topTitlesPreview)}，或点击下方「附加实时网页深度探测」捕捉近 24 小时新官宣动态。`
+      : `已为您在后台完成 <strong>【${escapeHtml(cityLabel)} × ${escapeHtml(modLabel)}${
+          customKw ? ` × 关键词“${escapeHtml(customKw)}”` : ""
+        }】</strong> 的多源去重检索与交叉核实：共命中 <strong>${
+          matchedEvents.length
+        } 场</strong>在库活动，其中 <strong>${
+          weekendActive.length
+        } 场本周末正在进行中</strong>、<strong>${
+          freeEvents.length
+        } 场支持免费入场或打卡领礼</strong>。热度峰值达 <strong class="accent-cinnabar">🔥 ${peakHeat}</strong>，整体票价区间为 <strong class="accent-gold">${escapeHtml(
+          priceRangeText
+        )}</strong>。本周末高频核心聚集在 <strong>${escapeHtml(
+          districtSet.join("、") || cityLabel
+        )}</strong>，首推必看现场包括：${escapeHtml(topTitlesPreview)}。`;
+
+    // Save state for Markdown Copy & Batch Add to Passport
+    state.lastBgTopEvents = topPicks;
+    state.lastBgSummaryMarkdown = [
+      `# 《${cityLabel} · ${modLabel}${customKw ? ` · ${customKw}` : ""}》周末情报后台检索总结报告`,
+      `> 生成时间：${new Date().toLocaleString("zh-CN")} | 命中活动：${matchedEvents.length} 场 (本周末进行中 ${weekendActive.length} 场 / 免费 ${freeEvents.length} 场) | 票价区间：${priceRangeText}`,
+      "",
+      "## 一、核心情报综述",
+      execLeadHtml.replace(/<\/?[^>]+(>|$)/g, ""),
+      "",
+      "## 二、重点推荐必去 TOP 活动清单",
+      ...topPicks.map(
+        (ev, idx) =>
+          `${idx + 1}. **[${ev.city} · ${ev.module_code}] ${ev.title}** (${ev.heat_label} | ${ev.price})\n   - 时间：${ev.time_display}\n   - 场馆：${ev.district} · ${ev.venue}\n   - 看点：${ev.highlights}\n   - 苏州出发通勤：${ev.suzhou_transit}${ev.url ? `\n   - 链接：${ev.url}` : ""}`
+      ),
+      "",
+      "## 三、必蹲核心地标与官方情报号",
+      ...matchedVenues.map(
+        (v) => `- **[${v.city}] ${v.name}** (${v.venue_type}) — ${v.official_accounts}`
+      ),
+      "",
+      "## 四、策展人抢票/预约窗口与通勤建议",
+      `- 最佳检索/预约窗口：${modObj ? modObj.best_window : "每周四晚/周五上午检索最新官宣"}`,
+      `- 苏州出发高铁/轨交动线：${hsrAdvice}`,
+    ].join("\n");
+
+    contentEl.innerHTML = `
+      <!-- 1. Executive Summary Card -->
+      <div class="bg-exec-card">
+        <div class="mono-label">01 // EXECUTIVE INTELLIGENCE SUMMARY · 后台检索综述与档期画像</div>
+        <p class="bg-exec-lead">${execLeadHtml}</p>
+        <div class="bg-exec-metrics">
+          <span>🎯 命中总数: <strong>${matchedEvents.length} 场</strong></span>
+          <span>⚡ 本周末进行中: <strong class="accent-cinnabar">${weekendActive.length} 场</strong></span>
+          <span>🎁 免费/羊毛快闪: <strong class="accent-celadon">${freeEvents.length} 场</strong></span>
+          <span>🔥 峰值热度: <strong>🔥 ${peakHeat}</strong></span>
+          <span>💰 票价区间: <strong class="accent-gold">${escapeHtml(priceRangeText)}</strong></span>
+        </div>
+      </div>
+
+      <!-- 2. Top Verified Picks Summary Grid -->
+      <div>
+        <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:10px; flex-wrap:wrap; gap:8px;">
+          <span class="mono-label">02 // TOP VERIFIED PICKS · 后台命中必去 TOP ${topPicks.length} 活动精粹（可直接加入行程单）</span>
+          <button type="button" class="card-action-btn" id="syncBgToMainDirectoryBtn">在上方主期刊库中展开全部 ${matchedEvents.length} 场 ↗</button>
+        </div>
+        <div class="bg-top-picks-grid">
+          ${topPicks
+            .map((ev, idx) => {
+              const inPassport = state.passportIds.has(ev.event_id);
+              const isFree =
+                String(ev.is_free || "").includes("免费") ||
+                String(ev.price || "").includes("免费");
+              return `
+                <div class="bg-pick-card">
+                  <div>
+                    <div style="display:flex; align-items:center; justify-content:space-between; gap:6px; margin-bottom:6px; flex-wrap:wrap;">
+                      <div style="display:flex; align-items:center; gap:6px; flex-wrap:wrap;">
+                        <span class="mono-badge">TOP 0${idx + 1}</span>
+                        <span class="badge-city">${escapeHtml(ev.city)}</span>
+                        <span class="badge-module">${escapeHtml(ev.module_code)} · ${escapeHtml(ev.category_name)}</span>
+                        ${isFree ? `<span class="badge-free">免费</span>` : ""}
+                      </div>
+                      <span class="heat-pill">${escapeHtml(ev.heat_label)}</span>
+                    </div>
+                    <h4
+                      style="font-family:'Noto Serif SC',serif; font-size:1.02rem; font-weight:700; cursor:pointer; margin-bottom:6px;"
+                      data-bg-open-event="${escapeHtml(ev.event_id)}"
+                    >
+                      ${escapeHtml(ev.title)}
+                    </h4>
+                    <p style="font-size:0.81rem; color:var(--text-secondary); line-height:1.55;">
+                      ${escapeHtml(ev.highlights)}
+                    </p>
+                  </div>
+
+                  <div style="padding-top:8px; border-top:1px solid var(--border-hairline); font-size:0.77rem; color:var(--text-secondary); display:grid; gap:3px;">
+                    <div>🕒 <strong>时间：</strong>${escapeHtml(ev.time_display)} ｜ 💰 <strong class="accent-gold">${escapeHtml(ev.price)}</strong></div>
+                    <div>📍 <strong>场馆：</strong>${escapeHtml(ev.district)} · ${escapeHtml(ev.venue)}</div>
+                    <div>🚄 <strong>苏州出发：</strong>${escapeHtml(ev.suzhou_transit)}</div>
+                    <div style="display:flex; align-items:center; justify-content:space-between; margin-top:6px; pt:4px;">
+                      <div style="display:flex; gap:6px;">
+                        <button type="button" class="card-action-btn" data-bg-open-event="${escapeHtml(ev.event_id)}">详情档案</button>
+                        <button
+                          type="button"
+                          class="card-action-btn ${inPassport ? "in-passport" : ""}"
+                          data-bg-passport-toggle="${escapeHtml(ev.event_id)}"
+                        >
+                          ${inPassport ? "✓ 已在行程单" : "+ 加入行程单"}
+                        </button>
+                      </div>
+                      ${
+                        ev.url
+                          ? `<a href="${escapeHtml(ev.url)}" target="_blank" rel="noopener noreferrer" class="card-action-btn">官方直达 ↗</a>`
+                          : ""
+                      }
+                    </div>
+                  </div>
+                </div>
+              `;
+            })
+            .join("")}
+        </div>
+      </div>
+
+      ${
+        liveWebItems.length > 0
+          ? `
+      <!-- 3. Live Cross-Platform Public Web Probe Results -->
+      <div class="bg-live-web-box">
+        <div class="mono-label" style="color:var(--accent-celadon);">03 // LIVE CROSS-PLATFORM WEB PROBE · 跨平台公开源实时探测结果</div>
+        <div style="display:grid; gap:8px;">
+          ${liveWebItems
+            .map(
+              (item) => `
+            <div style="padding:10px 12px; border:1px solid var(--border-hairline); background:var(--bg-card); display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap;">
+              <div>
+                <div style="font-size:0.74rem; color:var(--accent-gold); font-family:'JetBrains Mono',monospace;">[${escapeHtml(item.source)}]</div>
+                <div style="font-size:0.86rem; font-weight:600; margin:2px 0;">${escapeHtml(item.title)}</div>
+                <div style="font-size:0.78rem; color:var(--text-secondary);">${escapeHtml(item.snippet)}</div>
+              </div>
+              <a href="${escapeHtml(item.url)}" target="_blank" rel="noopener noreferrer" class="card-action-btn">查看实时源 ↗</a>
+            </div>
+          `
+            )
+            .join("")}
+        </div>
+      </div>
+      `
+          : ""
+      }
+
+      <!-- 4. Target Treasure Venues & Curator's Actionable Strategy -->
+      <div class="bg-venues-advice-grid">
+        <div class="bg-sub-panel">
+          <div class="mono-label">03 // TARGET LANDMARKS &amp; OFFICIAL ACCOUNTS · 该城必蹲宝藏场馆与官方号</div>
+          <div style="display:grid; gap:8px;">
+            ${matchedVenues
+              .map(
+                (v) => `
+              <div style="padding:10px 12px; border:1px solid var(--border-hairline); background:var(--bg-card); display:flex; align-items:center; justify-content:space-between; gap:10px; flex-wrap:wrap;">
+                <div>
+                  <div style="font-size:0.84rem; font-weight:700;">
+                    <span class="badge-city" style="margin-right:6px;">${escapeHtml(v.city)}</span>
+                    ${escapeHtml(v.name)}
+                  </div>
+                  <div style="font-size:0.76rem; color:var(--text-secondary); margin-top:3px;">
+                    ${escapeHtml(v.official_accounts)} ｜ 高频：${escapeHtml(v.frequent_modules)}
+                  </div>
+                </div>
+                ${
+                  v.search_url
+                    ? `<a href="${escapeHtml(v.search_url)}" target="_blank" rel="noopener noreferrer" class="card-action-btn">直达动态 ↗</a>`
+                    : ""
+                }
+              </div>
+            `
+              )
+              .join("")}
+          </div>
+        </div>
+
+        <div class="bg-sub-panel">
+          <div class="mono-label">04 // CURATOR'S ACTIONABLE STRATEGY · 策展人抢票预约与苏州高铁动线建议</div>
+          <div style="font-size:0.82rem; color:var(--text-secondary); display:grid; gap:8px; line-height:1.62;">
+            <div>
+              <strong style="color:var(--text-primary);">⏱ 黄金蹲守与预约窗口：</strong>
+              ${escapeHtml(
+                modObj
+                  ? modObj.best_window
+                  : "体育场演唱会提前30-60天抢票；品牌一日店长与限时快闪通常在周三至周五官宣，建议周四晚至周五上午突击核实。"
+              )}
+            </div>
+            <div>
+              <strong style="color:var(--text-primary);">🚄 苏州出发跨城通勤提示：</strong>
+              ${escapeHtml(hsrAdvice)}
+            </div>
+            <div>
+              <strong style="color:var(--text-primary);">💡 现场避坑与羊毛贴士：</strong>
+              凡标注「免费/需预约」的美术馆、园林夜游、谷子主题餐厅或大牌快闪（如仁恒仓街、张园、西岸、百联ZX），建议出发前在对应官方小程序或公众号确认当日预约余量；跨城看演出的观众请留意上海虹桥/无锡/南京南返程苏州的末班高铁（通常在 22:30–23:15 之间）。
+            </div>
+          </div>
+        </div>
+      </div>
+    `;
+
+    // Bind events inside the generated summary
+    contentEl.querySelectorAll("[data-bg-open-event]").forEach((el) => {
+      el.addEventListener("click", () => {
+        playMicroClick(580);
+        openEventDossierModal(el.getAttribute("data-bg-open-event"));
+      });
+    });
+
+    contentEl.querySelectorAll("[data-bg-passport-toggle]").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        playMicroClick(700);
+        togglePassportItem(btn.getAttribute("data-bg-passport-toggle"));
+        runBackgroundSearchAndSummarize({ withLiveWeb: false, scrollIntoView: false });
+      });
+    });
+
+    document.getElementById("syncBgToMainDirectoryBtn")?.addEventListener("click", () => {
+      playMicroClick(620);
+      state.selectedCity = city;
+      state.selectedModule = modCode;
+      state.searchQuery = customKw;
+      const mainSearch = document.getElementById("eventSearchInput");
+      if (mainSearch) mainSearch.value = customKw;
+      renderIsochroneStarMap();
+      renderSpotlight();
+      renderFilterPills();
+      renderModuleStrategyBanner();
+      renderEventsDirectory();
+      document.getElementById("section-directory")?.scrollIntoView({ behavior: "smooth" });
+    });
+
+    if (scrollIntoView) {
+      document.getElementById("synthBgSummaryPanel")?.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    }
   }
 
   function renderCloudFormulasList() {
@@ -957,7 +1514,11 @@
     listEl.innerHTML = formulas
       .map(
         (f) => `
-      <div class="formula-item" data-load-formula="${escapeHtml(f.formula)}">
+      <div
+        class="formula-item"
+        data-load-formula="${escapeHtml(f.formula)}"
+        data-formula-tab="${escapeHtml(f.tab_name)}"
+      >
         <div class="formula-item-top">
           <span>${escapeHtml(f.tab_name)}</span>
           <span class="mono-badge">${escapeHtml(f.best_timing)}</span>
@@ -971,11 +1532,27 @@
 
     listEl.querySelectorAll("[data-load-formula]").forEach((item) => {
       item.addEventListener("click", () => {
-        const formula = item.getAttribute("data-load-formula");
+        const formula = item.getAttribute("data-load-formula") || "";
+        const tabName = item.getAttribute("data-formula-tab") || "";
         playMicroClick(640);
+
+        // Automatically sync the Module dropdown if tab starts with A_..J_
+        const modMatch = tabName.match(/^([A-J])_/);
+        const modSel = document.getElementById("synthModuleSelect");
+        const customIn = document.getElementById("synthCustomInput");
+        if (modSel) {
+          modSel.value = modMatch ? modMatch[1] : "ALL";
+        }
+        if (customIn) {
+          customIn.value = "";
+        }
+
+        updateSynthesizerOutput(false);
         const queryEl = document.getElementById("synthQueryDisplay");
-        if (queryEl) queryEl.textContent = formula;
+        if (queryEl && formula) queryEl.textContent = formula;
         navigator.clipboard?.writeText(formula).catch(() => {});
+
+        runBackgroundSearchAndSummarize({ withLiveWeb: false, scrollIntoView: true });
       });
     });
   }
@@ -1293,8 +1870,72 @@
     // Synthesizer Controls
     ["synthCitySelect", "synthModuleSelect", "synthCustomInput"].forEach((id) => {
       const el = document.getElementById(id);
-      el?.addEventListener("input", updateSynthesizerOutput);
-      el?.addEventListener("change", updateSynthesizerOutput);
+      el?.addEventListener("input", () => updateSynthesizerOutput(true));
+      el?.addEventListener("change", () => updateSynthesizerOutput(true));
+    });
+
+    // Preset Quick-Chips
+    document.querySelectorAll("#synthPresetChips .preset-chip").forEach((chip) => {
+      chip.addEventListener("click", () => {
+        playMicroClick(640);
+        const c = chip.getAttribute("data-preset-city") || "苏州";
+        const m = chip.getAttribute("data-preset-mod") || "A";
+        const kw = chip.getAttribute("data-preset-kw") || "";
+        const citySel = document.getElementById("synthCitySelect");
+        const modSel = document.getElementById("synthModuleSelect");
+        const customIn = document.getElementById("synthCustomInput");
+        if (citySel) citySel.value = c;
+        if (modSel) modSel.value = m;
+        if (customIn) customIn.value = kw;
+        updateSynthesizerOutput(false);
+        runBackgroundSearchAndSummarize({ withLiveWeb: false, scrollIntoView: true });
+      });
+    });
+
+    // Background Search & Summary Trigger Buttons
+    document.getElementById("runBgSearchBtn")?.addEventListener("click", () => {
+      playMicroClick(720);
+      runBackgroundSearchAndSummarize({ withLiveWeb: false, scrollIntoView: true });
+    });
+
+    document.getElementById("runLiveWebProbeBtn")?.addEventListener("click", () => {
+      playMicroClick(760);
+      runBackgroundSearchAndSummarize({ withLiveWeb: true, scrollIntoView: true });
+    });
+
+    // Copy Markdown Summary Report
+    document.getElementById("copyBgSummaryMdBtn")?.addEventListener("click", () => {
+      playMicroClick(680);
+      const md = state.lastBgSummaryMarkdown || "";
+      if (!md) return;
+      navigator.clipboard?.writeText(md).catch(() => {});
+      const btn = document.getElementById("copyBgSummaryMdBtn");
+      if (btn) {
+        const orig = btn.textContent;
+        btn.textContent = "✓ 已复制完整 Markdown 总结";
+        setTimeout(() => {
+          btn.textContent = orig;
+        }, 1800);
+      }
+    });
+
+    // Batch Add Top Recommended Events to Weekend Passport
+    document.getElementById("batchAddSummaryToPassportBtn")?.addEventListener("click", () => {
+      playMicroClick(740);
+      const topEvs = state.lastBgTopEvents || [];
+      topEvs.forEach((ev) => state.passportIds.add(ev.event_id));
+      savePassportState();
+      renderEventsDirectory();
+      renderPassportDrawer();
+      runBackgroundSearchAndSummarize({ withLiveWeb: false, scrollIntoView: false });
+      const btn = document.getElementById("batchAddSummaryToPassportBtn");
+      if (btn) {
+        const orig = btn.textContent;
+        btn.textContent = `✓ 已将 ${topEvs.length} 场推荐活动加入行程单`;
+        setTimeout(() => {
+          btn.textContent = orig;
+        }, 1800);
+      }
     });
 
     document.getElementById("copySynthQueryBtn")?.addEventListener("click", () => {

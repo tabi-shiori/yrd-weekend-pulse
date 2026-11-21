@@ -14,14 +14,14 @@
       "weekend_status": "本周末进行中",
       "heat_label": "🔥 99",
       "heat_score": 99,
-      "time_display": "周二至周五19:30，周六至周日14:00/19:30",
+      "time_display": "2026.09.29 - 12.27（周二至周五19:30，周六至周日14:00/19:30）",
       "start_date": "2026-09-29",
-      "end_date": "2026-12-13",
+      "end_date": "2026-12-27",
       "district": "黄浦区·人民广场",
       "venue": "上海大剧院·大剧场（黄浦区人民大道300号）",
-      "price": "¥280起",
+      "price": "¥280 - ¥1280",
       "is_free": "付费",
-      "highlights": "韦伯传奇巨作《剧院魅影》英文原版四十周年上海告别季驻演，华丽水晶吊灯坠落名场面与殿堂级管弦乐现场，是音乐剧迷本周末跨城观演的首选顶流剧目。",
+      "highlights": "安德鲁·劳埃德·韦伯传奇巨作《剧院魅影》英文原版四十周年上海告别季驻演，华丽水晶吊灯坠落名场面与殿堂级管弦乐现场，是音乐剧迷本周末跨城观演的首选顶流剧目。",
       "suzhou_transit": "苏州站高铁25分钟至上海站/上海虹桥站，换乘地铁1/2/8号线至人民广场站1号口直达",
       "tags": [
         "原版音乐剧",
@@ -63,33 +63,6 @@
     },
     {
       "seq": 3,
-      "city": "上海",
-      "module_code": "A",
-      "category_name": "明星与顶流现场",
-      "title": "英文原版音乐剧《剧院魅影》四十周年上海告别季",
-      "weekend_status": "本周末进行中",
-      "heat_label": "🔥 99",
-      "heat_score": 99,
-      "time_display": "2026.11.21 (周六首演) - 12.27 14:00 / 19:30",
-      "start_date": "2026-11-21",
-      "end_date": "2026-12-27",
-      "district": "黄浦区·人民广场",
-      "venue": "上海大剧院·大剧场",
-      "price": "¥280 - ¥1280",
-      "is_free": "付费",
-      "highlights": "安德鲁·劳埃德·韦伯传世巨作《剧院魅影》英文原版四十周年上海告别季于本周末（11月21日）重磅启幕，璀璨吊灯与华丽歌剧魅影再临申城。",
-      "suzhou_transit": "苏州站高铁25分钟至上海站/虹桥站，地铁1/2/8号线人民广场站直达",
-      "tags": [
-        "原版音乐剧",
-        "韦伯经典",
-        "世界顶流舞台"
-      ],
-      "source": "猫眼演出 / 上海大剧院",
-      "verify_status": "已核实",
-      "url": "https://show.maoyan.com/qqw"
-    },
-    {
-      "seq": 4,
       "city": "杭州",
       "module_code": "F",
       "category_name": "二次元与ACGN泛娱乐",
@@ -116,7 +89,7 @@
       "url": "https://show.bilibili.com/platform/detail.html?id=1004839"
     },
     {
-      "seq": 5,
+      "seq": 4,
       "city": "苏州",
       "module_code": "H",
       "category_name": "江南在地文化与古镇夜游",
@@ -144,7 +117,7 @@
       "url": "https://www.xhby.net/content/s6af6e58ae4b079b9eba7f18d.html"
     },
     {
-      "seq": 6,
+      "seq": 5,
       "city": "无锡",
       "module_code": "F",
       "category_name": "二次元与ACGN泛娱乐",
@@ -171,7 +144,7 @@
       "url": "https://show.bilibili.com/platform/detail.html?id=1007035"
     },
     {
-      "seq": 7,
+      "seq": 6,
       "city": "上海",
       "module_code": "I",
       "category_name": "大型商业展会与科技创客",
@@ -199,7 +172,7 @@
       "url": "https://www.news.cn/culture/20261120/4666c94b19554bc88010669a122f9ea4/c.html"
     },
     {
-      "seq": 8,
+      "seq": 7,
       "city": "杭州",
       "module_code": "F",
       "category_name": "二次元与ACGN泛娱乐",
@@ -226,7 +199,7 @@
       "url": "https://show.bilibili.com/platform/detail.html?id=1006529"
     },
     {
-      "seq": 9,
+      "seq": 8,
       "city": "上海",
       "module_code": "F",
       "category_name": "二次元与ACGN泛娱乐",
@@ -253,7 +226,7 @@
       "url": "https://show.bilibili.com/platform/detail.html?id=1006163"
     },
     {
-      "seq": 10,
+      "seq": 9,
       "city": "无锡",
       "module_code": "H",
       "category_name": "江南在地文化与古镇夜游",
@@ -281,7 +254,7 @@
       "url": "https://m.sohu.com/a/1101940785_121106832"
     },
     {
-      "seq": 11,
+      "seq": 10,
       "city": "上海",
       "module_code": "D",
       "category_name": "Livehouse与喜剧现场",
@@ -308,7 +281,7 @@
       "url": "https://shanghai.douban.com/events/weekend-all"
     },
     {
-      "seq": 12,
+      "seq": 11,
       "city": "苏州",
       "module_code": "H",
       "category_name": "江南在地文化与古镇夜游",
@@ -336,7 +309,7 @@
       "url": "https://photo.gmw.cn/2026-11/02/content_39081310.htm"
     },
     {
-      "seq": 13,
+      "seq": 12,
       "city": "苏州",
       "module_code": "G",
       "category_name": "户外探索与新生活方式",
@@ -364,7 +337,7 @@
       "url": "https://zuicool.com/event/25538"
     },
     {
-      "seq": 14,
+      "seq": 13,
       "city": "无锡",
       "module_code": "H",
       "category_name": "江南在地文化与古镇夜游",
@@ -392,7 +365,7 @@
       "url": "https://tw.trip.com/moments/theme/poi-nianhua-bay-23822661-performances-990135/"
     },
     {
-      "seq": 15,
+      "seq": 14,
       "city": "苏州",
       "module_code": "E",
       "category_name": "主题市集与美食微醺节",
@@ -420,7 +393,7 @@
       "url": "https://suzhou.bendibao.com/tour/20191218/ly71075.shtm"
     },
     {
-      "seq": 16,
+      "seq": 15,
       "city": "杭州",
       "module_code": "C",
       "category_name": "小众文艺与先锋艺术",
@@ -447,35 +420,7 @@
       "url": "https://hk.trip.com/events/3106622-hangzhou-grand-theatre-arts-collection/"
     },
     {
-      "seq": 17,
-      "city": "上海",
-      "module_code": "D",
-      "category_name": "Livehouse与喜剧现场",
-      "title": "【SoundFact Presents】Black Country, New Road 2026巡演·上海特别专场",
-      "weekend_status": "本周末进行中",
-      "heat_label": "🔥 96",
-      "heat_score": 96,
-      "time_display": "11月21日（周六）19:00",
-      "start_date": "2026-11-21",
-      "end_date": "2026-11-21",
-      "district": "徐汇区·西岸梦中心",
-      "venue": "瓦肆 VAS est（徐汇西岸GATE M梦中心店）",
-      "price": "¥280起",
-      "is_free": "付费",
-      "highlights": "英国先锋独立摇滚名团Black Country, New Road（BCNR）2026中国巡演上海特别专场，在全新徐汇滨江地标GATE M西岸梦中心瓦肆VAS呈现管弦与实验摇滚交织的震撼现场。",
-      "suzhou_transit": "苏州站高铁25分钟至上海虹桥站，换乘地铁10号线转11号线至龙耀路站步行即达",
-      "tags": [
-        "英伦后朋",
-        "艺术摇滚",
-        "海外乐队巡演",
-        "VAS瓦肆"
-      ],
-      "source": "MaiSeat麦座 / 秀动海外巡演",
-      "verify_status": "已核实",
-      "url": "https://www.maiseat.com/zh-TW/shows/17412"
-    },
-    {
-      "seq": 18,
+      "seq": 16,
       "city": "苏州",
       "module_code": "D",
       "category_name": "Livehouse与喜剧现场",
@@ -502,7 +447,7 @@
       "url": "https://www.concerts-metal.com/concert_-__-283334.html"
     },
     {
-      "seq": 19,
+      "seq": 17,
       "city": "苏州",
       "module_code": "B",
       "category_name": "网红潮流与限时快闪",
@@ -530,7 +475,7 @@
       "url": "https://www.woodsbagot.com/zh/global-studio/news/events/unveiling-cangjie-a-new-luxury-landmark-in-suzhou/"
     },
     {
-      "seq": 20,
+      "seq": 18,
       "city": "苏州",
       "module_code": "E",
       "category_name": "主题市集与美食微醺节",
@@ -558,7 +503,7 @@
       "url": "https://suzhou.bendibao.com/tour/20191218/ly71075.shtm"
     },
     {
-      "seq": 21,
+      "seq": 19,
       "city": "无锡",
       "module_code": "H",
       "category_name": "江南在地文化与古镇夜游",
@@ -586,35 +531,7 @@
       "url": "http://js.news.cn/20261119/07472d1da86e4e628e8e28c5e6ce8027/c.html"
     },
     {
-      "seq": 22,
-      "city": "上海",
-      "module_code": "I",
-      "category_name": "大型商业展会与科技创客",
-      "title": "第七届长三角国际文化产业博览会 & 2026虹桥国际科技周",
-      "weekend_status": "本周末进行中",
-      "heat_label": "🔥 95",
-      "heat_score": 95,
-      "time_display": "2026.11.19 - 11.22 (周四至周日) 09:00-17:00",
-      "start_date": "2026-11-19",
-      "end_date": "2026-11-22",
-      "district": "青浦区·崧泽大道333号",
-      "venue": "上海国家会展中心 (NECC) 1.1H/2.1H/6.2H/7.2H馆",
-      "price": "实名预约免费入场",
-      "is_free": "免费",
-      "highlights": "汇聚苏浙沪皖四地顶尖博物馆文创、数字文旅沉浸展、AI前沿科技交互装置及百余个江南文化IP展区，苏州高铁抵达虹桥站后仅1站地铁即达！",
-      "suzhou_transit": "苏州站高铁23分钟至上海虹桥站，乘地铁2号线1站至国家会展中心站",
-      "tags": [
-        "文博会",
-        "虹桥科技周",
-        "长三角非遗文创",
-        "数字艺术"
-      ],
-      "source": "上海国家会展中心官网",
-      "verify_status": "已核实",
-      "url": "https://www.neccsh.com/cecsh/exhibitioninfo/exhibitionlist.jspx"
-    },
-    {
-      "seq": 23,
+      "seq": 20,
       "city": "苏州",
       "module_code": "B",
       "category_name": "网红潮流与限时快闪",
@@ -642,35 +559,7 @@
       "url": "https://www.xiaohongshu.com/search_result?keyword=%E8%8B%8F%E5%B7%9E%E4%BB%81%E6%81%92%E4%BB%93%E8%A1%97%E5%BF%AB%E9%97%AA"
     },
     {
-      "seq": 24,
-      "city": "苏州",
-      "module_code": "D",
-      "category_name": "Livehouse与喜剧现场",
-      "title": "岛屿心情2026「美丽人生」新专辑全国巡演·苏州站",
-      "weekend_status": "本周末进行中",
-      "heat_label": "🔥 95",
-      "heat_score": 95,
-      "time_display": "11月22日（周日）20:00",
-      "start_date": "2026-11-22",
-      "end_date": "2026-11-22",
-      "district": "工业园区·山丘展演空间",
-      "venue": "山丘展演空间（苏州工业园区新庆东路32号鑫邻里2栋3层）",
-      "price": "¥150起",
-      "is_free": "付费",
-      "highlights": "超人气独立摇滚乐队岛屿心情携全新专辑《美丽人生》空降苏州工业园区山丘Livehouse，现场演绎新专曲目及《8+8=8》《玩具》等万人大合唱代表作，氛围感拉满。",
-      "suzhou_transit": "苏州本地地铁5号线/2号线换乘公交至新庆东路直达，园区自驾停车便利",
-      "tags": [
-        "独立摇滚",
-        "Livehouse",
-        "新专辑巡演",
-        "岛屿心情"
-      ],
-      "source": "LocalHub / Trip.com演出资讯",
-      "verify_status": "已核实",
-      "url": "https://localhub.to/suzhou/venue/the-hill-house-exhibition-space?lang=zh"
-    },
-    {
-      "seq": 25,
+      "seq": 21,
       "city": "苏州",
       "module_code": "H",
       "category_name": "江南在地文化与古镇夜游",
@@ -698,7 +587,7 @@
       "url": "http://www.suzhou.gov.cn/"
     },
     {
-      "seq": 26,
+      "seq": 22,
       "city": "上海",
       "module_code": "B",
       "category_name": "网红潮流与限时快闪",
@@ -726,7 +615,7 @@
       "url": "https://m.sh.bendibao.com/xiuxian/309467.html"
     },
     {
-      "seq": 27,
+      "seq": 23,
       "city": "无锡",
       "module_code": "G",
       "category_name": "户外探索与新生活方式",
@@ -754,7 +643,7 @@
       "url": "https://m.sohu.com/a/1101940785_121106832"
     },
     {
-      "seq": 28,
+      "seq": 24,
       "city": "上海",
       "module_code": "I",
       "category_name": "大型商业展会与科技创客",
@@ -782,7 +671,7 @@
       "url": "https://www.neccsh.com/cecsh/exhibitioninfo/exhibitionlist.jspx"
     },
     {
-      "seq": 29,
+      "seq": 25,
       "city": "常州",
       "module_code": "J",
       "category_name": "高端生活、运动赛事与亲子",
@@ -810,35 +699,7 @@
       "url": "https://www.xhby.net/content/s6af6e58ae4b079b9eba7f18d.html"
     },
     {
-      "seq": 30,
-      "city": "苏州",
-      "module_code": "E",
-      "category_name": "主题市集与美食微醺节",
-      "title": "苏州本色美术馆·东西桥江南水上美学周末市集",
-      "weekend_status": "本周末进行中",
-      "heat_label": "🔥 93",
-      "heat_score": 93,
-      "time_display": "周五至周日 10:00-21:00",
-      "start_date": "2026-11-20",
-      "end_date": "2026-11-22",
-      "district": "吴中区·通达路219号",
-      "venue": "苏州本色美术馆",
-      "price": "¥30（含特展与水上茶席市集）",
-      "is_free": "付费",
-      "highlights": "江浙沪最具腔调的独立美学市集之一，沿京杭大运河支流展开百余位全国独立手艺人、陶艺茶器、古法香道、独立服装与河畔乌篷船茶席。",
-      "suzhou_transit": "苏州地铁2号线郭苑路站出站步行5分钟即达",
-      "tags": [
-        "美学市集",
-        "茶空间",
-        "手作器物",
-        "江南水岸"
-      ],
-      "source": "苏州本色美术馆官方",
-      "verify_status": "已核实",
-      "url": "https://www.xiaohongshu.com/search_result?keyword=%E8%8B%8F%E5%B7%9E%E6%9C%AC%E8%89%B2%E7%BE%8E%E6%9C%AF%E9%A6%86%E5%B8%82%E9%9B%86"
-    },
-    {
-      "seq": 31,
+      "seq": 26,
       "city": "杭州",
       "module_code": "C",
       "category_name": "小众文艺与先锋艺术",
@@ -866,7 +727,7 @@
       "url": "https://channel.chinanews.com.cn/cns/cl/cul-xjgw.shtml"
     },
     {
-      "seq": 32,
+      "seq": 27,
       "city": "上海",
       "module_code": "F",
       "category_name": "二次元与ACGN泛娱乐",
@@ -894,7 +755,7 @@
       "url": "https://show.bilibili.com/platform/home.html?msource=pc_web"
     },
     {
-      "seq": 33,
+      "seq": 28,
       "city": "上海",
       "module_code": "F",
       "category_name": "二次元与ACGN泛娱乐",
@@ -921,7 +782,7 @@
       "url": "https://show.bilibili.com/platform/detail.html?id=1006885"
     },
     {
-      "seq": 34,
+      "seq": 29,
       "city": "上海",
       "module_code": "B",
       "category_name": "网红潮流与限时快闪",
@@ -948,7 +809,7 @@
       "url": "https://show.bilibili.com/platform/detail.html?id=1007851"
     },
     {
-      "seq": 35,
+      "seq": 30,
       "city": "上海",
       "module_code": "F",
       "category_name": "二次元与ACGN泛娱乐",
@@ -975,7 +836,7 @@
       "url": "https://show.bilibili.com/platform/detail.html?id=1006686"
     },
     {
-      "seq": 36,
+      "seq": 31,
       "city": "上海",
       "module_code": "B",
       "category_name": "网红潮流与限时快闪",
@@ -1003,7 +864,7 @@
       "url": "https://show.bilibili.com/"
     },
     {
-      "seq": 37,
+      "seq": 32,
       "city": "上海",
       "module_code": "C",
       "category_name": "小众文艺与先锋艺术",
@@ -1031,7 +892,7 @@
       "url": "https://nextstop.im/event/event-shanghai-november-arts-2026"
     },
     {
-      "seq": 38,
+      "seq": 33,
       "city": "上海",
       "module_code": "J",
       "category_name": "高端生活、运动赛事与亲子",
@@ -1059,7 +920,7 @@
       "url": "https://www.shanghai.gov.cn/nw17239/20261021/e76a718fd81f44cf98972e214627a523.html"
     },
     {
-      "seq": 39,
+      "seq": 34,
       "city": "无锡",
       "module_code": "J",
       "category_name": "高端生活、运动赛事与亲子",
@@ -1087,7 +948,7 @@
       "url": "http://js.news.cn/20261119/07472d1da86e4e628e8e28c5e6ce8027/c.html"
     },
     {
-      "seq": 40,
+      "seq": 35,
       "city": "上海",
       "module_code": "A",
       "category_name": "明星与顶流现场",
@@ -1114,7 +975,7 @@
       "url": "https://show.maoyan.com/qqw"
     },
     {
-      "seq": 41,
+      "seq": 36,
       "city": "上海",
       "module_code": "A",
       "category_name": "明星与顶流现场",
@@ -1142,11 +1003,11 @@
       "url": "https://hk.trip.com/events/9072765-2026-shanghai-arts-collection/"
     },
     {
-      "seq": 42,
+      "seq": 37,
       "city": "南京",
-      "module_code": "F",
-      "category_name": "二次元与ACGN泛娱乐",
-      "title": "南京·学园偶像大师同人ONLY·大运动会 & 2026中国电影表演艺术周",
+      "module_code": "C",
+      "category_name": "小众文艺与先锋艺术",
+      "title": "2026中国电影表演艺术周·南京主会场暨经典光影展映",
       "weekend_status": "本周末进行中",
       "heat_label": "🔥 91",
       "heat_score": 91,
@@ -1154,23 +1015,23 @@
       "start_date": "2026-11-21",
       "end_date": "2026-11-22",
       "district": "鼓楼区/玄武区·中央路",
-      "venue": "南京华贸中心 & 南京各大文化艺术场馆",
+      "venue": "南京各大文化艺术场馆 & 江苏大剧院影展单元",
       "price": "¥58起",
       "is_free": "付费",
-      "highlights": "B站会员购热门南京同人Only专场于11月21日在南京华贸中心开启；同期2026中国电影表演艺术周在南京开幕，多场影人见面与展映活动联动。",
+      "highlights": "2026中国电影表演艺术周落地南京，汇聚国内知名电影表演艺术家开展大师对谈、经典修复影片特别展映与映后交流活动。",
       "suzhou_transit": "苏州高铁1小时10分至南京站/南京南站，地铁1号线新模范马路站直达",
       "tags": [
-        "同人ONLY",
-        "二次元漫展",
-        "电影艺术周",
-        "明星影人交流"
+        "电影表演艺术周",
+        "大师映后谈",
+        "艺术影展",
+        "南京文化周"
       ],
       "source": "Bilibili会员购 / 中新网",
       "verify_status": "已核实",
       "url": "https://show.bilibili.com/m/platform/home.html?noTitleBar=1&cityId=320500"
     },
     {
-      "seq": 43,
+      "seq": 38,
       "city": "上海",
       "module_code": "F",
       "category_name": "二次元与ACGN泛娱乐",
@@ -1197,7 +1058,7 @@
       "url": "https://show.bilibili.com/platform/detail.html?id=1006437"
     },
     {
-      "seq": 44,
+      "seq": 39,
       "city": "南京",
       "module_code": "B",
       "category_name": "网红潮流与限时快闪",
@@ -1225,34 +1086,7 @@
       "url": "http://k.sina.com.cn/article_3281037352_c390a828019019oo5.html"
     },
     {
-      "seq": 45,
-      "city": "上海",
-      "module_code": "F",
-      "category_name": "二次元与ACGN泛娱乐",
-      "title": "上海·奥特曼xHAPPYZOO『奥特不方』主题餐厅",
-      "weekend_status": "本周末进行中",
-      "heat_label": "🔥 90",
-      "heat_score": 90,
-      "time_display": "2026.11.18 - 2027.01.05",
-      "start_date": "2026-11-18",
-      "end_date": "2027-01-05",
-      "district": "黄浦区·第一百货商业中心(南京东路店)",
-      "venue": "第一百货商业中心(南京东路店)",
-      "price": "¥10起",
-      "is_free": "付费",
-      "highlights": "【B站会员购·主题餐厅｜预售中】举办场馆：第一百货商业中心(南京东路店)，当前已有 188 人标记想去。",
-      "suzhou_transit": "苏州站/园区站乘高铁25分钟抵上海虹桥站，换乘上海地铁2/10/11号线直达",
-      "tags": [
-        "主题餐厅",
-        "预售中",
-        "B站会员购"
-      ],
-      "source": "Bilibili会员购官方API",
-      "verify_status": "已核实",
-      "url": "https://show.bilibili.com/platform/detail.html?id=1007794"
-    },
-    {
-      "seq": 46,
+      "seq": 40,
       "city": "杭州",
       "module_code": "A",
       "category_name": "明星与顶流现场",
@@ -1280,7 +1114,7 @@
       "url": "https://m.hz.bendibao.com/xiuxian/yanchanghuitime/"
     },
     {
-      "seq": 47,
+      "seq": 41,
       "city": "上海",
       "module_code": "E",
       "category_name": "主题市集与美食微醺节",
@@ -1308,7 +1142,7 @@
       "url": "https://www.shio.gov.cn/TrueCMS//shxwbgs/wxdtt/content/ff67a264-f986-4f31-9216-627640bd6ea6.htm"
     },
     {
-      "seq": 48,
+      "seq": 42,
       "city": "苏州",
       "module_code": "A",
       "category_name": "明星与顶流现场",
@@ -1335,7 +1169,7 @@
       "url": "https://hk.trip.com/events/14711048-2026-suzhou-concerts-collection/"
     },
     {
-      "seq": 49,
+      "seq": 43,
       "city": "无锡",
       "module_code": "E",
       "category_name": "主题市集与美食微醺节",
@@ -1363,7 +1197,7 @@
       "url": "https://www.douban.com/location/wuxi/events/weekend-all"
     },
     {
-      "seq": 50,
+      "seq": 44,
       "city": "上海",
       "module_code": "I",
       "category_name": "大型商业展会与科技创客",
@@ -1391,7 +1225,7 @@
       "url": "https://www.neccsh.com/cecsh/exhibitioninfo/exhibitionlist.jspx"
     },
     {
-      "seq": 51,
+      "seq": 45,
       "city": "上海",
       "module_code": "J",
       "category_name": "高端生活、运动赛事与亲子",
@@ -1419,7 +1253,7 @@
       "url": "https://sh.cctv.com/2026/11/13/ARTI8kWowTKMm2NIGC0MLVGl261112.shtml"
     },
     {
-      "seq": 52,
+      "seq": 46,
       "city": "上海",
       "module_code": "B",
       "category_name": "网红潮流与限时快闪",
@@ -1447,7 +1281,7 @@
       "url": "https://www.sohu.com/a/1101402671_672680"
     },
     {
-      "seq": 53,
+      "seq": 47,
       "city": "上海",
       "module_code": "G",
       "category_name": "户外探索与新生活方式",
@@ -1475,34 +1309,7 @@
       "url": "https://www.shanghai.gov.cn/nw17239/20261116/1a7dfc0771ac4e5f86e4c5691b30f89a.html"
     },
     {
-      "seq": 54,
-      "city": "上海",
-      "module_code": "F",
-      "category_name": "二次元与ACGN泛娱乐",
-      "title": "上海·2026《战双帕弥什》×  萌果酱谷子咖啡",
-      "weekend_status": "本周末进行中",
-      "heat_label": "🔥 88",
-      "heat_score": 88,
-      "time_display": "2026.11.20 - 12.22",
-      "start_date": "2026-11-20",
-      "end_date": "2026-12-22",
-      "district": "黄浦区·萌果酱谷子咖啡（百联）",
-      "venue": "萌果酱谷子咖啡（百联）",
-      "price": "¥30起",
-      "is_free": "付费",
-      "highlights": "【B站会员购·主题餐厅｜预售中】举办场馆：萌果酱谷子咖啡（百联），当前已有 114 人标记想去。",
-      "suzhou_transit": "苏州站/园区站乘高铁25分钟抵上海虹桥站，换乘上海地铁2/10/11号线直达",
-      "tags": [
-        "主题餐厅",
-        "预售中",
-        "B站会员购"
-      ],
-      "source": "Bilibili会员购官方API",
-      "verify_status": "已核实",
-      "url": "https://show.bilibili.com/platform/detail.html?id=1007693"
-    },
-    {
-      "seq": 55,
+      "seq": 48,
       "city": "无锡",
       "module_code": "C",
       "category_name": "小众文艺与先锋艺术",
@@ -1528,7 +1335,7 @@
       "url": "https://www.douban.com/event/37766592/"
     },
     {
-      "seq": 56,
+      "seq": 49,
       "city": "杭州",
       "module_code": "F",
       "category_name": "二次元与ACGN泛娱乐",
@@ -1556,7 +1363,7 @@
       "url": "https://show.bilibili.com/platform/detail.html?id=90057&from=pc_ticketlist"
     },
     {
-      "seq": 57,
+      "seq": 50,
       "city": "南京",
       "module_code": "F",
       "category_name": "二次元与ACGN泛娱乐",
@@ -1583,7 +1390,7 @@
       "url": "https://show.bilibili.com/platform/detail.html?id=1007144"
     },
     {
-      "seq": 58,
+      "seq": 51,
       "city": "南京",
       "module_code": "C",
       "category_name": "小众文艺与先锋艺术",
@@ -1609,7 +1416,7 @@
       "url": "https://www.douban.com/event/38180048/"
     },
     {
-      "seq": 59,
+      "seq": 52,
       "city": "杭州",
       "module_code": "C",
       "category_name": "小众文艺与先锋艺术",
@@ -1635,7 +1442,7 @@
       "url": "https://www.douban.com/event/38095475/"
     },
     {
-      "seq": 60,
+      "seq": 53,
       "city": "上海",
       "module_code": "C",
       "category_name": "小众文艺与先锋艺术",
@@ -1661,7 +1468,7 @@
       "url": "https://www.douban.com/event/38181205/"
     },
     {
-      "seq": 61,
+      "seq": 54,
       "city": "南京",
       "module_code": "C",
       "category_name": "小众文艺与先锋艺术",
@@ -1687,7 +1494,7 @@
       "url": "https://www.douban.com/event/38176278/"
     },
     {
-      "seq": 62,
+      "seq": 55,
       "city": "杭州",
       "module_code": "F",
       "category_name": "二次元与ACGN泛娱乐",
@@ -1714,7 +1521,7 @@
       "url": "https://show.bilibili.com/platform/detail.html?id=1007796"
     },
     {
-      "seq": 63,
+      "seq": 56,
       "city": "常州",
       "module_code": "E",
       "category_name": "主题市集与美食微醺节",
@@ -1742,7 +1549,7 @@
       "url": "https://www.douban.com/location/changzhou/events/weekend-all"
     },
     {
-      "seq": 64,
+      "seq": 57,
       "city": "无锡",
       "module_code": "C",
       "category_name": "小众文艺与先锋艺术",
@@ -1768,7 +1575,7 @@
       "url": "https://www.douban.com/event/37882821/"
     },
     {
-      "seq": 65,
+      "seq": 58,
       "city": "上海",
       "module_code": "G",
       "category_name": "户外探索与新生活方式",
@@ -1796,7 +1603,7 @@
       "url": "https://www.shanghai.gov.cn/nw17239/20261030/8966320181b24185b8397086e8eaeb44.html"
     },
     {
-      "seq": 66,
+      "seq": 59,
       "city": "上海",
       "module_code": "F",
       "category_name": "二次元与ACGN泛娱乐",
@@ -1822,7 +1629,7 @@
       "url": "https://www.douban.com/event/37630552/"
     },
     {
-      "seq": 67,
+      "seq": 60,
       "city": "上海",
       "module_code": "D",
       "category_name": "Livehouse与喜剧现场",
@@ -1848,7 +1655,7 @@
       "url": "https://www.douban.com/event/38002482/"
     },
     {
-      "seq": 68,
+      "seq": 61,
       "city": "上海",
       "module_code": "C",
       "category_name": "小众文艺与先锋艺术",
@@ -1874,7 +1681,7 @@
       "url": "https://www.douban.com/event/38081963/"
     },
     {
-      "seq": 69,
+      "seq": 62,
       "city": "上海",
       "module_code": "H",
       "category_name": "江南在地文化与古镇夜游",
@@ -1900,7 +1707,7 @@
       "url": "https://www.douban.com/event/37786683/"
     },
     {
-      "seq": 70,
+      "seq": 63,
       "city": "上海",
       "module_code": "C",
       "category_name": "小众文艺与先锋艺术",
@@ -1926,33 +1733,7 @@
       "url": "https://www.douban.com/event/38115494/"
     },
     {
-      "seq": 71,
-      "city": "上海",
-      "module_code": "D",
-      "category_name": "Livehouse与喜剧现场",
-      "title": "【声厂呈现】留住夜晚的人 | Black Country, New Road 2026巡演·上海特别专场",
-      "weekend_status": "本周末进行中",
-      "heat_label": "🔥 85",
-      "heat_score": 85,
-      "time_display": "11月21日 周六 19:00-22:30",
-      "start_date": "2026-11-21",
-      "end_date": "2026-11-21",
-      "district": "徐汇区·瓦肆 VAS est 龙腾大",
-      "venue": "瓦肆 VAS est 龙腾大道2266号3号楼3层",
-      "price": "¥360起",
-      "is_free": "付费",
-      "highlights": "【豆瓣同城周末精选】地点：上海 徐汇区 瓦肆 VAS est 龙腾大道2266号3号楼3层（4人参加 · 0人感兴趣）。",
-      "suzhou_transit": "苏州站/园区站乘高铁25分钟抵上海虹桥站，换乘上海地铁2/10/11号线直达",
-      "tags": [
-        "豆瓣同城",
-        "Live"
-      ],
-      "source": "豆瓣同城(上海)",
-      "verify_status": "已核实",
-      "url": "https://www.douban.com/event/38058424/"
-    },
-    {
-      "seq": 72,
+      "seq": 64,
       "city": "上海",
       "module_code": "C",
       "category_name": "小众文艺与先锋艺术",
@@ -1978,7 +1759,7 @@
       "url": "https://www.douban.com/event/38178961/"
     },
     {
-      "seq": 73,
+      "seq": 65,
       "city": "上海",
       "module_code": "C",
       "category_name": "小众文艺与先锋艺术",
@@ -2004,7 +1785,7 @@
       "url": "https://www.douban.com/event/38179001/"
     },
     {
-      "seq": 74,
+      "seq": 66,
       "city": "上海",
       "module_code": "D",
       "category_name": "Livehouse与喜剧现场",
@@ -2030,7 +1811,7 @@
       "url": "https://www.douban.com/event/37979234/"
     },
     {
-      "seq": 75,
+      "seq": 67,
       "city": "苏州",
       "module_code": "A",
       "category_name": "明星与顶流现场",
@@ -2056,7 +1837,7 @@
       "url": "https://www.douban.com/event/38105184/"
     },
     {
-      "seq": 76,
+      "seq": 68,
       "city": "苏州",
       "module_code": "H",
       "category_name": "江南在地文化与古镇夜游",
@@ -2082,7 +1863,7 @@
       "url": "https://www.douban.com/event/37659313/"
     },
     {
-      "seq": 77,
+      "seq": 69,
       "city": "苏州",
       "module_code": "C",
       "category_name": "小众文艺与先锋艺术",
@@ -2108,7 +1889,7 @@
       "url": "https://www.douban.com/event/37716046/"
     },
     {
-      "seq": 78,
+      "seq": 70,
       "city": "苏州",
       "module_code": "H",
       "category_name": "江南在地文化与古镇夜游",
@@ -2134,7 +1915,7 @@
       "url": "https://www.douban.com/event/37787572/"
     },
     {
-      "seq": 79,
+      "seq": 71,
       "city": "苏州",
       "module_code": "J",
       "category_name": "高端生活、运动赛事与亲子",
@@ -2160,7 +1941,7 @@
       "url": "https://www.douban.com/event/37659508/"
     },
     {
-      "seq": 80,
+      "seq": 72,
       "city": "苏州",
       "module_code": "J",
       "category_name": "高端生活、运动赛事与亲子",
@@ -2186,7 +1967,7 @@
       "url": "https://www.douban.com/event/37698946/"
     },
     {
-      "seq": 81,
+      "seq": 73,
       "city": "苏州",
       "module_code": "H",
       "category_name": "江南在地文化与古镇夜游",
@@ -2212,7 +1993,7 @@
       "url": "https://www.douban.com/event/37747968/"
     },
     {
-      "seq": 82,
+      "seq": 74,
       "city": "苏州",
       "module_code": "H",
       "category_name": "江南在地文化与古镇夜游",
@@ -2238,7 +2019,7 @@
       "url": "https://www.douban.com/event/37674643/"
     },
     {
-      "seq": 83,
+      "seq": 75,
       "city": "苏州",
       "module_code": "H",
       "category_name": "江南在地文化与古镇夜游",
@@ -2264,7 +2045,7 @@
       "url": "https://www.douban.com/event/35866026/"
     },
     {
-      "seq": 84,
+      "seq": 76,
       "city": "南京",
       "module_code": "J",
       "category_name": "高端生活、运动赛事与亲子",
@@ -2290,7 +2071,7 @@
       "url": "https://www.douban.com/event/36362996/"
     },
     {
-      "seq": 85,
+      "seq": 77,
       "city": "南京",
       "module_code": "C",
       "category_name": "小众文艺与先锋艺术",
@@ -2316,7 +2097,7 @@
       "url": "https://www.douban.com/event/38049622/"
     },
     {
-      "seq": 86,
+      "seq": 78,
       "city": "南京",
       "module_code": "D",
       "category_name": "Livehouse与喜剧现场",
@@ -2342,7 +2123,7 @@
       "url": "https://www.douban.com/event/37709941/"
     },
     {
-      "seq": 87,
+      "seq": 79,
       "city": "南京",
       "module_code": "B",
       "category_name": "网红潮流与限时快闪",
@@ -2368,7 +2149,7 @@
       "url": "https://www.douban.com/event/37623031/"
     },
     {
-      "seq": 88,
+      "seq": 80,
       "city": "南京",
       "module_code": "D",
       "category_name": "Livehouse与喜剧现场",
@@ -2394,7 +2175,7 @@
       "url": "https://www.douban.com/event/37642537/"
     },
     {
-      "seq": 89,
+      "seq": 81,
       "city": "南京",
       "module_code": "D",
       "category_name": "Livehouse与喜剧现场",
@@ -2420,7 +2201,7 @@
       "url": "https://www.douban.com/event/37825486/"
     },
     {
-      "seq": 90,
+      "seq": 82,
       "city": "常州",
       "module_code": "D",
       "category_name": "Livehouse与喜剧现场",
@@ -2446,7 +2227,7 @@
       "url": "https://www.douban.com/event/38024366/"
     },
     {
-      "seq": 91,
+      "seq": 83,
       "city": "常州",
       "module_code": "J",
       "category_name": "高端生活、运动赛事与亲子",
@@ -2472,7 +2253,7 @@
       "url": "https://www.douban.com/event/38083577/"
     },
     {
-      "seq": 92,
+      "seq": 84,
       "city": "常州",
       "module_code": "D",
       "category_name": "Livehouse与喜剧现场",
@@ -2498,7 +2279,7 @@
       "url": "https://www.douban.com/event/38086915/"
     },
     {
-      "seq": 93,
+      "seq": 85,
       "city": "常州",
       "module_code": "D",
       "category_name": "Livehouse与喜剧现场",
@@ -2524,7 +2305,7 @@
       "url": "https://www.douban.com/event/38104216/"
     },
     {
-      "seq": 94,
+      "seq": 86,
       "city": "常州",
       "module_code": "C",
       "category_name": "小众文艺与先锋艺术",
@@ -2550,7 +2331,7 @@
       "url": "https://www.douban.com/event/38107936/"
     },
     {
-      "seq": 95,
+      "seq": 87,
       "city": "常州",
       "module_code": "D",
       "category_name": "Livehouse与喜剧现场",
@@ -2576,7 +2357,7 @@
       "url": "https://www.douban.com/event/38121209/"
     },
     {
-      "seq": 96,
+      "seq": 88,
       "city": "常州",
       "module_code": "C",
       "category_name": "小众文艺与先锋艺术",
@@ -2602,7 +2383,7 @@
       "url": "https://www.douban.com/event/38135335/"
     },
     {
-      "seq": 97,
+      "seq": 89,
       "city": "常州",
       "module_code": "C",
       "category_name": "小众文艺与先锋艺术",
@@ -2628,7 +2409,7 @@
       "url": "https://www.douban.com/event/38136447/"
     },
     {
-      "seq": 98,
+      "seq": 90,
       "city": "杭州",
       "module_code": "D",
       "category_name": "Livehouse与喜剧现场",
@@ -2654,7 +2435,7 @@
       "url": "https://www.douban.com/event/34815097/"
     },
     {
-      "seq": 99,
+      "seq": 91,
       "city": "杭州",
       "module_code": "D",
       "category_name": "Livehouse与喜剧现场",
@@ -2680,7 +2461,7 @@
       "url": "https://www.douban.com/event/37570581/"
     },
     {
-      "seq": 100,
+      "seq": 92,
       "city": "杭州",
       "module_code": "C",
       "category_name": "小众文艺与先锋艺术",
@@ -2706,7 +2487,7 @@
       "url": "https://www.douban.com/event/38069475/"
     },
     {
-      "seq": 101,
+      "seq": 93,
       "city": "杭州",
       "module_code": "G",
       "category_name": "户外探索与新生活方式",
@@ -2732,7 +2513,7 @@
       "url": "https://www.douban.com/event/38172474/"
     },
     {
-      "seq": 102,
+      "seq": 94,
       "city": "杭州",
       "module_code": "D",
       "category_name": "Livehouse与喜剧现场",
@@ -2758,7 +2539,7 @@
       "url": "https://www.douban.com/event/34905402/"
     },
     {
-      "seq": 103,
+      "seq": 95,
       "city": "杭州",
       "module_code": "D",
       "category_name": "Livehouse与喜剧现场",
@@ -2784,7 +2565,7 @@
       "url": "https://www.douban.com/event/37130691/"
     },
     {
-      "seq": 104,
+      "seq": 96,
       "city": "杭州",
       "module_code": "C",
       "category_name": "小众文艺与先锋艺术",
@@ -2810,7 +2591,7 @@
       "url": "https://www.douban.com/event/37859707/"
     },
     {
-      "seq": 105,
+      "seq": 97,
       "city": "杭州",
       "module_code": "C",
       "category_name": "小众文艺与先锋艺术",
@@ -2836,7 +2617,7 @@
       "url": "https://www.douban.com/event/37754834/"
     },
     {
-      "seq": 106,
+      "seq": 98,
       "city": "杭州",
       "module_code": "D",
       "category_name": "Livehouse与喜剧现场",
@@ -2862,7 +2643,7 @@
       "url": "https://www.douban.com/event/37204447/"
     },
     {
-      "seq": 107,
+      "seq": 99,
       "city": "无锡",
       "module_code": "C",
       "category_name": "小众文艺与先锋艺术",
@@ -2888,7 +2669,7 @@
       "url": "https://www.douban.com/event/37990640/"
     },
     {
-      "seq": 108,
+      "seq": 100,
       "city": "无锡",
       "module_code": "J",
       "category_name": "高端生活、运动赛事与亲子",
@@ -2914,7 +2695,7 @@
       "url": "https://www.douban.com/event/38065578/"
     },
     {
-      "seq": 109,
+      "seq": 101,
       "city": "无锡",
       "module_code": "D",
       "category_name": "Livehouse与喜剧现场",
@@ -2940,7 +2721,7 @@
       "url": "https://www.douban.com/event/37650607/"
     },
     {
-      "seq": 110,
+      "seq": 102,
       "city": "无锡",
       "module_code": "C",
       "category_name": "小众文艺与先锋艺术",
@@ -2966,7 +2747,7 @@
       "url": "https://www.douban.com/event/38152402/"
     },
     {
-      "seq": 111,
+      "seq": 103,
       "city": "无锡",
       "module_code": "D",
       "category_name": "Livehouse与喜剧现场",
@@ -2992,7 +2773,7 @@
       "url": "https://www.douban.com/event/38163228/"
     },
     {
-      "seq": 112,
+      "seq": 104,
       "city": "无锡",
       "module_code": "F",
       "category_name": "二次元与ACGN泛娱乐",
@@ -3018,7 +2799,7 @@
       "url": "https://www.douban.com/event/37984586/"
     },
     {
-      "seq": 113,
+      "seq": 105,
       "city": "苏州",
       "module_code": "C",
       "category_name": "小众文艺与先锋艺术",
@@ -3044,7 +2825,7 @@
       "url": "https://www.douban.com/event/38179099/"
     },
     {
-      "seq": 114,
+      "seq": 106,
       "city": "南京",
       "module_code": "J",
       "category_name": "高端生活、运动赛事与亲子",
@@ -3070,7 +2851,7 @@
       "url": "https://www.douban.com/event/37936829/"
     },
     {
-      "seq": 115,
+      "seq": 107,
       "city": "南京",
       "module_code": "C",
       "category_name": "小众文艺与先锋艺术",
@@ -3096,7 +2877,7 @@
       "url": "https://www.douban.com/event/38040708/"
     },
     {
-      "seq": 116,
+      "seq": 108,
       "city": "常州",
       "module_code": "C",
       "category_name": "小众文艺与先锋艺术",
@@ -3122,7 +2903,7 @@
       "url": "https://www.douban.com/event/38011583/"
     },
     {
-      "seq": 117,
+      "seq": 109,
       "city": "常州",
       "module_code": "C",
       "category_name": "小众文艺与先锋艺术",
@@ -3148,7 +2929,7 @@
       "url": "https://www.douban.com/event/38109761/"
     },
     {
-      "seq": 118,
+      "seq": 110,
       "city": "无锡",
       "module_code": "J",
       "category_name": "高端生活、运动赛事与亲子",
@@ -3174,7 +2955,7 @@
       "url": "https://www.douban.com/event/37958108/"
     },
     {
-      "seq": 119,
+      "seq": 111,
       "city": "无锡",
       "module_code": "C",
       "category_name": "小众文艺与先锋艺术",
@@ -3200,7 +2981,7 @@
       "url": "https://www.douban.com/event/37993379/"
     },
     {
-      "seq": 120,
+      "seq": 112,
       "city": "无锡",
       "module_code": "A",
       "category_name": "明星与顶流现场",
@@ -3227,7 +3008,7 @@
       "url": "https://show.bilibili.com/platform/detail.html?id=1004268"
     },
     {
-      "seq": 121,
+      "seq": 113,
       "city": "上海",
       "module_code": "F",
       "category_name": "二次元与ACGN泛娱乐",
@@ -3254,7 +3035,7 @@
       "url": "https://show.bilibili.com/platform/detail.html?id=1006772"
     },
     {
-      "seq": 122,
+      "seq": 114,
       "city": "上海",
       "module_code": "F",
       "category_name": "二次元与ACGN泛娱乐",
@@ -3282,34 +3063,7 @@
       "url": "https://show.bilibili.com/"
     },
     {
-      "seq": 123,
-      "city": "上海",
-      "module_code": "F",
-      "category_name": "二次元与ACGN泛娱乐",
-      "title": "上海·红楼梦：林黛玉与北静王 × 南十字星咖啡 主题餐厅",
-      "weekend_status": "本周末进行中",
-      "heat_label": "🔥 83",
-      "heat_score": 83,
-      "time_display": "2026.11.20 - 12.06",
-      "start_date": "2026-11-20",
-      "end_date": "2026-12-06",
-      "district": "静安区·南十字星咖啡",
-      "venue": "南十字星咖啡",
-      "price": "¥10起",
-      "is_free": "付费",
-      "highlights": "【B站会员购·主题餐厅｜预售中】举办场馆：南十字星咖啡，当前已有 20 人标记想去。",
-      "suzhou_transit": "苏州站/园区站乘高铁25分钟抵上海虹桥站，换乘上海地铁2/10/11号线直达",
-      "tags": [
-        "主题餐厅",
-        "预售中",
-        "B站会员购"
-      ],
-      "source": "Bilibili会员购官方API",
-      "verify_status": "已核实",
-      "url": "https://show.bilibili.com/platform/detail.html?id=1007941"
-    },
-    {
-      "seq": 124,
+      "seq": 115,
       "city": "南京",
       "module_code": "D",
       "category_name": "Livehouse与喜剧现场",
@@ -3336,7 +3090,7 @@
       "url": "https://show.bilibili.com/platform/detail.html?id=1007781"
     },
     {
-      "seq": 125,
+      "seq": 116,
       "city": "上海",
       "module_code": "C",
       "category_name": "小众文艺与先锋艺术",
@@ -3363,7 +3117,7 @@
       "url": "https://show.bilibili.com/platform/detail.html?id=1005507"
     },
     {
-      "seq": 126,
+      "seq": 117,
       "city": "上海",
       "module_code": "F",
       "category_name": "二次元与ACGN泛娱乐",
@@ -3390,7 +3144,7 @@
       "url": "https://show.bilibili.com/platform/detail.html?id=1006109"
     },
     {
-      "seq": 127,
+      "seq": 118,
       "city": "上海",
       "module_code": "C",
       "category_name": "小众文艺与先锋艺术",
@@ -3418,7 +3172,7 @@
       "url": "https://whlyj.sh.gov.cn/wbzx/20260518/5a861af35df44e76b8ccd305f6f96fae.html"
     },
     {
-      "seq": 128,
+      "seq": 119,
       "city": "南京",
       "module_code": "H",
       "category_name": "江南在地文化与古镇夜游",
@@ -3446,7 +3200,7 @@
       "url": "https://tw.trip.com/events/%E5%8D%97%E4%BA%AC++The+Ground+Shake+%E5%B0%88%E5%A0%B4-20260624/"
     },
     {
-      "seq": 129,
+      "seq": 120,
       "city": "杭州",
       "module_code": "C",
       "category_name": "小众文艺与先锋艺术",
@@ -3474,7 +3228,7 @@
       "url": "https://www.byartmatters.com/exhibition/detail?id=19"
     },
     {
-      "seq": 130,
+      "seq": 121,
       "city": "上海",
       "module_code": "C",
       "category_name": "小众文艺与先锋艺术",
@@ -3502,7 +3256,7 @@
       "url": "http://tankshanghai.com/zh/exhibition/wangchuanshangyoudeshandian/"
     },
     {
-      "seq": 131,
+      "seq": 122,
       "city": "南京",
       "module_code": "G",
       "category_name": "户外探索与新生活方式",
@@ -3529,7 +3283,7 @@
       "url": "https://show.bilibili.com/platform/detail.html?id=1001255"
     },
     {
-      "seq": 132,
+      "seq": 123,
       "city": "常州",
       "module_code": "C",
       "category_name": "小众文艺与先锋艺术",
@@ -3557,7 +3311,7 @@
       "url": "https://hk.trip.com/events/%E5%B8%B8%E5%B7%9E++%E6%88%91%E5%80%91%E7%9A%84%E6%99%82%E4%BB%A3%E8%8F%AF%E8%AA%9E%E9%87%91%E6%9B%B2%E6%BC%94%E5%94%B1%E6%9C%83-20260808/"
     },
     {
-      "seq": 133,
+      "seq": 124,
       "city": "杭州",
       "module_code": "C",
       "category_name": "小众文艺与先锋艺术",
@@ -3584,7 +3338,7 @@
       "url": "https://show.bilibili.com/platform/detail.html?id=1006700"
     },
     {
-      "seq": 134,
+      "seq": 125,
       "city": "南京",
       "module_code": "F",
       "category_name": "二次元与ACGN泛娱乐",
@@ -3611,7 +3365,7 @@
       "url": "https://show.bilibili.com/platform/detail.html?id=1004189"
     },
     {
-      "seq": 135,
+      "seq": 126,
       "city": "无锡",
       "module_code": "F",
       "category_name": "二次元与ACGN泛娱乐",
@@ -3638,7 +3392,7 @@
       "url": "https://show.bilibili.com/platform/detail.html?id=1007706"
     },
     {
-      "seq": 136,
+      "seq": 127,
       "city": "杭州",
       "module_code": "F",
       "category_name": "二次元与ACGN泛娱乐",
@@ -3665,7 +3419,7 @@
       "url": "https://show.bilibili.com/platform/detail.html?id=1007036"
     },
     {
-      "seq": 137,
+      "seq": 128,
       "city": "无锡",
       "module_code": "F",
       "category_name": "二次元与ACGN泛娱乐",
@@ -3692,7 +3446,7 @@
       "url": "https://show.bilibili.com/platform/detail.html?id=1007510"
     },
     {
-      "seq": 138,
+      "seq": 129,
       "city": "苏州",
       "module_code": "F",
       "category_name": "二次元与ACGN泛娱乐",
@@ -3719,7 +3473,7 @@
       "url": "https://show.bilibili.com/platform/detail.html?id=1007787"
     },
     {
-      "seq": 139,
+      "seq": 130,
       "city": "苏州",
       "module_code": "F",
       "category_name": "二次元与ACGN泛娱乐",
@@ -3734,7 +3488,7 @@
       "venue": "木渎影视城会展中心",
       "price": "¥60起",
       "is_free": "付费",
-      "highlights": "【B站会员购·漫展｜预售中】举办场馆：木渎影视城会展中心，当前已有 10453 人标记想去。",
+      "highlights": "【B站会员购 漫展｜预售中】特邀三石等知名配音演员与二次元嘉宾内场互动签售。举办场馆：苏州木渎影视城会展中心，跨年档期大型ACGN盛典。",
       "suzhou_transit": "苏州本地地铁/公交直达（市内核心商圈及文博场馆15-40分钟可达）",
       "tags": [
         "漫展",
@@ -3746,7 +3500,7 @@
       "url": "https://show.bilibili.com/platform/detail.html?id=1007453"
     },
     {
-      "seq": 140,
+      "seq": 131,
       "city": "苏州",
       "module_code": "F",
       "category_name": "二次元与ACGN泛娱乐",
@@ -3773,7 +3527,7 @@
       "url": "https://show.bilibili.com/platform/detail.html?id=1006920"
     },
     {
-      "seq": 141,
+      "seq": 132,
       "city": "无锡",
       "module_code": "F",
       "category_name": "二次元与ACGN泛娱乐",
@@ -3800,7 +3554,7 @@
       "url": "https://show.bilibili.com/platform/detail.html?id=1006785"
     },
     {
-      "seq": 142,
+      "seq": 133,
       "city": "无锡",
       "module_code": "F",
       "category_name": "二次元与ACGN泛娱乐",
@@ -3827,7 +3581,7 @@
       "url": "https://show.bilibili.com/platform/detail.html?id=1007549"
     },
     {
-      "seq": 143,
+      "seq": 134,
       "city": "南京",
       "module_code": "A",
       "category_name": "明星与顶流现场",
@@ -3855,7 +3609,7 @@
       "url": "https://hk.trip.com/events/9366828-2026-nanjing-concerts-collection/"
     },
     {
-      "seq": 144,
+      "seq": 135,
       "city": "苏州",
       "module_code": "A",
       "category_name": "明星与顶流现场",
@@ -3883,7 +3637,7 @@
       "url": "https://news.qq.com/rain/a/20260912A0AL4800"
     },
     {
-      "seq": 145,
+      "seq": 136,
       "city": "上海",
       "module_code": "F",
       "category_name": "二次元与ACGN泛娱乐",
@@ -3911,7 +3665,7 @@
       "url": "https://www.neccsh.com/cecsh/exhibitioninfo/exhibitionlist.jspx"
     },
     {
-      "seq": 146,
+      "seq": 137,
       "city": "杭州",
       "module_code": "F",
       "category_name": "二次元与ACGN泛娱乐",
@@ -3938,7 +3692,7 @@
       "url": "https://show.bilibili.com/platform/detail.html?id=1006745"
     },
     {
-      "seq": 147,
+      "seq": 138,
       "city": "杭州",
       "module_code": "F",
       "category_name": "二次元与ACGN泛娱乐",
@@ -3965,7 +3719,7 @@
       "url": "https://show.bilibili.com/platform/detail.html?id=1008039"
     },
     {
-      "seq": 148,
+      "seq": 139,
       "city": "上海",
       "module_code": "F",
       "category_name": "二次元与ACGN泛娱乐",
@@ -3992,7 +3746,7 @@
       "url": "https://show.bilibili.com/platform/detail.html?id=1006541"
     },
     {
-      "seq": 149,
+      "seq": 140,
       "city": "无锡",
       "module_code": "A",
       "category_name": "明星与顶流现场",
@@ -4020,7 +3774,7 @@
       "url": "https://www.yzwb.net/news/jiangsu/wuxi/202611/t20261112_411738.html"
     },
     {
-      "seq": 150,
+      "seq": 141,
       "city": "苏州",
       "module_code": "D",
       "category_name": "Livehouse与喜剧现场",
@@ -4048,7 +3802,7 @@
       "url": "https://www.huanghepiao.com/event/43112/"
     },
     {
-      "seq": 151,
+      "seq": 142,
       "city": "南京",
       "module_code": "F",
       "category_name": "二次元与ACGN泛娱乐",
@@ -4075,7 +3829,7 @@
       "url": "https://show.bilibili.com/platform/detail.html?id=1006999"
     },
     {
-      "seq": 152,
+      "seq": 143,
       "city": "无锡",
       "module_code": "F",
       "category_name": "二次元与ACGN泛娱乐",
@@ -4102,7 +3856,7 @@
       "url": "https://show.bilibili.com/platform/detail.html?id=1007512"
     },
     {
-      "seq": 153,
+      "seq": 144,
       "city": "南京",
       "module_code": "F",
       "category_name": "二次元与ACGN泛娱乐",
@@ -4129,7 +3883,7 @@
       "url": "https://show.bilibili.com/platform/detail.html?id=1007155"
     },
     {
-      "seq": 154,
+      "seq": 145,
       "city": "南京",
       "module_code": "D",
       "category_name": "Livehouse与喜剧现场",
@@ -4157,7 +3911,7 @@
       "url": "https://huodong.com/event/detail/qzbsok"
     },
     {
-      "seq": 155,
+      "seq": 146,
       "city": "南京",
       "module_code": "F",
       "category_name": "二次元与ACGN泛娱乐",
@@ -4184,7 +3938,7 @@
       "url": "https://show.bilibili.com/platform/detail.html?id=1007386"
     },
     {
-      "seq": 156,
+      "seq": 147,
       "city": "苏州",
       "module_code": "D",
       "category_name": "Livehouse与喜剧现场",
@@ -4212,7 +3966,7 @@
       "url": "https://localhub.to/suzhou/venue/the-hill-house-exhibition-space?lang=zh"
     },
     {
-      "seq": 157,
+      "seq": 148,
       "city": "杭州",
       "module_code": "F",
       "category_name": "二次元与ACGN泛娱乐",
@@ -4239,7 +3993,7 @@
       "url": "https://show.bilibili.com/platform/detail.html?id=1006559"
     },
     {
-      "seq": 158,
+      "seq": 149,
       "city": "上海",
       "module_code": "F",
       "category_name": "二次元与ACGN泛娱乐",
@@ -4266,7 +4020,7 @@
       "url": "https://show.bilibili.com/platform/detail.html?id=1006973"
     },
     {
-      "seq": 159,
+      "seq": 150,
       "city": "杭州",
       "module_code": "F",
       "category_name": "二次元与ACGN泛娱乐",
@@ -4293,7 +4047,7 @@
       "url": "https://show.bilibili.com/platform/detail.html?id=1007068"
     },
     {
-      "seq": 160,
+      "seq": 151,
       "city": "杭州",
       "module_code": "F",
       "category_name": "二次元与ACGN泛娱乐",
@@ -4320,7 +4074,7 @@
       "url": "https://show.bilibili.com/platform/detail.html?id=1006727"
     },
     {
-      "seq": 161,
+      "seq": 152,
       "city": "南京",
       "module_code": "F",
       "category_name": "二次元与ACGN泛娱乐",
@@ -4347,7 +4101,7 @@
       "url": "https://show.bilibili.com/platform/detail.html?id=1007529"
     },
     {
-      "seq": 162,
+      "seq": 153,
       "city": "杭州",
       "module_code": "E",
       "category_name": "主题市集与美食微醺节",
@@ -4375,7 +4129,7 @@
       "url": "https://www.cafeex.com.cn/"
     },
     {
-      "seq": 163,
+      "seq": 154,
       "city": "无锡",
       "module_code": "F",
       "category_name": "二次元与ACGN泛娱乐",
@@ -4402,7 +4156,7 @@
       "url": "https://show.bilibili.com/platform/detail.html?id=1007943"
     },
     {
-      "seq": 164,
+      "seq": 155,
       "city": "南京",
       "module_code": "F",
       "category_name": "二次元与ACGN泛娱乐",
@@ -4429,7 +4183,7 @@
       "url": "https://show.bilibili.com/platform/detail.html?id=1006875"
     },
     {
-      "seq": 165,
+      "seq": 156,
       "city": "上海",
       "module_code": "F",
       "category_name": "二次元与ACGN泛娱乐",
@@ -4456,7 +4210,7 @@
       "url": "https://show.bilibili.com/platform/detail.html?id=1006343"
     },
     {
-      "seq": 166,
+      "seq": 157,
       "city": "常州",
       "module_code": "D",
       "category_name": "Livehouse与喜剧现场",
@@ -4484,7 +4238,7 @@
       "url": "https://hk.trip.com/events/%E5%B8%B8%E5%B7%9E++%E5%B3%B6%E5%B6%BC%E5%BF%83%E6%83%85%E7%BE%8E%E9%BA%97%E4%BA%BA%E7%94%9F2026%E5%B7%A1%E6%BC%94-20261107/"
     },
     {
-      "seq": 167,
+      "seq": 158,
       "city": "上海",
       "module_code": "F",
       "category_name": "二次元与ACGN泛娱乐",
@@ -4511,7 +4265,7 @@
       "url": "https://show.bilibili.com/platform/detail.html?id=1007714"
     },
     {
-      "seq": 168,
+      "seq": 159,
       "city": "南京",
       "module_code": "F",
       "category_name": "二次元与ACGN泛娱乐",
@@ -4538,7 +4292,7 @@
       "url": "https://show.bilibili.com/platform/detail.html?id=1007285"
     },
     {
-      "seq": 169,
+      "seq": 160,
       "city": "苏州",
       "module_code": "D",
       "category_name": "Livehouse与喜剧现场",
@@ -4566,7 +4320,7 @@
       "url": "https://localhub.to/suzhou/venue/the-hill-house-exhibition-space?lang=zh"
     },
     {
-      "seq": 170,
+      "seq": 161,
       "city": "杭州",
       "module_code": "J",
       "category_name": "高端生活、运动赛事与亲子",
@@ -4594,7 +4348,7 @@
       "url": "https://zuicool.com/news/archives/322002"
     },
     {
-      "seq": 171,
+      "seq": 162,
       "city": "杭州",
       "module_code": "F",
       "category_name": "二次元与ACGN泛娱乐",
@@ -4621,34 +4375,7 @@
       "url": "https://show.bilibili.com/platform/detail.html?id=1006528"
     },
     {
-      "seq": 172,
-      "city": "苏州",
-      "module_code": "F",
-      "category_name": "二次元与ACGN泛娱乐",
-      "title": "苏州·三石嘉宾内场票ICOMEACG",
-      "weekend_status": "近期即将开启",
-      "heat_label": "🔥 88",
-      "heat_score": 88,
-      "time_display": "2027.01.02",
-      "start_date": "2027-01-02",
-      "end_date": "2027-01-02",
-      "district": "吴中区·木渎影视城会展中心",
-      "venue": "木渎影视城会展中心",
-      "price": "¥138起",
-      "is_free": "付费",
-      "highlights": "【B站会员购·漫展｜已售罄】举办场馆：木渎影视城会展中心，当前已有 125 人标记想去。",
-      "suzhou_transit": "苏州本地地铁/公交直达（市内核心商圈及文博场馆15-40分钟可达）",
-      "tags": [
-        "漫展",
-        "已售罄",
-        "B站会员购"
-      ],
-      "source": "Bilibili会员购官方API",
-      "verify_status": "已核实",
-      "url": "https://show.bilibili.com/platform/detail.html?id=1007586"
-    },
-    {
-      "seq": 173,
+      "seq": 163,
       "city": "杭州",
       "module_code": "F",
       "category_name": "二次元与ACGN泛娱乐",
@@ -4675,7 +4402,7 @@
       "url": "https://show.bilibili.com/platform/detail.html?id=1006243"
     },
     {
-      "seq": 174,
+      "seq": 164,
       "city": "杭州",
       "module_code": "F",
       "category_name": "二次元与ACGN泛娱乐",
@@ -4702,7 +4429,7 @@
       "url": "https://show.bilibili.com/platform/detail.html?id=1007205"
     },
     {
-      "seq": 175,
+      "seq": 165,
       "city": "苏州",
       "module_code": "F",
       "category_name": "二次元与ACGN泛娱乐",
@@ -4729,7 +4456,7 @@
       "url": "https://show.bilibili.com/platform/detail.html?id=1006603"
     },
     {
-      "seq": 176,
+      "seq": 166,
       "city": "南京",
       "module_code": "F",
       "category_name": "二次元与ACGN泛娱乐",
@@ -4756,7 +4483,7 @@
       "url": "https://show.bilibili.com/platform/detail.html?id=1007320"
     },
     {
-      "seq": 177,
+      "seq": 167,
       "city": "南京",
       "module_code": "F",
       "category_name": "二次元与ACGN泛娱乐",
@@ -4783,7 +4510,7 @@
       "url": "https://show.bilibili.com/platform/detail.html?id=1006573"
     },
     {
-      "seq": 178,
+      "seq": 168,
       "city": "杭州",
       "module_code": "C",
       "category_name": "小众文艺与先锋艺术",
@@ -4811,7 +4538,7 @@
       "url": "https://shanghaiconcerts.com/concerts/hpo-across-east-and-west-2026"
     },
     {
-      "seq": 179,
+      "seq": 169,
       "city": "南京",
       "module_code": "F",
       "category_name": "二次元与ACGN泛娱乐",
@@ -4838,7 +4565,7 @@
       "url": "https://show.bilibili.com/platform/detail.html?id=1007343"
     },
     {
-      "seq": 180,
+      "seq": 170,
       "city": "无锡",
       "module_code": "F",
       "category_name": "二次元与ACGN泛娱乐",
@@ -4865,7 +4592,7 @@
       "url": "https://show.bilibili.com/platform/detail.html?id=1006932"
     },
     {
-      "seq": 181,
+      "seq": 171,
       "city": "杭州",
       "module_code": "F",
       "category_name": "二次元与ACGN泛娱乐",
@@ -4892,7 +4619,7 @@
       "url": "https://show.bilibili.com/platform/detail.html?id=1007500"
     },
     {
-      "seq": 182,
+      "seq": 172,
       "city": "上海",
       "module_code": "F",
       "category_name": "二次元与ACGN泛娱乐",
@@ -4919,7 +4646,7 @@
       "url": "https://show.bilibili.com/platform/detail.html?id=1007803"
     },
     {
-      "seq": 183,
+      "seq": 173,
       "city": "苏州",
       "module_code": "F",
       "category_name": "二次元与ACGN泛娱乐",
@@ -4946,7 +4673,7 @@
       "url": "https://show.bilibili.com/platform/detail.html?id=1007730"
     },
     {
-      "seq": 184,
+      "seq": 174,
       "city": "常州",
       "module_code": "C",
       "category_name": "小众文艺与先锋艺术",
@@ -4974,7 +4701,7 @@
       "url": "https://hk.trip.com/events/%E5%B8%B8%E5%B7%9E++2026%E5%B8%82%E6%B0%91%E9%9F%B3%E6%A8%82%E6%9C%83%E6%B5%B7%E6%A3%A0%E8%8A%B1%E9%96%8B%E5%94%AF%E7%BE%8E%E5%9C%8B%E9%A2%A8%E8%A6%96%E8%81%BD%E9%9F%B3%E6%A8%82%E6%9C%83-20261028/"
     },
     {
-      "seq": 185,
+      "seq": 175,
       "city": "常州",
       "module_code": "F",
       "category_name": "二次元与ACGN泛娱乐",
@@ -5001,11 +4728,11 @@
       "url": "https://show.bilibili.com/platform/detail.html?id=1007715"
     },
     {
-      "seq": 186,
+      "seq": 176,
       "city": "无锡",
       "module_code": "C",
       "category_name": "小众文艺与先锋艺术",
-      "title": "无锡·维也纳皇家交响乐团2027新年音乐会",
+      "title": "无锡·维也纳皇家交响乐团2027新年音乐会（无锡大剧院场）",
       "weekend_status": "近期即将开启",
       "heat_label": "🔥 83",
       "heat_score": 83,
@@ -5028,7 +4755,7 @@
       "url": "https://show.bilibili.com/platform/detail.html?id=1004126"
     },
     {
-      "seq": 187,
+      "seq": 177,
       "city": "无锡",
       "module_code": "D",
       "category_name": "Livehouse与喜剧现场",
@@ -5056,7 +4783,7 @@
       "url": "https://tw.trip.com/events/900278-wuxi-collection/"
     },
     {
-      "seq": 188,
+      "seq": 178,
       "city": "南京",
       "module_code": "F",
       "category_name": "二次元与ACGN泛娱乐",
@@ -5083,7 +4810,7 @@
       "url": "https://show.bilibili.com/platform/detail.html?id=1007962"
     },
     {
-      "seq": 189,
+      "seq": 179,
       "city": "苏州",
       "module_code": "C",
       "category_name": "小众文艺与先锋艺术",
@@ -5110,7 +4837,7 @@
       "url": "https://show.bilibili.com/platform/detail.html?id=1004127"
     },
     {
-      "seq": 190,
+      "seq": 180,
       "city": "无锡",
       "module_code": "F",
       "category_name": "二次元与ACGN泛娱乐",
@@ -5137,7 +4864,7 @@
       "url": "https://show.bilibili.com/platform/detail.html?id=1007747"
     },
     {
-      "seq": 191,
+      "seq": 181,
       "city": "苏州",
       "module_code": "C",
       "category_name": "小众文艺与先锋艺术",
@@ -5164,7 +4891,7 @@
       "url": "https://show.bilibili.com/platform/detail.html?id=1007040"
     },
     {
-      "seq": 192,
+      "seq": 182,
       "city": "杭州",
       "module_code": "F",
       "category_name": "二次元与ACGN泛娱乐",
@@ -5191,7 +4918,7 @@
       "url": "https://show.bilibili.com/platform/detail.html?id=1008005"
     },
     {
-      "seq": 193,
+      "seq": 183,
       "city": "南京",
       "module_code": "A",
       "category_name": "明星与顶流现场",
@@ -5218,7 +4945,7 @@
       "url": "https://show.bilibili.com/platform/detail.html?id=1005439"
     },
     {
-      "seq": 194,
+      "seq": 184,
       "city": "苏州",
       "module_code": "C",
       "category_name": "小众文艺与先锋艺术",
@@ -5245,7 +4972,7 @@
       "url": "https://show.bilibili.com/platform/detail.html?id=1006729"
     },
     {
-      "seq": 195,
+      "seq": 185,
       "city": "无锡",
       "module_code": "C",
       "category_name": "小众文艺与先锋艺术",
@@ -5272,7 +4999,7 @@
       "url": "https://show.bilibili.com/platform/detail.html?id=1007080"
     },
     {
-      "seq": 196,
+      "seq": 186,
       "city": "杭州",
       "module_code": "G",
       "category_name": "户外探索与新生活方式",
@@ -5299,7 +5026,7 @@
       "url": "https://show.bilibili.com/platform/detail.html?id=1007645"
     },
     {
-      "seq": 197,
+      "seq": 187,
       "city": "苏州",
       "module_code": "C",
       "category_name": "小众文艺与先锋艺术",
@@ -5326,11 +5053,11 @@
       "url": "https://show.bilibili.com/platform/detail.html?id=1007253"
     },
     {
-      "seq": 198,
+      "seq": 188,
       "city": "无锡",
       "module_code": "C",
       "category_name": "小众文艺与先锋艺术",
-      "title": "无锡·维也纳皇家交响乐团2027新年音乐会",
+      "title": "无锡·维也纳皇家交响乐团2027新年音乐会（人民大会堂场）",
       "weekend_status": "近期即将开启",
       "heat_label": "🔥 80",
       "heat_score": 80,
@@ -5625,13 +5352,13 @@
     {
       "tab_name": "88_6城宝藏场馆与渠道矩阵",
       "scope": "苏沪锡杭常宁20大必关注商圈、美术馆、Livehouse及官方公众号",
-      "formula": "直接点击表内链接跳转",
+      "formula": "(仁恒仓街 OR 张园 OR 西岸 OR 天目里 OR 拈花湾 OR 德基广场) (快闪 OR 展览 OR 演出 OR 市集) 本周末",
       "best_timing": "长期收藏关注"
     },
     {
       "tab_name": "99_全量主数据库",
       "scope": "全网去重核实的 198 条江浙沪6城周末活动主表",
-      "formula": "支持按城市、类别、免费/付费筛选",
+      "formula": "(苏州 OR 上海 OR 无锡 OR 常州 OR 杭州 OR 南京) (本周末 OR 11月) (演唱会 OR 快闪 OR 展览 OR 市集 OR 漫展)",
       "best_timing": "每次运行 collector.py 自动同步"
     }
   ]

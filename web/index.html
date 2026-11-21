@@ -269,12 +269,12 @@
       </div>
     </section>
 
-    <!-- [04 / 05] CROSS-PLATFORM SMART SEARCH MATRIX -->
+    <!-- [04 / 05] CROSS-PLATFORM SMART SEARCH MATRIX & BACKGROUND INTELLIGENCE SUMMARIZER -->
     <section class="editorial-section" id="section-synthesizer">
       <div class="section-header-bar">
-        <div class="section-index">[04 / 05] CROSS-PLATFORM BOOLEAN SEARCH SYNTHESIZER</div>
-        <h2 class="section-title">跨平台一键检索合成器 · 实时捕捉小红书/B站/大麦/豆瓣新官宣</h2>
-        <div class="section-subtitle">针对周三至周五临时官宣的「品牌一日店长」「限时领礼快闪」「周末加场开放麦」，一键合成精准检索式并直跳对应平台</div>
+        <div class="section-index">[04 / 05] CROSS-PLATFORM SEARCH SYNTHESIZER &amp; BACKGROUND AI SUMMARIZER</div>
+        <h2 class="section-title">跨平台一键检索合成器 · 后台多源检索与智能情报总结</h2>
+        <div class="section-subtitle">支持「后台一键多源并发检索 + 自动生成结构化周末决策总结报告」，同时保留小红书/B站/大麦/豆瓣/秀动等 8 大平台一键手动直跳</div>
       </div>
 
       <div class="synthesizer-grid">
@@ -288,6 +288,7 @@
               <option value="常州">常州（含太湖湾 / 青果巷 / 文化广场 / 恐龙园）</option>
               <option value="杭州">杭州（含天目里 / 良渚大屋顶 / 湖滨in77 / 西湖）</option>
               <option value="南京">南京（含德基广场 / 1701 / 熙南里 / 南京博物院）</option>
+              <option value="ALL">全部 6 城（江浙沪 1.5h 高铁圈跨城联检）</option>
             </select>
           </div>
 
@@ -304,28 +305,55 @@
               <option value="H">Module H · 江南园林夜游 / 昆曲评弹 / 无人机烟花秀</option>
               <option value="I">Module I · 国家会展中心 / 博览中心大型消费展</option>
               <option value="J">Module J · 黑珍珠主厨晚宴 / 游船亲子剧场 / 马拉松</option>
+              <option value="ALL">ALL · 全场景十大模块综合检索 (Modules A–J)</option>
             </select>
           </div>
 
           <div class="synth-field">
-            <label for="synthCustomInput" class="mono-label">03. OPTIONAL KEYWORD / 叠加自定义词（艺人/商场/IP）</label>
+            <label for="synthCustomInput" class="mono-label">03. OPTIONAL KEYWORD / 叠加自定义词（艺人/商场/IP/主题）</label>
             <input
               type="text"
               id="synthCustomInput"
               class="synth-input"
-              placeholder="例如：仁恒仓街 / 张园 / 一日店长 / 咖啡节 / 免费领..."
+              placeholder="例如：仁恒仓街 / 张园 / 一日店长 / 剧院魅影 / 免费快闪 / 咖啡市集..."
             />
+            <div class="synth-preset-chips" id="synthPresetChips">
+              <span class="mono-label">快捷热词：</span>
+              <button type="button" class="preset-chip" data-preset-city="苏州" data-preset-mod="B" data-preset-kw="仁恒仓街 快闪">苏州·仁恒仓街快闪</button>
+              <button type="button" class="preset-chip" data-preset-city="上海" data-preset-mod="C" data-preset-kw="音乐剧 艺术展">上海·音乐剧与特展</button>
+              <button type="button" class="preset-chip" data-preset-city="无锡" data-preset-mod="A" data-preset-kw="演唱会 票根半价">无锡·演唱会与票根福利</button>
+              <button type="button" class="preset-chip" data-preset-city="ALL" data-preset-mod="ALL" data-preset-kw="免费">6城·免费免票/羊毛</button>
+              <button type="button" class="preset-chip" data-preset-city="苏州" data-preset-mod="H" data-preset-kw="红枫 园林夜游">苏州·红枫与园林夜游</button>
+              <button type="button" class="preset-chip" data-preset-city="ALL" data-preset-mod="F" data-preset-kw="漫展 同人ONLY 主题餐厅">6城·二次元漫展/痛楼</button>
+            </div>
           </div>
 
           <div class="synth-output-box">
             <div class="synth-output-header">
               <span class="mono-label">SYNTHESIZED BOOLEAN QUERY // 合成检索指令</span>
-              <button type="button" class="copy-formula-btn" id="copySynthQueryBtn">复制检索词</button>
+              <div class="synth-output-actions">
+                <button type="button" class="copy-formula-btn" id="copySynthQueryBtn">复制检索词</button>
+              </div>
             </div>
             <div class="synth-query-display" id="synthQueryDisplay"></div>
             <div class="synth-timing-tip" id="synthTimingTip"></div>
+
+            <!-- Background Search & Intelligence Summary Action Bar -->
+            <div class="bg-search-action-bar">
+              <button type="button" class="btn-bg-search-run" id="runBgSearchBtn">
+                <span class="pulse-icon">⚡</span>
+                <span>后台深度检索并总结输出</span>
+                <span class="btn-sub-tag">MULTI-SOURCE AI BRIEFING</span>
+              </button>
+              <button type="button" class="btn-bg-live-web" id="runLiveWebProbeBtn" title="额外发起跨平台公开网页实时探测">
+                <span>🌐 附加实时网页深度探测</span>
+              </button>
+            </div>
           </div>
 
+          <div class="manual-launch-header">
+            <span class="mono-label">MANUAL PLATFORM JUMP // 手动一键直跳 8 大平台（保留原功能）</span>
+          </div>
           <div class="platform-launch-grid" id="platformLaunchGrid">
             <!-- Populated dynamically with direct search links -->
           </div>
@@ -334,11 +362,30 @@
         <div class="formulas-reference-card">
           <div class="formulas-card-header">
             <span class="mono-label">00_云端导航与检索公式 · 十大类别万能公式表</span>
-            <span class="mono-badge">CLICK TO LOAD</span>
+            <span class="mono-badge">点击即刻后台检索总结</span>
           </div>
           <div class="formulas-list" id="cloudFormulasList">
             <!-- Populated dynamically from 00_云端导航与检索公式 -->
           </div>
+        </div>
+      </div>
+
+      <!-- BACKGROUND SEARCH & INTELLIGENCE SUMMARY OUTPUT TERMINAL -->
+      <div class="bg-summary-terminal" id="synthBgSummaryPanel">
+        <div class="bg-summary-header">
+          <div class="bg-summary-header-left">
+            <span class="bg-terminal-badge">BACKGROUND SEARCH &amp; INTELLIGENCE BRIEFING</span>
+            <h3 class="bg-summary-title" id="bgSummaryHeading">后台多源检索 · 智能情报总结报告</h3>
+          </div>
+          <div class="bg-summary-header-actions">
+            <span class="bg-pipeline-status" id="synthBgPipelineStatus">✓ 多源索引就绪</span>
+            <button type="button" class="card-action-btn" id="copyBgSummaryMdBtn">📋 复制 Markdown 总结</button>
+            <button type="button" class="card-action-btn" id="batchAddSummaryToPassportBtn">➕ 将推荐 TOP 活动全部加入行程单</button>
+          </div>
+        </div>
+
+        <div class="bg-summary-body" id="synthBgSummaryContent">
+          <!-- Populated automatically & on-demand by app.js Background Search & Summary Engine -->
         </div>
       </div>
     </section>

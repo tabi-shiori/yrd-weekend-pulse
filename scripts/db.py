@@ -221,13 +221,49 @@ def now_cst_str() -> str:
     return dt.datetime.now(tz).strftime("%Y-%m-%d %H:%M:%S")
 
 
+def normalize_event_title(title: str) -> str:
+    t = re.sub(r"【[^】]*】|\[[^\]]*\]", "", title or "")
+    return re.sub(r"[·\s\-—_《》【】()（）:：,，×x]", "", t.lower())
+
+
 def compute_event_id(city: str, title: str, start_date: str = "", venue: str = "") -> str:
+    norm_t = normalize_event_title(title)
     norm = re.sub(
         r"\s+",
         "",
-        f"{city.strip()}::{title.strip().lower()}::{start_date.strip()}::{venue.strip().lower()}",
+        f"{city.strip()}::{norm_t}::{start_date.strip()}::{venue.strip().lower()[:12]}",
     )
     return "yrd_" + hashlib.sha1(norm.encode("utf-8")).hexdigest()[:12]
+
+
+def find_existing_event_id(
+    conn: sqlite3.Connection, city: str, title: str, start_date: str = "", venue: str = ""
+) -> str | None:
+    """Fuzzy deduplication across multi-source scrapes within the same city."""
+    import difflib
+
+    norm_new = normalize_event_title(title)
+    if not norm_new:
+        return None
+    rows = conn.execute(
+        "SELECT event_id, title, start_date, venue FROM events WHERE city = ?",
+        (city.strip(),),
+    ).fetchall()
+    for r in rows:
+        norm_old = normalize_event_title(r["title"])
+        if norm_new == norm_old:
+            # If exact same normalized title, only keep separate if start_date AND venue clearly differ
+            if start_date and r["start_date"] and start_date != r["start_date"]:
+                v_new = (venue or "").strip()[:6]
+                v_old = (r["venue"] or "").strip()[:6]
+                if v_new and v_old and v_new != v_old:
+                    continue
+            return r["event_id"]
+        ratio = difflib.SequenceMatcher(None, norm_new, norm_old).ratio()
+        if ratio >= 0.82:
+            if not start_date or not r["start_date"] or start_date == r["start_date"]:
+                return r["event_id"]
+    return None
 
 
 def get_conn(db_path: Path = DB_PATH) -> sqlite3.Connection:
@@ -298,8 +334,12 @@ def init_db(db_path: Path = DB_PATH) -> None:
 def upsert_event(conn: sqlite3.Connection, item: dict[str, Any]) -> str:
     city = item.get("city", "苏州").strip()
     title = item.get("title", "").strip()
-    event_id = item.get("event_id") or compute_event_id(
-        city, title, item.get("start_date", ""), item.get("venue", "")
+    start_date = item.get("start_date", "").strip()
+    venue = item.get("venue", "").strip()
+    event_id = (
+        item.get("event_id")
+        or find_existing_event_id(conn, city, title, start_date, venue)
+        or compute_event_id(city, title, start_date, venue)
     )
     heat_score = int(item.get("heat_score") or 88)
     heat_label = item.get("heat_label") or f"🔥 {heat_score}"
