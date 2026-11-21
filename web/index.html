@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>YRD WEEKEND PULSE｜江浙沪周末活动雷达 · 长三角 6 城 1.5h 高铁圈云端策展期刊</title>
+  <meta name="description" content="Awwwards 级江浙沪周末活动雷达（苏州·上海·无锡·常州·杭州·南京 1.5h 高铁等时圈），覆盖十大全场景模块（A–J）、198+ 核实活动、20 大核心地标渠道与 14 分表云端 Google Sheets 实时数据库。" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;600;700&family=Noto+Serif+SC:wght@500;600;700;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Tactile Editorial Film Grain Overlay -->
+  <div class="film-grain" aria-hidden="true"></div>
+
+  <!-- Top Scroll Progress Scrubber -->
+  <div class="scroll-progress-track" aria-hidden="true">
+    <div class="scroll-progress-bar" id="scrollProgressBar"></div>
+  </div>
+
+  <!-- Top Cloud Telemetry & Dual-Hub Masthead Bar -->
+  <header class="telemetry-bar">
+    <div class="telemetry-left">
+      <span class="telemetry-tag">[ISSUE 2026.47 // YRD 1.5H HSR ISOCHRONE]</span>
+      <span class="telemetry-divider">/</span>
+      <span class="telemetry-status">
+        <span class="status-dot"></span>
+        <span id="telemetrySyncText">CLOUD SYNCED · 6H ACTIONS CRON</span>
+      </span>
+    </div>
+
+    <nav class="telemetry-nav" aria-label="Section Navigation">
+      <a href="#section-isochrone" class="telemetry-nav-link">[01 / 星图]</a>
+      <a href="#section-spotlight" class="telemetry-nav-link">[02 / 头条]</a>
+      <a href="#section-directory" class="telemetry-nav-link">[03 / 期刊库]</a>
+      <a href="#section-synthesizer" class="telemetry-nav-link">[04 / 检索器]</a>
+      <a href="#section-venues" class="telemetry-nav-link">[05 / 宝藏场馆]</a>
+    </nav>
+
+    <div class="telemetry-actions">
+      <a
+        href="https://docs.google.com/spreadsheets/d/1WQYrkrJcjza0XUQ9HEv1nsTJk1fj0v28Vk99AGJlfdw/edit"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="cloud-pill cloud-pill-sheets"
+        title="直达 14 分表云端 Google Sheets 主数据库"
+      >
+        <span>14-TAB GSHEETS DB</span>
+        <span class="arrow-ne">↗</span>
+      </a>
+      <a
+        href="https://github.com/tabi-shiori/yrd-weekend-pulse"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="cloud-pill"
+        title="直达 GitHub 云端仓库与 6 小时 Actions 工作流"
+      >
+        <span>GITHUB CLOUD</span>
+        <span class="arrow-ne">↗</span>
+      </a>
+      <button type="button" class="control-pill" id="soundToggleBtn" aria-label="Toggle tactile audio">
+        SOUND <span id="soundStateLabel">[OFF]</span>
+      </button>
+      <button type="button" class="control-pill" id="themeToggleBtn" aria-label="Switch editorial theme">
+        THEME <span id="themeStateLabel">[曜石黑]</span>
+      </button>
+      <button type="button" class="passport-trigger-btn" id="passportTriggerBtn">
+        <span>周末行程单</span>
+        <span class="passport-count-badge" id="passportCountBadge">0</span>
+      </button>
+    </div>
+  </header>
+
+  <main class="swiss-container">
+    <!-- HERO MASTHEAD -->
+    <section class="hero-grid">
+      <div class="hero-main-cell">
+        <div class="editorial-kicker">
+          <span>YANGTZE RIVER DELTA CULTURAL RADAR</span>
+          <span class="kicker-sep">—</span>
+          <span id="heroWindowLabel">2026.11.20 (FRI) — 11.22 (SUN) &amp; SEASONAL ARCHIVE</span>
+        </div>
+        <h1 class="hero-title">
+          <span class="hero-title-en">YRD WEEKEND PULSE</span>
+          <span class="hero-title-cn">江浙沪周末活动雷达</span>
+        </h1>
+        <p class="hero-lead">
+          以 <strong>苏州（大本营）</strong> 为圆心，辐射 <strong>上海（25m）· 无锡（18m）· 常州（40m）· 南京（75m）· 杭州（85m）</strong> 的 1.5 小时高铁文化生活等时圈。全量收录 <strong>Modules A–J 十大场景</strong>、20 大核心地标渠道与 14 分表云端 Google Sheets 实时同步主库。
+        </p>
+        <div class="hero-cta-row">
+          <a href="#section-directory" class="btn-editorial btn-primary">
+            <span>浏览 6 城全量活动期刊</span>
+            <span class="btn-meta" id="heroBtnTotalMeta">198 EVENTS</span>
+          </a>
+          <a href="#section-synthesizer" class="btn-editorial btn-secondary">
+            <span>跨平台布尔检索合成器</span>
+            <span class="btn-meta">XHS / BILI / DAMAI</span>
+          </a>
+          <a
+            href="https://docs.google.com/spreadsheets/d/1WQYrkrJcjza0XUQ9HEv1nsTJk1fj0v28Vk99AGJlfdw/edit"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn-editorial btn-outline"
+          >
+            <span>打开 14 分表云端 Google Sheets</span>
+            <span class="arrow-ne">↗</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-stats-cell">
+        <div class="stat-box">
+          <div class="stat-index">[01 / TOTAL VERIFIED]</div>
+          <div class="stat-number" id="statTotalEvents">198</div>
+          <div class="stat-caption">6 城去重核实活动主库</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-index">[02 / THIS WEEKEND]</div>
+          <div class="stat-number accent-cinnabar" id="statWeekendActive">133</div>
+          <div class="stat-caption">本周末进行中 / 首演现场</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-index">[03 / FREE &amp; POP-UP PERKS]</div>
+          <div class="stat-number accent-celadon" id="statFreeEvents">31</div>
+          <div class="stat-caption">免费免票 / 羊毛打卡快闪</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-index">[04 / TREASURE VENUES]</div>
+          <div class="stat-number accent-gold" id="statTotalVenues">20</div>
+          <div class="stat-caption">6 城核心商圈与宝藏场馆</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- [01 / 05] INTERACTIVE 6-CITY 1.5H HSR ISOCHRONE STAR MAP -->
+    <section class="editorial-section" id="section-isochrone">
+      <div class="section-header-bar">
+        <div class="section-index">[01 / 05] INTERACTIVE HSR ISOCHRONE STAR MAP</div>
+        <h2 class="section-title">长三角 6 城 1.5h 高铁等时圈交互星图</h2>
+        <div class="section-subtitle">点击星图中的任意城市节点，即刻切换全站城市视角并查看苏州出发高铁通勤动线</div>
+      </div>
+
+      <div class="isochrone-layout">
+        <div class="isochrone-stage">
+          <div class="isochrone-stage-header">
+            <span class="mono-label">ORIGIN HUB: SUZHOU RAILWAY / SIP STATION (31.30°N, 120.62°E)</span>
+            <button type="button" class="reset-city-btn" id="starMapResetBtn">重置为全部 6 城 [ALL]</button>
+          </div>
+          <div class="svg-map-wrapper">
+            <svg
+              id="hsrStarMapSvg"
+              viewBox="0 0 720 450"
+              class="hsr-star-map"
+              role="img"
+              aria-label="长三角6城1.5小时高铁等时圈交互星图"
+            >
+              <!-- Populated dynamically by app.js -->
+            </svg>
+          </div>
+          <div class="isochrone-legend">
+            <span class="legend-item"><i class="legend-dot dot-hub"></i> 苏州大本营 (00 MIN)</span>
+            <span class="legend-item"><i class="legend-dot dot-ring1"></i> 30分钟极速圈 (无锡 18m / 上海 25m)</span>
+            <span class="legend-item"><i class="legend-dot dot-ring2"></i> 45分钟近邻圈 (常州 40m)</span>
+            <span class="legend-item"><i class="legend-dot dot-ring3"></i> 90分钟周末圈 (南京 75m / 杭州 85m)</span>
+          </div>
+        </div>
+
+        <aside class="city-dossier-panel" id="cityDossierPanel">
+          <!-- Populated dynamically by app.js -->
+        </aside>
+      </div>
+    </section>
+
+    <!-- [02 / 05] CURATOR'S AWWWARDS SPOTLIGHT -->
+    <section class="editorial-section" id="section-spotlight">
+      <div class="section-header-bar">
+        <div class="section-index">[02 / 05] CURATOR'S AWWWARDS SPOTLIGHT</div>
+        <h2 class="section-title">策展人本周末头条海报墙 · 顶流必看现场</h2>
+        <div class="section-subtitle">精选热度 🔥 97–99 的跨城旗舰演唱会、原版音乐剧、先锋艺博会与江南水岸美学市集</div>
+      </div>
+
+      <div class="spotlight-grid" id="spotlightGrid">
+        <!-- Populated dynamically by app.js -->
+      </div>
+    </section>
+
+    <!-- [03 / 05] FULL 6-CITY & MODULES A-J CURATED DIRECTORY -->
+    <section class="editorial-section" id="section-directory">
+      <div class="section-header-bar">
+        <div class="section-index">[03 / 05] MODULES A–J FULL ARCHIVE &amp; FILTER MATRIX</div>
+        <h2 class="section-title">江浙沪 6 城 × 十大模块 (A–J) 全量活动期刊库</h2>
+        <div class="section-subtitle">支持按城市、十大场景模块、免费/周末状态与关键词实时交叉过滤</div>
+      </div>
+
+      <!-- Sticky Swiss Filter Control Matrix -->
+      <div class="filter-matrix">
+        <!-- Row 1: 6 Cities Bar -->
+        <div class="filter-row">
+          <div class="filter-row-label">CITY / 城市圈</div>
+          <div class="filter-pills-group" id="cityFilterGroup">
+            <!-- Populated dynamically -->
+          </div>
+        </div>
+
+        <!-- Row 2: Modules A-J Bar -->
+        <div class="filter-row">
+          <div class="filter-row-label">MODULE / 十大分类</div>
+          <div class="filter-pills-group" id="moduleFilterGroup">
+            <!-- Populated dynamically -->
+          </div>
+        </div>
+
+        <!-- Row 3: Search, Quick Toggles & View Switcher -->
+        <div class="filter-toolbar">
+          <div class="search-box-wrap">
+            <span class="search-prefix">SEARCH //</span>
+            <input
+              type="search"
+              id="eventSearchInput"
+              class="event-search-input"
+              placeholder="输入活动名、场馆（如：仁恒仓街、张园、天目里、剧院魅影、薛之谦、漫展、市集）..."
+            />
+            <button type="button" class="clear-search-btn" id="clearSearchBtn" title="清空搜索">×</button>
+          </div>
+
+          <div class="quick-status-group" id="statusFilterGroup">
+            <button type="button" class="status-pill active" data-status="ALL">全部档期</button>
+            <button type="button" class="status-pill" data-status="WEEKEND">⚡ 本周末进行中</button>
+            <button type="button" class="status-pill" data-status="FREE">🎁 免费 / 羊毛快闪</button>
+            <button type="button" class="status-pill" data-status="HOT95">🔥 热度 95+</button>
+          </div>
+
+          <div class="view-mode-group">
+            <span class="result-counter" id="filterResultCounter">SHOWING 198 / 198</span>
+            <button type="button" class="view-btn active" id="viewGridBtn" data-view="grid">GRID 杂志卡</button>
+            <button type="button" class="view-btn" id="viewTableBtn" data-view="table">TABLE 检索表</button>
+          </div>
+        </div>
+
+        <!-- Active Module Editorial Strategy Banner -->
+        <div class="module-strategy-banner" id="moduleStrategyBanner">
+          <!-- Populated dynamically when a module is selected -->
+        </div>
+      </div>
+
+      <!-- Cards Grid View -->
+      <div class="events-editorial-grid" id="eventsGridContainer"></div>
+
+      <!-- Compact Swiss Table View -->
+      <div class="events-table-wrapper hidden" id="eventsTableContainer">
+        <table class="swiss-table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>城市</th>
+              <th>模块</th>
+              <th>活动名称 &amp; 核心看点</th>
+              <th>状态 / 热度</th>
+              <th>活动时间</th>
+              <th>商圈 &amp; 具体场馆</th>
+              <th>票价</th>
+              <th>苏州出发高铁/地铁通勤</th>
+              <th>操作</th>
+            </tr>
+          </thead>
+          <tbody id="eventsTableBody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- [04 / 05] CROSS-PLATFORM SMART SEARCH MATRIX -->
+    <section class="editorial-section" id="section-synthesizer">
+      <div class="section-header-bar">
+        <div class="section-index">[04 / 05] CROSS-PLATFORM BOOLEAN SEARCH SYNTHESIZER</div>
+        <h2 class="section-title">跨平台一键检索合成器 · 实时捕捉小红书/B站/大麦/豆瓣新官宣</h2>
+        <div class="section-subtitle">针对周三至周五临时官宣的「品牌一日店长」「限时领礼快闪」「周末加场开放麦」，一键合成精准检索式并直跳对应平台</div>
+      </div>
+
+      <div class="synthesizer-grid">
+        <div class="synth-controls-card">
+          <div class="synth-field">
+            <label for="synthCitySelect" class="mono-label">01. SELECT TARGET CITY / 选择目标城市</label>
+            <select id="synthCitySelect" class="synth-select">
+              <option value="苏州">苏州（含仁恒仓街 / 十全街 / 诚品 / 金鸡湖 / 狮山）</option>
+              <option value="上海">上海（含张园 / 西岸 / 安福路 / 南京东路百联ZX / 静安）</option>
+              <option value="无锡">无锡（含南长街 / 拈花湾 / 惠山古镇 / 奥体中心）</option>
+              <option value="常州">常州（含太湖湾 / 青果巷 / 文化广场 / 恐龙园）</option>
+              <option value="杭州">杭州（含天目里 / 良渚大屋顶 / 湖滨in77 / 西湖）</option>
+              <option value="南京">南京（含德基广场 / 1701 / 熙南里 / 南京博物院）</option>
+            </select>
+          </div>
+
+          <div class="synth-field">
+            <label for="synthModuleSelect" class="mono-label">02. SELECT SCENARIO MODULE / 选择情报场景</label>
+            <select id="synthModuleSelect" class="synth-select">
+              <option value="A">Module A · 明星空降 / 品牌一日店长 / 演唱会见面会</option>
+              <option value="B">Module B · 奢潮大牌快闪 Pop-up / 打卡领礼羊毛</option>
+              <option value="C">Module C · 美术馆特展 / 独立书店沙龙 / 原版音乐剧</option>
+              <option value="D">Module D · Livehouse 摇滚巡演 / 脱口秀开放麦</option>
+              <option value="E">Module E · 咖啡精酿市集 / 本色东西桥市集 / 艺术书展</option>
+              <option value="F">Module F · B站会员购漫展 / 同人Only / 谷子痛楼</option>
+              <option value="G">Module G · 环太湖骑行 / Citywalk / 宠物派对 / 市民夜校</option>
+              <option value="H">Module H · 江南园林夜游 / 昆曲评弹 / 无人机烟花秀</option>
+              <option value="I">Module I · 国家会展中心 / 博览中心大型消费展</option>
+              <option value="J">Module J · 黑珍珠主厨晚宴 / 游船亲子剧场 / 马拉松</option>
+            </select>
+          </div>
+
+          <div class="synth-field">
+            <label for="synthCustomInput" class="mono-label">03. OPTIONAL KEYWORD / 叠加自定义词（艺人/商场/IP）</label>
+            <input
+              type="text"
+              id="synthCustomInput"
+              class="synth-input"
+              placeholder="例如：仁恒仓街 / 张园 / 一日店长 / 咖啡节 / 免费领..."
+            />
+          </div>
+
+          <div class="synth-output-box">
+            <div class="synth-output-header">
+              <span class="mono-label">SYNTHESIZED BOOLEAN QUERY // 合成检索指令</span>
+              <button type="button" class="copy-formula-btn" id="copySynthQueryBtn">复制检索词</button>
+            </div>
+            <div class="synth-query-display" id="synthQueryDisplay"></div>
+            <div class="synth-timing-tip" id="synthTimingTip"></div>
+          </div>
+
+          <div class="platform-launch-grid" id="platformLaunchGrid">
+            <!-- Populated dynamically with direct search links -->
+          </div>
+        </div>
+
+        <div class="formulas-reference-card">
+          <div class="formulas-card-header">
+            <span class="mono-label">00_云端导航与检索公式 · 十大类别万能公式表</span>
+            <span class="mono-badge">CLICK TO LOAD</span>
+          </div>
+          <div class="formulas-list" id="cloudFormulasList">
+            <!-- Populated dynamically from 00_云端导航与检索公式 -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- [05 / 05] 6-CITY 20 TREASURE VENUES & LANDMARK CHANNELS -->
+    <section class="editorial-section" id="section-venues">
+      <div class="section-header-bar">
+        <div class="section-index">[05 / 05] 88_6城宝藏场馆与渠道矩阵 (20 CORE LANDMARKS)</div>
+        <h2 class="section-title">长三角 6 城 20 大高频出没宝藏场馆与官方情报源</h2>
+        <div class="section-subtitle">锁定这些核心街区、美术馆与 Livehouse 官方号，第一时间截获最新快闪与开票资讯</div>
+      </div>
+
+      <div class="venues-grid" id="venuesGrid">
+        <!-- Populated dynamically from 88_6城宝藏场馆与渠道矩阵 -->
+      </div>
+    </section>
+  </main>
+
+  <!-- EDITORIAL FOOTER & CLOUD ARCHITECTURE -->
+  <footer class="editorial-footer">
+    <div class="footer-grid">
+      <div class="footer-col-brand">
+        <div class="footer-kicker">YRD WEEKEND PULSE // CLOUD INTELLIGENCE</div>
+        <h3 class="footer-headline">江浙沪周末活动雷达 · 24/7 云端策展期刊</h3>
+        <p class="footer-desc">
+          持久化云端架构：SQLite 去重引擎 + GitHub Actions 每 6 小时自动巡检 + GitHub Pages 全球静态分发 + 14 分表 Google Sheets 云端主数据库。
+        </p>
+      </div>
+
+      <div class="footer-col-links">
+        <div class="mono-label">CLOUD ENDPOINTS // 云端双中枢</div>
+        <ul class="footer-link-list">
+          <li>
+            <a href="https://docs.google.com/spreadsheets/d/1WQYrkrJcjza0XUQ9HEv1nsTJk1fj0v28Vk99AGJlfdw/edit" target="_blank" rel="noopener noreferrer">
+              Google Sheets 14分表主数据库 (1WQYrkrJ...Jlfdw) ↗
+            </a>
+          </li>
+          <li>
+            <a href="https://tabi-shiori.github.io/yrd-weekend-pulse/" target="_blank" rel="noopener noreferrer">
+              GitHub Pages 24/7 云端看板 (tabi-shiori.github.io) ↗
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/tabi-shiori/yrd-weekend-pulse" target="_blank" rel="noopener noreferrer">
+              GitHub 代码仓库 (tabi-shiori/yrd-weekend-pulse) ↗
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/tabi-shiori/yrd-weekend-pulse/actions" target="_blank" rel="noopener noreferrer">
+              GitHub Actions 6小时自动巡检工作流 ↗
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="footer-col-meta">
+        <div class="mono-label">SYSTEM TELEMETRY // 运行状态</div>
+        <div class="footer-telemetry-rows">
+          <div><span>LAST SYNC:</span> <strong id="footerUpdatedAt">2026-11-21</strong></div>
+          <div><span>CRON SCHEDULE:</span> <strong>0 */6 * * * (Every 6h)</strong></div>
+          <div><span>COVERAGE:</span> <strong>苏州 · 上海 · 无锡 · 常州 · 杭州 · 南京</strong></div>
+          <div><span>DESIGN SYSTEM:</span> <strong>Swiss Editorial Grid · Dual Theme</strong></div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- EVENT DOSSIER MODAL -->
+  <div class="modal-backdrop hidden" id="eventModalBackdrop" role="dialog" aria-modal="true" aria-labelledby="modalEventTitle">
+    <div class="dossier-modal">
+      <div class="dossier-modal-header">
+        <div class="dossier-meta-tags" id="modalMetaTags"></div>
+        <button type="button" class="modal-close-btn" id="closeModalBtn" aria-label="关闭详情">ESC / 关闭 ×</button>
+      </div>
+      <div class="dossier-modal-body" id="modalBodyContent"></div>
+    </div>
+  </div>
+
+  <!-- WEEKEND PASSPORT DRAWER (我的周末行程单抽屉) -->
+  <div class="drawer-backdrop hidden" id="passportDrawerBackdrop">
+    <aside class="passport-drawer" aria-label="我的周末行程单">
+      <div class="passport-drawer-header">
+        <div>
+          <div class="mono-label">WEEKEND PASSPORT // 跨城周末行程单</div>
+          <h3 class="drawer-title">我的长三角周末行程单</h3>
+        </div>
+        <button type="button" class="modal-close-btn" id="closePassportBtn">关闭 ×</button>
+      </div>
+
+      <div class="passport-summary-bar" id="passportSummaryBar">
+        <!-- Populated dynamically -->
+      </div>
+
+      <div class="passport-items-list" id="passportItemsList">
+        <!-- Populated dynamically -->
+      </div>
+
+      <div class="passport-drawer-footer">
+        <div class="passport-export-row">
+          <button type="button" class="btn-editorial btn-primary" id="exportMarkdownBtn">导出 Markdown 行程单</button>
+          <button type="button" class="btn-editorial btn-secondary" id="exportIcsBtn">导出 .ICS 日历</button>
+          <button type="button" class="btn-editorial btn-outline" id="exportCsvBtn">导出 .CSV</button>
+        </div>
+        <button type="button" class="clear-passport-btn" id="clearPassportBtn">清空行程单</button>
+      </div>
+    </aside>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

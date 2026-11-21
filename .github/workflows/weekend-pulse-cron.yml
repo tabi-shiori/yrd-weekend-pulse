@@ -1,0 +1,78 @@
+name: YRD WEEKEND PULSE - 6h Cloud Patrol & GitHub Pages Deploy
+
+on:
+  schedule:
+    # Runs automatically every 6 hours, 24/7 on GitHub Cloud
+    - cron: '0 */6 * * *'
+  workflow_dispatch: {}
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "yrd-weekend-pulse-pages"
+  cancel-in-progress: false
+
+jobs:
+  patrol-and-bundle:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout YRD Weekend Pulse Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Run 6-City Event Patrol, Deduplication & Snapshot Export
+        if: github.event_name != 'push'
+        run: |
+          python3 scripts/collector.py --mode github_actions_6h_cron
+          python3 scripts/export_artifact.py dist/yrd_weekend_pulse_awwwards.html
+
+      - name: Commit Updated Event Snapshot & SQLite Database
+        if: github.event_name != 'push'
+        run: |
+          if [[ -n "$(git status --porcelain data/ dist/)" ]]; then
+            git config user.name "YRD Weekend Pulse Bot"
+            git config user.email "actions@users.noreply.github.com"
+            git add data/events.db data/dashboard_snapshot.json dist/yrd_weekend_pulse_awwwards.html
+            git commit -m "chore(pulse): 6h automated 6-city event verification & snapshot update [skip ci]"
+            git push
+          fi
+
+      - name: Assemble Static Awwwards Cloud Dashboard Bundle
+        run: |
+          python3 scripts/export_artifact.py dist/yrd_weekend_pulse_awwwards.html
+          rm -rf _site
+          mkdir -p _site/data _site/dist
+          cp -r web/* _site/
+          cp data/dashboard_snapshot.json _site/data/dashboard_snapshot.json
+          cp dist/yrd_weekend_pulse_awwwards.html _site/dist/yrd_weekend_pulse_awwwards.html
+          touch _site/.nojekyll
+
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload GitHub Pages Artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy-pages:
+    needs: patrol-and-bundle
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy Awwwards Cloud Magazine to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
