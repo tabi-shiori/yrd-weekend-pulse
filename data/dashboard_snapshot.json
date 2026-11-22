@@ -1,7 +1,7 @@
 {
   "project": "YRD WEEKEND PULSE｜江浙沪周末活动雷达",
   "edition": "ISSUE 2026.47 · SUZHOU 1.5H HSR ISOCHRONE",
-  "updated_at": "2026-11-22 21:55:57",
+  "updated_at": "2026-11-23 07:06:33",
   "window_label": "2026.11.20 (周五) — 11.22 (周日) 及近期跨周档期",
   "cloud_endpoints": {
     "spreadsheet_id": "1WQYrkrJcjza0XUQ9HEv1nsTJk1fj0v28Vk99AGJlfdw",
@@ -12,8 +12,8 @@
     "actions_cron": "Every 6 Hours (0 */6 * * *)"
   },
   "stats": {
-    "total_events": 188,
-    "active_weekend_events": 124,
+    "total_events": 189,
+    "active_weekend_events": 126,
     "free_events": 30,
     "total_cities": 6,
     "total_modules": 10,
@@ -63,7 +63,7 @@
       "svg_x": 565,
       "svg_y": 240,
       "ring": 1,
-      "count": 43
+      "count": 44
     },
     {
       "city": "常州",
@@ -170,7 +170,7 @@
       "desc": "B站会员购6城漫展 / 单一IP同人Only展 / 谷子痛楼快闪 / 地下偶像 Idol Live / 电竞联赛主场",
       "best_window": "漫展与同人Only提前1-3周；主题谷子咖啡需提前在B站会员购或小程序预约时段",
       "formula": "城市名 + (漫展 OR 同人ONLY OR 痛楼 OR 谷子快闪 OR 地下偶像) + 11月",
-      "count": 58
+      "count": 59
     },
     {
       "code": "G",
@@ -224,7 +224,7 @@
       "official_accounts": "公众号：仁恒仓街 / 小红书：@仁恒仓街",
       "search_formula": "苏州 仁恒仓街 快闪 OR 一日店长 OR 市集 本周末",
       "search_url": "https://www.xiaohongshu.com/search_result?keyword=%E8%8B%8F%E5%B7%9E%E4%BB%81%E6%81%92%E4%BB%93%E8%A1%97%E5%BF%AB%E9%97%AA",
-      "updated_at": "2026-11-22 21:55:54"
+      "updated_at": "2026-11-23 07:06:30"
     },
     {
       "venue_id": "ven_185bfdbc27",
@@ -236,7 +236,7 @@
       "official_accounts": "公众号：苏州竹辉环宇荟 / 小红书搜「十全街新店快闪」",
       "search_formula": "苏州 十全街 OR 竹辉环宇荟 快闪 OR 市集 OR 活动",
       "search_url": "https://www.xiaohongshu.com/search_result?keyword=%E8%8B%8F%E5%B7%9E%E5%8D%81%E5%85%A8%E8%A1%97%E5%BF%AB%E9%97%AA%E5%B8%82%E9%9B%86",
-      "updated_at": "2026-11-22 21:55:54"
+      "updated_at": "2026-11-23 07:06:30"
     },
     {
       "venue_id": "ven_5bc86a3935",
@@ -248,7 +248,7 @@
       "official_accounts": "公众号：诚品生活苏州 / 诚品大步梯特展预告",
       "search_formula": "诚品生活苏州 展览 OR 沙龙 OR 分享会 OR 市集",
       "search_url": "https://www.eslitecorp.com/",
-      "updated_at": "2026-11-22 21:55:54"
+      "updated_at": "2026-11-23 07:06:30"
     },
     {
       "venue_id": "ven_e455b609b8",
@@ -260,7 +260,7 @@
       "official_accounts": "公众号：苏州文化艺术中心 / 苏州交响乐团",
       "search_formula": "苏州文化艺术中心 OR 苏州保利大剧院 OR 苏州湾大剧院 本周末演出",
       "search_url": "https://www.szsorch.com/shows-ticketing.html",
-      "updated_at": "2026-11-22 21:55:54"
+      "updated_at": "2026-11-23 07:06:30"
     },
     {
       "venue_id": "ven_7566bc2c18",
@@ -272,7 +272,7 @@
       "official_accounts": "秀动App搜「苏州山丘」/ 公众号：山丘LIVEHOUSE",
       "search_formula": "苏州 山丘livehouse OR 山丘展演空间 本周末",
       "search_url": "https://www.showstart.com/event/list?cityCode=320500",
-      "updated_at": "2026-11-22 21:55:54"
+      "updated_at": "2026-11-23 07:06:30"
     },
     {
       "venue_id": "ven_5c12e8631b",
@@ -284,7 +284,7 @@
       "official_accounts": "公众号：苏州本色美术馆（每月度周末市集排期）",
       "search_formula": "苏州 本色美术馆 市集 开放时间",
       "search_url": "https://www.xiaohongshu.com/search_result?keyword=%E8%8B%8F%E5%B7%9E%E6%9C%AC%E8%89%B2%E7%BE%8E%E6%9C%AF%E9%A6%86%E5%B8%82%E9%9B%86",
-      "updated_at": "2026-11-22 21:55:54"
+      "updated_at": "2026-11-23 07:06:30"
     },
     {
       "venue_id": "ven_0ad91ec2be",
@@ -296,7 +296,7 @@
       "official_accounts": "公众号/小程序：君到苏州、苏州博物馆、苏州园林官微",
       "search_formula": "君到苏州 本周末活动 OR 拙政问雅 OR 狮子林菊花展",
       "search_url": "http://www.suzhou.gov.cn/",
-      "updated_at": "2026-11-22 21:55:54"
+      "updated_at": "2026-11-23 07:06:30"
     },
     {
       "venue_id": "ven_2f76295c1c",
@@ -308,7 +308,7 @@
       "official_accounts": "公众号/小程序：上海张园 / 静安文旅",
       "search_formula": "上海 张园 OR 南京西路 快闪 OR 一日店长 OR 展览 本周末",
       "search_url": "https://shanghaizhangyuan.df962388.com/",
-      "updated_at": "2026-11-22 21:55:54"
+      "updated_at": "2026-11-23 07:06:30"
     },
     {
       "venue_id": "ven_4fe8aea70c",
@@ -320,7 +320,7 @@
       "official_accounts": "公众号：西岸WESTBUND / 瓦肆VAS",
       "search_formula": "上海 西岸梦中心 OR 西岸美术馆 OR 油罐艺术中心 本周末",
       "search_url": "https://shanghai.douban.com/events/weekend-all",
-      "updated_at": "2026-11-22 21:55:54"
+      "updated_at": "2026-11-23 07:06:30"
     },
     {
       "venue_id": "ven_6624e16958",
@@ -332,7 +332,7 @@
       "official_accounts": "B站会员购上海站 / 公众号：百联ZX创趣场、上海静安大悦城",
       "search_formula": "上海 百联ZX OR 静安大悦城 快闪 OR 痛楼 OR 主题餐厅",
       "search_url": "https://show.bilibili.com/",
-      "updated_at": "2026-11-22 21:55:54"
+      "updated_at": "2026-11-23 07:06:30"
     },
     {
       "venue_id": "ven_5b8846dd69",
@@ -344,7 +344,7 @@
       "official_accounts": "公众号：上海话剧艺术中心、ROCKBUND洛克外滩源",
       "search_formula": "上海 安福路 OR 愚园路 OR 洛克外滩源 快闪 市集 本周末",
       "search_url": "https://www.xiaohongshu.com/search_result?keyword=%E4%B8%8A%E6%B5%B7%E6%9C%AC%E5%91%A8%E6%9C%AB%E5%BF%AB%E9%97%AA%E5%B8%82%E9%9B%86",
-      "updated_at": "2026-11-22 21:55:54"
+      "updated_at": "2026-11-23 07:06:30"
     },
     {
       "venue_id": "ven_6703f9344d",
@@ -356,7 +356,7 @@
       "official_accounts": "官网：neccsh.com / 公众号：国家会展中心上海",
       "search_formula": "上海国家会展中心 2026年11月 展会排期",
       "search_url": "https://www.neccsh.com/cecsh/exhibitioninfo/exhibitionlist.jspx",
-      "updated_at": "2026-11-22 21:55:54"
+      "updated_at": "2026-11-23 07:06:30"
     },
     {
       "venue_id": "ven_f39c526ece",
@@ -368,7 +368,7 @@
       "official_accounts": "小程序：拈花码（每日实时演出排期）",
       "search_formula": "无锡 拈花湾 无人机 亮塔仪式 演出时间表",
       "search_url": "https://tw.trip.com/moments/theme/poi-nianhua-bay-23822661-performances-990135/",
-      "updated_at": "2026-11-22 21:55:54"
+      "updated_at": "2026-11-23 07:06:30"
     },
     {
       "venue_id": "ven_15e3ab3d9d",
@@ -380,7 +380,7 @@
       "official_accounts": "公众号：无锡清名桥古运河景区、无锡运河汇",
       "search_formula": "无锡 南长街 OR 运河汇 市集 OR 快闪 OR 演出 本周末",
       "search_url": "https://www.douban.com/location/wuxi/events/weekend-all",
-      "updated_at": "2026-11-22 21:55:54"
+      "updated_at": "2026-11-23 07:06:30"
     },
     {
       "venue_id": "ven_ca158e403e",
@@ -392,7 +392,7 @@
       "official_accounts": "公众号：无锡大剧院、无锡惠山古镇",
       "search_formula": "无锡大剧院 OR 惠山古镇 本周末演出 菊花展",
       "search_url": "https://www.douban.com/location/wuxi/events/weekend-all",
-      "updated_at": "2026-11-22 21:55:54"
+      "updated_at": "2026-11-23 07:06:30"
     },
     {
       "venue_id": "ven_5a7a40835e",
@@ -404,7 +404,7 @@
       "official_accounts": "公众号/小程序：天目里OōEli、大屋顶文化",
       "search_formula": "杭州 天目里 OR 良渚大屋顶 展览 OR 市集 OR 演出 本周末",
       "search_url": "https://www.douban.com/location/hangzhou/events/weekend-all",
-      "updated_at": "2026-11-22 21:55:54"
+      "updated_at": "2026-11-23 07:06:30"
     },
     {
       "venue_id": "ven_661180aabc",
@@ -416,7 +416,7 @@
       "official_accounts": "公众号：杭州大剧院、杭州湖滨银泰in77",
       "search_formula": "杭州大剧院 OR 湖滨银泰in77 快闪 演出 本周末",
       "search_url": "https://hk.trip.com/events/3106622-hangzhou-grand-theatre-arts-collection/",
-      "updated_at": "2026-11-22 21:55:54"
+      "updated_at": "2026-11-23 07:06:30"
     },
     {
       "venue_id": "ven_497f26fe6f",
@@ -428,7 +428,7 @@
       "official_accounts": "公众号：常州青果巷、常州文旅",
       "search_formula": "常州 青果巷 OR 棉仓 OR 文化广场 市集 展览 本周末",
       "search_url": "https://www.douban.com/location/changzhou/events/weekend-all",
-      "updated_at": "2026-11-22 21:55:54"
+      "updated_at": "2026-11-23 07:06:30"
     },
     {
       "venue_id": "ven_46b56b337c",
@@ -440,7 +440,7 @@
       "official_accounts": "公众号：1701LiveHouse / 秀动App南京站",
       "search_formula": "南京 1701 Livehouse 本周末演出",
       "search_url": "https://www.douban.com/location/nanjing/events/weekend-all",
-      "updated_at": "2026-11-22 21:55:54"
+      "updated_at": "2026-11-23 07:06:30"
     },
     {
       "venue_id": "ven_9f976035a4",
@@ -452,7 +452,7 @@
       "official_accounts": "公众号：德基广场、德基艺术博物馆、江苏大剧院",
       "search_formula": "南京 德基广场 OR 江苏大剧院 OR 南京博物院 快闪 展览 本周末",
       "search_url": "https://www.douban.com/location/nanjing/events/weekend-all",
-      "updated_at": "2026-11-22 21:55:54"
+      "updated_at": "2026-11-23 07:06:30"
     }
   ],
   "search_formulas": [
@@ -558,7 +558,7 @@
       "source": "Trip.com演出票务 / 上海大剧院",
       "verify_status": "已核实",
       "url": "https://hk.trip.com/events/3181690-china-arts-collection/",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "原版音乐剧",
         "剧院魅影",
@@ -588,7 +588,7 @@
       "source": "无锡市文广旅游局 / 盐城新闻网",
       "verify_status": "已核实",
       "url": "https://www.ycnews.cn/ycwx/2026/11-16/9k6WR8O1.html",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "薛之谦",
         "万人体育场",
@@ -618,7 +618,7 @@
       "source": "Bilibili会员购官方API",
       "verify_status": "已核实",
       "url": "https://show.bilibili.com/platform/detail.html?id=1004839",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "主题餐厅",
         "预售中",
@@ -647,7 +647,7 @@
       "source": "新华报业网 / 苏州园林官方",
       "verify_status": "已核实",
       "url": "https://www.xhby.net/content/s6af6e58ae4b079b9eba7f18d.html",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "天平山五彩枫",
         "拙政问雅",
@@ -677,7 +677,7 @@
       "source": "Bilibili会员购官方API",
       "verify_status": "已核实",
       "url": "https://show.bilibili.com/platform/detail.html?id=1007035",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "漫展",
         "预售中",
@@ -706,7 +706,7 @@
       "source": "新华网 / 国家会展中心（上海）官网",
       "verify_status": "已核实",
       "url": "https://www.news.cn/culture/20261120/4666c94b19554bc88010669a122f9ea4/c.html",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "文博会",
         "数字文创",
@@ -736,7 +736,7 @@
       "source": "Bilibili会员购官方API",
       "verify_status": "已核实",
       "url": "https://show.bilibili.com/platform/detail.html?id=1006529",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "漫展",
         "预售中",
@@ -765,7 +765,7 @@
       "source": "Bilibili会员购官方API",
       "verify_status": "已核实",
       "url": "https://show.bilibili.com/platform/detail.html?id=1006163",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "漫展",
         "预售中",
@@ -794,7 +794,7 @@
       "source": "Bilibili会员购官方API",
       "verify_status": "已核实",
       "url": "https://show.bilibili.com/platform/detail.html?id=1005507",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "IP展览",
         "预售中",
@@ -823,7 +823,7 @@
       "source": "Bilibili会员购官方API",
       "verify_status": "已核实",
       "url": "https://show.bilibili.com/platform/detail.html?id=1004189",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "Only同人展",
         "预售中",
@@ -852,7 +852,7 @@
       "source": "Bilibili会员购官方API",
       "verify_status": "已核实",
       "url": "https://show.bilibili.com/platform/detail.html?id=1007706",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "漫展",
         "预售中",
@@ -881,7 +881,7 @@
       "source": "Bilibili会员购官方API",
       "verify_status": "已核实",
       "url": "https://show.bilibili.com/platform/detail.html?id=1007036",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "漫展",
         "预售中",
@@ -910,7 +910,7 @@
       "source": "Bilibili会员购官方API",
       "verify_status": "已核实",
       "url": "https://show.bilibili.com/platform/detail.html?id=1007510",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "漫展",
         "预售中",
@@ -939,7 +939,7 @@
       "source": "Bilibili会员购官方API",
       "verify_status": "已核实",
       "url": "https://show.bilibili.com/platform/detail.html?id=1007787",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "漫展",
         "预售中",
@@ -968,7 +968,7 @@
       "source": "Bilibili会员购官方API",
       "verify_status": "已核实",
       "url": "https://show.bilibili.com/platform/detail.html?id=1007453",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "漫展",
         "预售中",
@@ -997,7 +997,7 @@
       "source": "Bilibili会员购官方API",
       "verify_status": "已核实",
       "url": "https://show.bilibili.com/platform/detail.html?id=1006920",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "漫展",
         "预售中",
@@ -1026,7 +1026,7 @@
       "source": "Bilibili会员购官方API",
       "verify_status": "已核实",
       "url": "https://show.bilibili.com/platform/detail.html?id=1006785",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "漫展",
         "预售中",
@@ -1055,7 +1055,7 @@
       "source": "Bilibili会员购官方API",
       "verify_status": "已核实",
       "url": "https://show.bilibili.com/platform/detail.html?id=1007549",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "漫展",
         "预售中",
@@ -1084,7 +1084,7 @@
       "source": "无锡市旅游局 / 搜狐文旅报道",
       "verify_status": "已核实",
       "url": "https://m.sohu.com/a/1101940785_121106832",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "拈花湾夜游",
         "3000架无人机秀",
@@ -1114,7 +1114,7 @@
       "source": "豆瓣同城 / 秀动",
       "verify_status": "已核实",
       "url": "https://shanghai.douban.com/events/weekend-all",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "英国独立摇滚",
         "后朋克",
@@ -1143,7 +1143,7 @@
       "source": "Trip.com南京演唱会日历",
       "verify_status": "已核实",
       "url": "https://hk.trip.com/events/9366828-2026-nanjing-concerts-collection/",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "天生歌姬",
         "A-Lin",
@@ -1173,7 +1173,7 @@
       "source": "腾讯新闻 / 苏州市文广旅审批公告",
       "verify_status": "已核实",
       "url": "https://news.qq.com/rain/a/20260912A0AL4800",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "体育馆演唱会",
         "港乐经典",
@@ -1203,7 +1203,7 @@
       "source": "国家会展中心（上海）官方排期表",
       "verify_status": "已核实",
       "url": "https://www.neccsh.com/cecsh/exhibitioninfo/exhibitionlist.jspx",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "大型漫展",
         "同人创作",
@@ -1233,7 +1233,7 @@
       "source": "光明网 / 苏州市园林和绿化管理局",
       "verify_status": "已核实",
       "url": "https://photo.gmw.cn/2026-11/02/content_39081310.htm",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "古典园林",
         "秋日赏菊",
@@ -1263,7 +1263,7 @@
       "source": "最酷马拉松网 / 苏州吴中文旅",
       "verify_status": "已核实",
       "url": "https://zuicool.com/event/25538",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "太湖1号公路",
         "秋日骑行",
@@ -1293,7 +1293,7 @@
       "source": "Trip.com / 拈花湾官方",
       "verify_status": "已核实",
       "url": "https://tw.trip.com/moments/theme/poi-nianhua-bay-23822661-performances-990135/",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "无人机光影秀",
         "古镇夜游",
@@ -1323,7 +1323,7 @@
       "source": "苏州本地宝 / 苏州本色美术馆官方",
       "verify_status": "已核实",
       "url": "https://suzhou.bendibao.com/tour/20191218/ly71075.shtm",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "本色东西桥市集",
         "水岸夜市",
@@ -1353,7 +1353,7 @@
       "source": "Trip.com / 杭州大剧院",
       "verify_status": "已核实",
       "url": "https://hk.trip.com/events/3106622-hangzhou-grand-theatre-arts-collection/",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "文华大奖舞剧",
         "只此青绿同班底",
@@ -1382,7 +1382,7 @@
       "source": "秀动 / 山丘LIVEHOUSE官方",
       "verify_status": "已核实",
       "url": "https://www.concerts-metal.com/concert_-__-283334.html",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "独立摇滚",
         "Livehouse",
@@ -1411,7 +1411,7 @@
       "source": "Bilibili会员购官方API",
       "verify_status": "已核实",
       "url": "https://show.bilibili.com/platform/detail.html?id=1006745",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "Only同人展",
         "预售中",
@@ -1440,7 +1440,7 @@
       "source": "Woods Bagot / 华丽志仓街资讯",
       "verify_status": "已核实",
       "url": "https://www.woodsbagot.com/zh/global-studio/news/events/unveiling-cangjie-a-new-luxury-landmark-in-suzhou/",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "仁恒仓街",
         "潮流快闪",
@@ -1470,7 +1470,7 @@
       "source": "苏州本地宝文旅指南",
       "verify_status": "已核实",
       "url": "https://suzhou.bendibao.com/tour/20191218/ly71075.shtm",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "双塔市集",
         "定慧寺银杏",
@@ -1500,7 +1500,7 @@
       "source": "新华网江苏频道",
       "verify_status": "已核实",
       "url": "http://js.news.cn/20261119/07472d1da86e4e628e8e28c5e6ce8027/c.html",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "惠山古镇",
         "水下菊花展",
@@ -1530,7 +1530,7 @@
       "source": "仁恒仓街官方 / 小红书同城热榜",
       "verify_status": "已核实",
       "url": "https://www.xiaohongshu.com/search_result?keyword=%E8%8B%8F%E5%B7%9E%E4%BB%81%E6%81%92%E4%BB%93%E8%A1%97%E5%BF%AB%E9%97%AA",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "网红快闪",
         "大牌Pop-up",
@@ -1560,7 +1560,7 @@
       "source": "Bilibili会员购官方API",
       "verify_status": "已核实",
       "url": "https://show.bilibili.com/platform/detail.html?id=1006109",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "主题餐厅",
         "预售中",
@@ -1589,7 +1589,7 @@
       "source": "Bilibili会员购官方API",
       "verify_status": "已核实",
       "url": "https://show.bilibili.com/platform/detail.html?id=1008039",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "漫展",
         "预售中",
@@ -1618,7 +1618,7 @@
       "source": "苏州市人民政府官网",
       "verify_status": "已核实",
       "url": "http://www.suzhou.gov.cn/",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "古典园林",
         "金秋菊展",
@@ -1648,7 +1648,7 @@
       "source": "上海本地宝 / 上海张园",
       "verify_status": "已核实",
       "url": "https://m.sh.bendibao.com/xiuxian/309467.html",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "张园快闪",
         "光影艺术展",
@@ -1678,7 +1678,7 @@
       "source": "无锡市旅游局 / 搜狐新闻",
       "verify_status": "已核实",
       "url": "https://m.sohu.com/a/1101940785_121106832",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "太湖红嘴鸥",
         "落日游船",
@@ -1708,7 +1708,7 @@
       "source": "上海国家会展中心官网",
       "verify_status": "已核实",
       "url": "https://www.neccsh.com/cecsh/exhibitioninfo/exhibitionlist.jspx",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "科技周",
         "人工智能",
@@ -1738,7 +1738,7 @@
       "source": "Bilibili会员购官方API",
       "verify_status": "已核实",
       "url": "https://show.bilibili.com/platform/detail.html?id=1006541",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "Only同人展",
         "预售中",
@@ -1767,7 +1767,7 @@
       "source": "扬子晚报 / 紫牛新闻",
       "verify_status": "已核实",
       "url": "https://www.yzwb.net/news/jiangsu/wuxi/202611/t20261112_411738.html",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "独立民谣",
         "十周年巡演",
@@ -1797,7 +1797,7 @@
       "source": "新华报业网江苏文旅攻略",
       "verify_status": "已核实",
       "url": "https://www.xhby.net/content/s6af6e58ae4b079b9eba7f18d.html",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "中华恐龙园",
         "亲子主题乐园",
@@ -1827,7 +1827,7 @@
       "source": "中国新闻网文娱 / 天目里",
       "verify_status": "已核实",
       "url": "https://channel.chinanews.com.cn/cns/cl/cul-xjgw.shtml",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "西泠印社",
         "天目里",
@@ -1857,7 +1857,7 @@
       "source": "Bilibili会员购漫展演出频道",
       "verify_status": "已核实",
       "url": "https://show.bilibili.com/platform/home.html?msource=pc_web",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "战双帕弥什",
         "谷子咖啡厅",
@@ -1887,7 +1887,7 @@
       "source": "Bilibili会员购官方API",
       "verify_status": "已核实",
       "url": "https://show.bilibili.com/platform/detail.html?id=1006885",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "livehouse",
         "预售中",
@@ -1916,7 +1916,7 @@
       "source": "Bilibili会员购官方API",
       "verify_status": "已核实",
       "url": "https://show.bilibili.com/platform/detail.html?id=1007851",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "快闪",
         "预售中",
@@ -1945,7 +1945,7 @@
       "source": "黄河票务 / 乐式Lemode",
       "verify_status": "已核实",
       "url": "https://www.huanghepiao.com/event/43112/",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "单口喜剧",
         "脱口秀专场",
@@ -1975,7 +1975,7 @@
       "source": "Bilibili会员购官方API",
       "verify_status": "已核实",
       "url": "https://show.bilibili.com/platform/detail.html?id=1006999",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "漫展",
         "预售中",
@@ -2004,7 +2004,7 @@
       "source": "Bilibili会员购官方API",
       "verify_status": "已核实",
       "url": "https://show.bilibili.com/platform/detail.html?id=1007512",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "漫展",
         "预售中",
@@ -2033,7 +2033,7 @@
       "source": "Bilibili会员购官方API",
       "verify_status": "已核实",
       "url": "https://show.bilibili.com/platform/detail.html?id=1007155",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "Only同人展",
         "预售中",
@@ -2062,7 +2062,7 @@
       "source": "活动网 / 东方演出网1701排期",
       "verify_status": "已核实",
       "url": "https://huodong.com/event/detail/qzbsok",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "1701Livehouse",
         "布鲁斯摇滚",
@@ -2092,7 +2092,7 @@
       "source": "Bilibili会员购官方API",
       "verify_status": "已核实",
       "url": "https://show.bilibili.com/platform/detail.html?id=1007386",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "Only同人展",
         "预售中",
@@ -2121,7 +2121,7 @@
       "source": "Bilibili会员购官方API",
       "verify_status": "已核实",
       "url": "https://show.bilibili.com/platform/detail.html?id=1006686",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "主题餐厅",
         "预售中",
@@ -2150,7 +2150,7 @@
       "source": "Bilibili会员购官方快闪资讯",
       "verify_status": "已核实",
       "url": "https://show.bilibili.com/",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "IP快闪店",
         "主题联名餐厅",
@@ -2180,7 +2180,7 @@
       "source": "NextStop上海艺术合集 / 中国工艺美术学会",
       "verify_status": "已核实",
       "url": "https://nextstop.im/event/event-shanghai-november-arts-2026",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "当代工艺",
         "先锋艺术展",
@@ -2210,7 +2210,7 @@
       "source": "LocalHub苏州山丘演出排期",
       "verify_status": "已核实",
       "url": "https://localhub.to/suzhou/venue/the-hill-house-exhibition-space?lang=zh",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "复古流行",
         "DreamPop",
@@ -2240,7 +2240,7 @@
       "source": "Bilibili会员购官方API",
       "verify_status": "已核实",
       "url": "https://show.bilibili.com/platform/detail.html?id=1006559",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "Only同人展",
         "预售中",
@@ -2269,7 +2269,7 @@
       "source": "上海市人民政府官网 / 央视网上海频道",
       "verify_status": "已核实",
       "url": "https://www.shanghai.gov.cn/nw17239/20261021/e76a718fd81f44cf98972e214627a523.html",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "苏州河游船",
         "亲子魔术剧",
@@ -2299,7 +2299,7 @@
       "source": "新华网江苏频道",
       "verify_status": "已核实",
       "url": "http://js.news.cn/20261119/07472d1da86e4e628e8e28c5e6ce8027/c.html",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "无人机AI旅拍",
         "古运河游船",
@@ -2329,7 +2329,7 @@
       "source": "猫眼演出",
       "verify_status": "已核实",
       "url": "https://show.maoyan.com/qqw",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "明星演唱会",
         "实力唱将",
@@ -2358,7 +2358,7 @@
       "source": "Trip.com / 上海文化广场",
       "verify_status": "已核实",
       "url": "https://hk.trip.com/events/9072765-2026-shanghai-arts-collection/",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "华语音乐剧",
         "文学改编",
@@ -2388,7 +2388,7 @@
       "source": "Bilibili会员购 / 中新网",
       "verify_status": "已核实",
       "url": "https://show.bilibili.com/m/platform/home.html?noTitleBar=1&cityId=320500",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "电影表演艺术周",
         "大师映后谈",
@@ -2418,7 +2418,7 @@
       "source": "Bilibili会员购官方API",
       "verify_status": "已核实",
       "url": "https://show.bilibili.com/platform/detail.html?id=1006437",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "Only同人展",
         "预售中",
@@ -2447,7 +2447,7 @@
       "source": "上海市文化和旅游局 / PSA官网",
       "verify_status": "已核实",
       "url": "https://whlyj.sh.gov.cn/wbzx/20260518/5a861af35df44e76b8ccd305f6f96fae.html",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "建筑艺术",
         "当代陶艺",
@@ -2477,7 +2477,7 @@
       "source": "Bilibili会员购官方API",
       "verify_status": "已核实",
       "url": "https://show.bilibili.com/platform/detail.html?id=1006973",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "漫展",
         "预售中",
@@ -2506,7 +2506,7 @@
       "source": "Bilibili会员购官方API",
       "verify_status": "已核实",
       "url": "https://show.bilibili.com/platform/detail.html?id=1007068",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "Only同人展",
         "预售中",
@@ -2535,7 +2535,7 @@
       "source": "Bilibili会员购官方API",
       "verify_status": "已核实",
       "url": "https://show.bilibili.com/platform/detail.html?id=1006727",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "Only同人展",
         "预售中",
@@ -2564,7 +2564,7 @@
       "source": "Bilibili会员购官方API",
       "verify_status": "已核实",
       "url": "https://show.bilibili.com/platform/detail.html?id=1007529",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "Only同人展",
         "预售中",
@@ -2593,12 +2593,41 @@
       "source": "CAFEEX 咖啡与饮品展览会官网",
       "verify_status": "已核实",
       "url": "https://www.cafeex.com.cn/",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "CAFEEX咖啡节",
         "精品咖啡烘焙",
         "甜品市集",
         "杯测体验"
+      ]
+    },
+    {
+      "event_id": "yrd_e34d40c3b408",
+      "seq": 189,
+      "city": "上海",
+      "module_code": "F",
+      "category_name": "二次元与ACGN泛娱乐",
+      "title": "上海·奥特曼xHAPPYZOO『奥特不方』主题餐厅",
+      "weekend_status": "本周末进行中",
+      "heat_label": "🔥 91",
+      "heat_score": 91,
+      "time_display": "本周末及近期档期",
+      "start_date": "2026-11-20",
+      "end_date": "2026-11-30",
+      "district": "黄浦区",
+      "venue": "第一百货商业中心(南京东路店)",
+      "price": "¥10起",
+      "is_free": "付费",
+      "highlights": "B站会员购 上海站热门 ACGN 漫展/演出活动，适合本周末二次元同好打卡集邮。",
+      "suzhou_transit": "苏州站/园区站高铁直达上海，换乘市内地铁即达",
+      "source": "B站会员购实时接口",
+      "verify_status": "已核实",
+      "url": "https://show.bilibili.com/platform/detail.html?id=1007794",
+      "updated_at": "2026-11-23 07:06:33",
+      "tags": [
+        "B站会员购",
+        "漫展同人",
+        "上海"
       ]
     },
     {
@@ -2623,7 +2652,7 @@
       "source": "新浪财经长三角市集经济报道",
       "verify_status": "已核实",
       "url": "http://k.sina.com.cn/article_3281037352_c390a828019019oo5.html",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "复古古着",
         "独立首饰",
@@ -2653,7 +2682,7 @@
       "source": "杭州本地宝演唱会排期",
       "verify_status": "已核实",
       "url": "https://m.hz.bendibao.com/xiuxian/yanchanghuitime/",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "实力唱将",
         "体育馆演唱会",
@@ -2683,7 +2712,7 @@
       "source": "上海市人民政府新闻办 / Trip.com节庆合集",
       "verify_status": "已核实",
       "url": "https://www.shio.gov.cn/TrueCMS//shxwbgs/wxdtt/content/ff67a264-f986-4f31-9216-627640bd6ea6.htm",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "咖啡嘉年华",
         "精酿微醺",
@@ -2713,7 +2742,7 @@
       "source": "Trip.com演出票务 / 大麦",
       "verify_status": "已核实",
       "url": "https://hk.trip.com/events/14711048-2026-suzhou-concerts-collection/",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "怀旧金曲",
         "演唱会",
@@ -2742,7 +2771,7 @@
       "source": "Trip.com南京艺术展览合集",
       "verify_status": "已核实",
       "url": "https://tw.trip.com/events/%E5%8D%97%E4%BA%AC++The+Ground+Shake+%E5%B0%88%E5%A0%B4-20260624/",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "六朝文物",
         "历史特展",
@@ -2772,7 +2801,7 @@
       "source": "Bilibili会员购官方API",
       "verify_status": "已核实",
       "url": "https://show.bilibili.com/platform/detail.html?id=1007943",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "漫展",
         "预售中",
@@ -2801,7 +2830,7 @@
       "source": "Bilibili会员购官方API",
       "verify_status": "已核实",
       "url": "https://show.bilibili.com/platform/detail.html?id=1006875",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "Only同人展",
         "预售中",
@@ -2830,7 +2859,7 @@
       "source": "豆瓣无锡同城 / 清名桥景区",
       "verify_status": "已核实",
       "url": "https://www.douban.com/location/wuxi/events/weekend-all",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "古运河市集",
         "热红酒精酿",
@@ -2860,7 +2889,7 @@
       "source": "国家会展中心（上海）官网",
       "verify_status": "已核实",
       "url": "https://www.neccsh.com/cecsh/exhibitioninfo/exhibitionlist.jspx",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "智能制造",
         "纺织科技",
@@ -2890,7 +2919,7 @@
       "source": "央视网上海频道",
       "verify_status": "已核实",
       "url": "https://sh.cctv.com/2026/11/13/ARTI8kWowTKMm2NIGC0MLVGl261112.shtml",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "游船剧场",
         "亲子魔幻剧",
@@ -2920,7 +2949,7 @@
       "source": "BY ART MATTERS 天目里美术馆官网",
       "verify_status": "已核实",
       "url": "https://www.byartmatters.com/exhibition/detail?id=19",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "当代雕塑",
         "行为艺术",
@@ -2950,7 +2979,7 @@
       "source": "Bilibili会员购官方API",
       "verify_status": "已核实",
       "url": "https://show.bilibili.com/platform/detail.html?id=1006343",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "Only同人展",
         "预售中",
@@ -2979,7 +3008,7 @@
       "source": "Trip.com常州Livehouse排期",
       "verify_status": "已核实",
       "url": "https://hk.trip.com/events/%E5%B8%B8%E5%B7%9E++%E5%B3%B6%E5%B6%BC%E5%BF%83%E6%83%85%E7%BE%8E%E9%BA%97%E4%BA%BA%E7%94%9F2026%E5%B7%A1%E6%BC%94-20261107/",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "独立乐队",
         "迷宫艺术空间",
@@ -3009,7 +3038,7 @@
       "source": "Bilibili会员购官方API",
       "verify_status": "已核实",
       "url": "https://show.bilibili.com/platform/detail.html?id=1007714",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "Only同人展",
         "预售中",
@@ -3038,7 +3067,7 @@
       "source": "Bilibili会员购官方API",
       "verify_status": "已核实",
       "url": "https://show.bilibili.com/platform/detail.html?id=1007285",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "Only同人展",
         "预售中",
@@ -3067,7 +3096,7 @@
       "source": "搜狐时尚 / 网易艺术季报道",
       "verify_status": "已核实",
       "url": "https://www.sohu.com/a/1101402671_672680",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "小众设计师品牌",
         "限时Pop-up",
@@ -3097,7 +3126,7 @@
       "source": "上海市人民政府官网",
       "verify_status": "已核实",
       "url": "https://www.shanghai.gov.cn/nw17239/20261116/1a7dfc0771ac4e5f86e4c5691b30f89a.html",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "市民夜校",
         "摄影Citywalk",
@@ -3127,7 +3156,7 @@
       "source": "豆瓣同城(无锡)",
       "verify_status": "已核实",
       "url": "https://www.douban.com/event/37766592/",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "豆瓣同城",
         "小众文艺"
@@ -3155,7 +3184,7 @@
       "source": "Bilibili会员购 / 东方演出网杭州漫展",
       "verify_status": "已核实",
       "url": "https://show.bilibili.com/platform/detail.html?id=90057&from=pc_ticketlist",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "动漫展",
         "Coser自由行",
@@ -3185,7 +3214,7 @@
       "source": "Bilibili会员购官方API",
       "verify_status": "已核实",
       "url": "https://show.bilibili.com/platform/detail.html?id=1007144",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "Only同人展",
         "预售中",
@@ -3214,7 +3243,7 @@
       "source": "豆瓣同城(南京)",
       "verify_status": "已核实",
       "url": "https://www.douban.com/event/38180048/",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "豆瓣同城",
         "小众文艺"
@@ -3242,7 +3271,7 @@
       "source": "豆瓣同城(杭州)",
       "verify_status": "已核实",
       "url": "https://www.douban.com/event/38095475/",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "豆瓣同城",
         "小众文艺"
@@ -3270,7 +3299,7 @@
       "source": "豆瓣同城(上海)",
       "verify_status": "已核实",
       "url": "https://www.douban.com/event/38181205/",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "豆瓣同城",
         "小众文艺"
@@ -3298,7 +3327,7 @@
       "source": "豆瓣同城(南京)",
       "verify_status": "已核实",
       "url": "https://www.douban.com/event/38176278/",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "豆瓣同城",
         "小众文艺"
@@ -3326,7 +3355,7 @@
       "source": "LocalHub苏州山丘展演空间官方排期",
       "verify_status": "已核实",
       "url": "https://localhub.to/suzhou/venue/the-hill-house-exhibition-space?lang=zh",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "独立民谣",
         "花粥",
@@ -3356,7 +3385,7 @@
       "source": "最酷马拉松报名网 ZUICOOL",
       "verify_status": "已核实",
       "url": "https://zuicool.com/news/archives/322002",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "越野跑赛事",
         "HOKA户外",
@@ -3386,7 +3415,7 @@
       "source": "Bilibili会员购官方API",
       "verify_status": "已核实",
       "url": "https://show.bilibili.com/platform/detail.html?id=1006528",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "Only同人展",
         "预售中",
@@ -3415,7 +3444,7 @@
       "source": "Bilibili会员购官方API",
       "verify_status": "已核实",
       "url": "https://show.bilibili.com/platform/detail.html?id=1007796",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "主题餐厅",
         "预售中",
@@ -3444,7 +3473,7 @@
       "source": "豆瓣常州同城 / 常州文旅",
       "verify_status": "已核实",
       "url": "https://www.douban.com/location/changzhou/events/weekend-all",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "江南名士街区",
         "棉仓网红打卡",
@@ -3474,7 +3503,7 @@
       "source": "上海油罐艺术中心官网",
       "verify_status": "已核实",
       "url": "http://tankshanghai.com/zh/exhibition/wangchuanshangyoudeshandian/",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "新媒体艺术",
         "油罐艺术中心",
@@ -3504,7 +3533,7 @@
       "source": "Bilibili会员购官方API",
       "verify_status": "已核实",
       "url": "https://show.bilibili.com/platform/detail.html?id=1006243",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "Only同人展",
         "预售中",
@@ -3533,7 +3562,7 @@
       "source": "Bilibili会员购官方API",
       "verify_status": "已核实",
       "url": "https://show.bilibili.com/platform/detail.html?id=1007205",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "Only同人展",
         "预售中",
@@ -3562,7 +3591,7 @@
       "source": "Bilibili会员购官方API",
       "verify_status": "已核实",
       "url": "https://show.bilibili.com/platform/detail.html?id=1006603",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "漫展",
         "预售中",
@@ -3591,7 +3620,7 @@
       "source": "Bilibili会员购官方API",
       "verify_status": "已核实",
       "url": "https://show.bilibili.com/platform/detail.html?id=1007320",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "音乐节",
         "预售中",
@@ -3620,7 +3649,7 @@
       "source": "Bilibili会员购官方API",
       "verify_status": "已核实",
       "url": "https://show.bilibili.com/platform/detail.html?id=1006573",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "漫展",
         "预售中",
@@ -3649,7 +3678,7 @@
       "source": "上海乐历 / 杭州爱乐乐团",
       "verify_status": "已核实",
       "url": "https://shanghaiconcerts.com/concerts/hpo-across-east-and-west-2026",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "交响乐",
         "马勒第四交响曲",
@@ -3679,7 +3708,7 @@
       "source": "Bilibili会员购官方API",
       "verify_status": "已核实",
       "url": "https://show.bilibili.com/platform/detail.html?id=1007343",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "Only同人展",
         "预售中",
@@ -3708,7 +3737,7 @@
       "source": "Bilibili会员购官方API",
       "verify_status": "已核实",
       "url": "https://show.bilibili.com/platform/detail.html?id=1006932",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "漫展",
         "预售中",
@@ -3737,7 +3766,7 @@
       "source": "Bilibili会员购官方API",
       "verify_status": "已核实",
       "url": "https://show.bilibili.com/platform/detail.html?id=1007500",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "Only同人展",
         "预售中",
@@ -3766,7 +3795,7 @@
       "source": "豆瓣同城(无锡)",
       "verify_status": "已核实",
       "url": "https://www.douban.com/event/37882821/",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "豆瓣同城",
         "小众文艺"
@@ -3794,7 +3823,7 @@
       "source": "上海市人民政府官网",
       "verify_status": "已核实",
       "url": "https://www.shanghai.gov.cn/nw17239/20261030/8966320181b24185b8397086e8eaeb44.html",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "市民艺术体验",
         "非遗手作",
@@ -3824,7 +3853,7 @@
       "source": "豆瓣同城(上海)",
       "verify_status": "已核实",
       "url": "https://www.douban.com/event/37630552/",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "豆瓣同城",
         "二次元与"
@@ -3852,7 +3881,7 @@
       "source": "豆瓣同城(上海)",
       "verify_status": "已核实",
       "url": "https://www.douban.com/event/38002482/",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "豆瓣同城",
         "Live"
@@ -3880,7 +3909,7 @@
       "source": "豆瓣同城(上海)",
       "verify_status": "已核实",
       "url": "https://www.douban.com/event/38081963/",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "豆瓣同城",
         "小众文艺"
@@ -3908,7 +3937,7 @@
       "source": "豆瓣同城(上海)",
       "verify_status": "已核实",
       "url": "https://www.douban.com/event/37786683/",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "豆瓣同城",
         "江南在地"
@@ -3936,7 +3965,7 @@
       "source": "豆瓣同城(上海)",
       "verify_status": "已核实",
       "url": "https://www.douban.com/event/38115494/",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "豆瓣同城",
         "小众文艺"
@@ -3964,7 +3993,7 @@
       "source": "豆瓣同城(上海)",
       "verify_status": "已核实",
       "url": "https://www.douban.com/event/38178961/",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "豆瓣同城",
         "小众文艺"
@@ -3992,7 +4021,7 @@
       "source": "豆瓣同城(上海)",
       "verify_status": "已核实",
       "url": "https://www.douban.com/event/38179001/",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "豆瓣同城",
         "小众文艺"
@@ -4020,7 +4049,7 @@
       "source": "豆瓣同城(上海)",
       "verify_status": "已核实",
       "url": "https://www.douban.com/event/37979234/",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "豆瓣同城",
         "Live"
@@ -4048,7 +4077,7 @@
       "source": "豆瓣同城(苏州)",
       "verify_status": "已核实",
       "url": "https://www.douban.com/event/38105184/",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "豆瓣同城",
         "明星与顶"
@@ -4076,7 +4105,7 @@
       "source": "豆瓣同城(苏州)",
       "verify_status": "已核实",
       "url": "https://www.douban.com/event/37659313/",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "豆瓣同城",
         "江南在地"
@@ -4104,7 +4133,7 @@
       "source": "豆瓣同城(苏州)",
       "verify_status": "已核实",
       "url": "https://www.douban.com/event/37716046/",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "豆瓣同城",
         "小众文艺"
@@ -4132,7 +4161,7 @@
       "source": "豆瓣同城(苏州)",
       "verify_status": "已核实",
       "url": "https://www.douban.com/event/37787572/",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "豆瓣同城",
         "江南在地"
@@ -4160,7 +4189,7 @@
       "source": "豆瓣同城(苏州)",
       "verify_status": "已核实",
       "url": "https://www.douban.com/event/37659508/",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "豆瓣同城",
         "高端生活"
@@ -4188,7 +4217,7 @@
       "source": "豆瓣同城(苏州)",
       "verify_status": "已核实",
       "url": "https://www.douban.com/event/37698946/",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "豆瓣同城",
         "高端生活"
@@ -4216,7 +4245,7 @@
       "source": "豆瓣同城(苏州)",
       "verify_status": "已核实",
       "url": "https://www.douban.com/event/37747968/",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "豆瓣同城",
         "江南在地"
@@ -4244,7 +4273,7 @@
       "source": "豆瓣同城(苏州)",
       "verify_status": "已核实",
       "url": "https://www.douban.com/event/37674643/",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "豆瓣同城",
         "江南在地"
@@ -4272,7 +4301,7 @@
       "source": "豆瓣同城(苏州)",
       "verify_status": "已核实",
       "url": "https://www.douban.com/event/35866026/",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "豆瓣同城",
         "江南在地"
@@ -4300,7 +4329,7 @@
       "source": "豆瓣同城(南京)",
       "verify_status": "已核实",
       "url": "https://www.douban.com/event/36362996/",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "豆瓣同城",
         "高端生活"
@@ -4328,7 +4357,7 @@
       "source": "豆瓣同城(南京)",
       "verify_status": "已核实",
       "url": "https://www.douban.com/event/38049622/",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "豆瓣同城",
         "小众文艺"
@@ -4356,7 +4385,7 @@
       "source": "豆瓣同城(南京)",
       "verify_status": "已核实",
       "url": "https://www.douban.com/event/37709941/",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "豆瓣同城",
         "Live"
@@ -4384,7 +4413,7 @@
       "source": "豆瓣同城(南京)",
       "verify_status": "已核实",
       "url": "https://www.douban.com/event/37623031/",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "豆瓣同城",
         "网红潮流"
@@ -4412,7 +4441,7 @@
       "source": "豆瓣同城(南京)",
       "verify_status": "已核实",
       "url": "https://www.douban.com/event/37642537/",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "豆瓣同城",
         "Live"
@@ -4440,7 +4469,7 @@
       "source": "豆瓣同城(南京)",
       "verify_status": "已核实",
       "url": "https://www.douban.com/event/37825486/",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "豆瓣同城",
         "Live"
@@ -4468,7 +4497,7 @@
       "source": "豆瓣同城(常州)",
       "verify_status": "已核实",
       "url": "https://www.douban.com/event/38024366/",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "豆瓣同城",
         "Live"
@@ -4496,7 +4525,7 @@
       "source": "豆瓣同城(常州)",
       "verify_status": "已核实",
       "url": "https://www.douban.com/event/38083577/",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "豆瓣同城",
         "高端生活"
@@ -4524,7 +4553,7 @@
       "source": "豆瓣同城(常州)",
       "verify_status": "已核实",
       "url": "https://www.douban.com/event/38086915/",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "豆瓣同城",
         "Live"
@@ -4552,7 +4581,7 @@
       "source": "豆瓣同城(常州)",
       "verify_status": "已核实",
       "url": "https://www.douban.com/event/38104216/",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "豆瓣同城",
         "Live"
@@ -4580,7 +4609,7 @@
       "source": "豆瓣同城(常州)",
       "verify_status": "已核实",
       "url": "https://www.douban.com/event/38107936/",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "豆瓣同城",
         "小众文艺"
@@ -4608,7 +4637,7 @@
       "source": "豆瓣同城(常州)",
       "verify_status": "已核实",
       "url": "https://www.douban.com/event/38121209/",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "豆瓣同城",
         "Live"
@@ -4636,7 +4665,7 @@
       "source": "豆瓣同城(常州)",
       "verify_status": "已核实",
       "url": "https://www.douban.com/event/38135335/",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "豆瓣同城",
         "小众文艺"
@@ -4664,7 +4693,7 @@
       "source": "豆瓣同城(常州)",
       "verify_status": "已核实",
       "url": "https://www.douban.com/event/38136447/",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "豆瓣同城",
         "小众文艺"
@@ -4692,7 +4721,7 @@
       "source": "豆瓣同城(杭州)",
       "verify_status": "已核实",
       "url": "https://www.douban.com/event/34815097/",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "豆瓣同城",
         "Live"
@@ -4720,7 +4749,7 @@
       "source": "豆瓣同城(杭州)",
       "verify_status": "已核实",
       "url": "https://www.douban.com/event/37570581/",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "豆瓣同城",
         "Live"
@@ -4748,7 +4777,7 @@
       "source": "豆瓣同城(杭州)",
       "verify_status": "已核实",
       "url": "https://www.douban.com/event/38069475/",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "豆瓣同城",
         "小众文艺"
@@ -4776,7 +4805,7 @@
       "source": "豆瓣同城(杭州)",
       "verify_status": "已核实",
       "url": "https://www.douban.com/event/38172474/",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "豆瓣同城",
         "户外探索"
@@ -4804,7 +4833,7 @@
       "source": "豆瓣同城(杭州)",
       "verify_status": "已核实",
       "url": "https://www.douban.com/event/34905402/",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "豆瓣同城",
         "Live"
@@ -4832,7 +4861,7 @@
       "source": "豆瓣同城(杭州)",
       "verify_status": "已核实",
       "url": "https://www.douban.com/event/37130691/",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "豆瓣同城",
         "Live"
@@ -4860,7 +4889,7 @@
       "source": "豆瓣同城(杭州)",
       "verify_status": "已核实",
       "url": "https://www.douban.com/event/37859707/",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "豆瓣同城",
         "小众文艺"
@@ -4888,7 +4917,7 @@
       "source": "豆瓣同城(杭州)",
       "verify_status": "已核实",
       "url": "https://www.douban.com/event/37754834/",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "豆瓣同城",
         "小众文艺"
@@ -4916,7 +4945,7 @@
       "source": "豆瓣同城(杭州)",
       "verify_status": "已核实",
       "url": "https://www.douban.com/event/37204447/",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "豆瓣同城",
         "Live"
@@ -4944,7 +4973,7 @@
       "source": "豆瓣同城(无锡)",
       "verify_status": "已核实",
       "url": "https://www.douban.com/event/37990640/",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "豆瓣同城",
         "小众文艺"
@@ -4972,7 +5001,7 @@
       "source": "豆瓣同城(无锡)",
       "verify_status": "已核实",
       "url": "https://www.douban.com/event/38065578/",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "豆瓣同城",
         "高端生活"
@@ -5000,7 +5029,7 @@
       "source": "豆瓣同城(无锡)",
       "verify_status": "已核实",
       "url": "https://www.douban.com/event/37650607/",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "豆瓣同城",
         "Live"
@@ -5028,7 +5057,7 @@
       "source": "豆瓣同城(无锡)",
       "verify_status": "已核实",
       "url": "https://www.douban.com/event/38152402/",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "豆瓣同城",
         "小众文艺"
@@ -5056,7 +5085,7 @@
       "source": "豆瓣同城(无锡)",
       "verify_status": "已核实",
       "url": "https://www.douban.com/event/38163228/",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "豆瓣同城",
         "Live"
@@ -5084,7 +5113,7 @@
       "source": "豆瓣同城(无锡)",
       "verify_status": "已核实",
       "url": "https://www.douban.com/event/37984586/",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "豆瓣同城",
         "二次元与"
@@ -5112,7 +5141,7 @@
       "source": "豆瓣同城(苏州)",
       "verify_status": "已核实",
       "url": "https://www.douban.com/event/38179099/",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "豆瓣同城",
         "小众文艺"
@@ -5140,7 +5169,7 @@
       "source": "豆瓣同城(南京)",
       "verify_status": "已核实",
       "url": "https://www.douban.com/event/37936829/",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "豆瓣同城",
         "高端生活"
@@ -5168,7 +5197,7 @@
       "source": "豆瓣同城(南京)",
       "verify_status": "已核实",
       "url": "https://www.douban.com/event/38040708/",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "豆瓣同城",
         "小众文艺"
@@ -5196,7 +5225,7 @@
       "source": "豆瓣同城(常州)",
       "verify_status": "已核实",
       "url": "https://www.douban.com/event/38011583/",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "豆瓣同城",
         "小众文艺"
@@ -5224,7 +5253,7 @@
       "source": "豆瓣同城(常州)",
       "verify_status": "已核实",
       "url": "https://www.douban.com/event/38109761/",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "豆瓣同城",
         "小众文艺"
@@ -5252,7 +5281,7 @@
       "source": "豆瓣同城(无锡)",
       "verify_status": "已核实",
       "url": "https://www.douban.com/event/37958108/",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "豆瓣同城",
         "高端生活"
@@ -5280,7 +5309,7 @@
       "source": "豆瓣同城(无锡)",
       "verify_status": "已核实",
       "url": "https://www.douban.com/event/37993379/",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "豆瓣同城",
         "小众文艺"
@@ -5293,7 +5322,7 @@
       "module_code": "F",
       "category_name": "二次元与ACGN泛娱乐",
       "title": "上海 2026永劫无间世界冠军赛-入围赛+小组赛",
-      "weekend_status": "即将开场",
+      "weekend_status": "本周末进行中",
       "heat_label": "🔥 85",
       "heat_score": 85,
       "time_display": "2026.11.23 - 12.07",
@@ -5308,7 +5337,7 @@
       "source": "Bilibili会员购官方API",
       "verify_status": "已核实",
       "url": "https://show.bilibili.com/platform/detail.html?id=1007803",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "电竞赛事",
         "预售中",
@@ -5337,7 +5366,7 @@
       "source": "Bilibili会员购官方API",
       "verify_status": "已核实",
       "url": "https://show.bilibili.com/platform/detail.html?id=1007730",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "漫展",
         "预售中",
@@ -5366,7 +5395,7 @@
       "source": "Bilibili会员购官方API",
       "verify_status": "已核实",
       "url": "https://show.bilibili.com/platform/detail.html?id=1004268",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "演唱会",
         "已结束",
@@ -5395,7 +5424,7 @@
       "source": "Bilibili会员购官方API",
       "verify_status": "已核实",
       "url": "https://show.bilibili.com/platform/detail.html?id=1006772",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "主题餐厅",
         "预售中",
@@ -5424,7 +5453,7 @@
       "source": "Bilibili会员购漫展演出频道",
       "verify_status": "已核实",
       "url": "https://show.bilibili.com/",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "国风二次元",
         "联名主题餐厅",
@@ -5454,7 +5483,7 @@
       "source": "Bilibili会员购官方API",
       "verify_status": "已核实",
       "url": "https://show.bilibili.com/platform/detail.html?id=1001255",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "其他活动",
         "预售中",
@@ -5483,7 +5512,7 @@
       "source": "Trip.com常州演出频道",
       "verify_status": "已核实",
       "url": "https://hk.trip.com/events/%E5%B8%B8%E5%B7%9E++2026%E5%B8%82%E6%B0%91%E9%9F%B3%E6%A8%82%E6%9C%83%E6%B5%B7%E6%A3%A0%E8%8A%B1%E9%96%8B%E5%94%AF%E7%BE%8E%E5%9C%8B%E9%A2%A8%E8%A6%96%E8%81%BD%E9%9F%B3%E6%A8%82%E6%9C%83-20261028/",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "国风音乐会",
         "民乐交响",
@@ -5513,7 +5542,7 @@
       "source": "Bilibili会员购官方API",
       "verify_status": "已核实",
       "url": "https://show.bilibili.com/platform/detail.html?id=1007715",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "漫展",
         "预售中",
@@ -5542,7 +5571,7 @@
       "source": "Bilibili会员购官方API",
       "verify_status": "已核实",
       "url": "https://show.bilibili.com/platform/detail.html?id=1004126",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "音乐会",
         "预售中",
@@ -5571,7 +5600,7 @@
       "source": "Trip.com无锡最新演出资讯",
       "verify_status": "已核实",
       "url": "https://tw.trip.com/events/900278-wuxi-collection/",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "独立音乐",
         "杨海崧",
@@ -5601,7 +5630,7 @@
       "source": "Bilibili会员购官方API",
       "verify_status": "已核实",
       "url": "https://show.bilibili.com/platform/detail.html?id=1007962",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "Only同人展",
         "预售中",
@@ -5630,7 +5659,7 @@
       "source": "Trip.com常州文化展览",
       "verify_status": "已核实",
       "url": "https://hk.trip.com/events/%E5%B8%B8%E5%B7%9E++%E6%88%91%E5%80%91%E7%9A%84%E6%99%82%E4%BB%A3%E8%8F%AF%E8%AA%9E%E9%87%91%E6%9B%B2%E6%BC%94%E5%94%B1%E6%9C%83-20260808/",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "书画艺术",
         "世界名画潮玩展",
@@ -5660,7 +5689,7 @@
       "source": "Bilibili会员购官方API",
       "verify_status": "已核实",
       "url": "https://show.bilibili.com/platform/detail.html?id=1006700",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "IP展览",
         "预售中",
@@ -5689,7 +5718,7 @@
       "source": "Bilibili会员购官方API",
       "verify_status": "已核实",
       "url": "https://show.bilibili.com/platform/detail.html?id=1004127",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "音乐会",
         "预售中",
@@ -5718,7 +5747,7 @@
       "source": "Bilibili会员购官方API",
       "verify_status": "已核实",
       "url": "https://show.bilibili.com/platform/detail.html?id=1007747",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "漫展",
         "预售中",
@@ -5747,7 +5776,7 @@
       "source": "Bilibili会员购官方API",
       "verify_status": "已核实",
       "url": "https://show.bilibili.com/platform/detail.html?id=1007040",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "音乐会",
         "预售中",
@@ -5776,7 +5805,7 @@
       "source": "Bilibili会员购官方API",
       "verify_status": "已核实",
       "url": "https://show.bilibili.com/platform/detail.html?id=1008005",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "其他活动",
         "预售中",
@@ -5805,7 +5834,7 @@
       "source": "Bilibili会员购官方API",
       "verify_status": "已核实",
       "url": "https://show.bilibili.com/platform/detail.html?id=1005439",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "演唱会",
         "预售中",
@@ -5834,7 +5863,7 @@
       "source": "Bilibili会员购官方API",
       "verify_status": "已核实",
       "url": "https://show.bilibili.com/platform/detail.html?id=1006729",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "话剧",
         "预售中",
@@ -5863,7 +5892,7 @@
       "source": "Bilibili会员购官方API",
       "verify_status": "已核实",
       "url": "https://show.bilibili.com/platform/detail.html?id=1007781",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "其他演出",
         "预售中",
@@ -5892,7 +5921,7 @@
       "source": "Bilibili会员购官方API",
       "verify_status": "已核实",
       "url": "https://show.bilibili.com/platform/detail.html?id=1007080",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "音乐会",
         "预售中",
@@ -5921,7 +5950,7 @@
       "source": "Bilibili会员购官方API",
       "verify_status": "已核实",
       "url": "https://show.bilibili.com/platform/detail.html?id=1007645",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "其他活动",
         "预售中",
@@ -5950,7 +5979,7 @@
       "source": "Bilibili会员购官方API",
       "verify_status": "已核实",
       "url": "https://show.bilibili.com/platform/detail.html?id=1007253",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "音乐会",
         "预售中",
@@ -5979,7 +6008,7 @@
       "source": "Bilibili会员购官方API",
       "verify_status": "已核实",
       "url": "https://show.bilibili.com/platform/detail.html?id=1006104",
-      "updated_at": "2026-11-22 21:55:54",
+      "updated_at": "2026-11-23 07:06:30",
       "tags": [
         "音乐会",
         "预售中",
