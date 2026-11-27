@@ -69,6 +69,11 @@ def sync_google_sheets(full_sync: bool = False) -> int:
         },
         {
             "op": "write",
+            "range": "00_总览看板!D2",
+            "data": [[snapshot["window_label"]]],
+        },
+        {
+            "op": "write",
             "range": "00_总览看板!F2",
             "data": [[GITHUB_PAGES_URL]],
         },
@@ -103,7 +108,7 @@ def sync_google_sheets(full_sync: bool = False) -> int:
             "range": "00_云端导航与检索公式!C14:C15",
             "data": [
                 ["(仁恒仓街 OR 张园 OR 西岸 OR 天目里 OR 拈花湾 OR 德基广场) (快闪 OR 展览 OR 演出 OR 市集) 本周末"],
-                ["(苏州 OR 上海 OR 无锡 OR 常州 OR 杭州 OR 南京) (本周末 OR 11月) (演唱会 OR 快闪 OR 展览 OR 市集 OR 漫展)"],
+                ["(苏州 OR 上海 OR 无锡 OR 常州 OR 杭州 OR 南京) 本周末 (演唱会 OR 快闪 OR 展览 OR 市集 OR 漫展)"],
             ],
         },
     ]
@@ -120,7 +125,8 @@ def sync_google_sheets(full_sync: bool = False) -> int:
         master_rows = [headers] + [
             event_to_sheet_row(i, ev) for i, ev in enumerate(all_events, 1)
         ]
-        while len(master_rows) < 205:
+        target_master_pad = max(len(master_rows) + 5, 360)
+        while len(master_rows) < target_master_pad:
             master_rows.append([""] * 20)
         batch_ops.append(
             {
@@ -134,7 +140,8 @@ def sync_google_sheets(full_sync: bool = False) -> int:
             mod_rows = [headers] + [
                 event_to_sheet_row(i, ev) for i, ev in enumerate(mod_events, 1)
             ]
-            while len(mod_rows) < 70:
+            target_mod_pad = max(len(mod_rows) + 5, 160)
+            while len(mod_rows) < target_mod_pad:
                 mod_rows.append([""] * 20)
             batch_ops.append(
                 {

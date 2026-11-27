@@ -1,12 +1,13 @@
 #!/usr/bin/env python3
 """
 YRD WEEKEND PULSE｜江浙沪周末活动雷达
-Core SQLite Database, Deduplication, HSR Isochrone Metadata & Snapshot Engine
+Core SQLite Database, Auto-Archiver, Dynamic Weekend Isochrone & Snapshot Engine
 """
 
 from __future__ import annotations
 
 import datetime as dt
+import difflib
 import hashlib
 import json
 import os
@@ -34,6 +35,52 @@ SPREADSHEET_URL = f"https://docs.google.com/spreadsheets/d/{SPREADSHEET_ID}/edit
 GITHUB_REPO = "tabi-shiori/yrd-weekend-pulse"
 GITHUB_REPO_URL = f"https://github.com/{GITHUB_REPO}"
 GITHUB_PAGES_URL = "https://tabi-shiori.github.io/yrd-weekend-pulse/"
+
+CST_TZ = dt.timezone(dt.timedelta(hours=8))
+
+
+def now_cst() -> dt.datetime:
+    return dt.datetime.now(CST_TZ)
+
+
+def now_cst_str() -> str:
+    return now_cst().strftime("%Y-%m-%d %H:%M:%S")
+
+
+def compute_weekend_meta(ref_dt: dt.datetime | None = None) -> dict[str, Any]:
+    """
+    Dynamically compute the active/upcoming Friday–Sunday weekend window and ISO issue number
+    in Beijing time (UTC+8). Never hardcode dates!
+    - Mon..Thu: targets the upcoming Fri..Sun of the current week.
+    - Fri..Sun: targets the current Fri..Sun weekend in progress.
+    """
+    cur = ref_dt or now_cst()
+    today = cur.date()
+    days_to_fri = 4 - today.weekday()  # Mon(0)->+4 ... Fri(4)->0, Sat(5)->-1, Sun(6)->-2
+    fri = today + dt.timedelta(days=days_to_fri)
+    sun = fri + dt.timedelta(days=2)
+    iso_year, iso_week, _ = sun.isocalendar()
+
+    if fri.month == sun.month:
+        window_label = f"{fri.strftime('%Y.%m.%d')} (周五) — {sun.strftime('%m.%d')} (周日) 及近期跨周档期"
+        month_tag = f"{fri.month}月"
+    else:
+        window_label = f"{fri.strftime('%Y.%m.%d')} (周五) — {sun.strftime('%Y.%m.%d')} (周日) 及跨月档期"
+        month_tag = f"{fri.month}月/{sun.month}月"
+
+    edition = f"ISSUE {iso_year}.{iso_week:02d} · SUZHOU 1.5H HSR ISOCHRONE"
+    return {
+        "today": today,
+        "today_iso": today.isoformat(),
+        "fri": fri,
+        "fri_iso": fri.isoformat(),
+        "sun": sun,
+        "sun_iso": sun.isoformat(),
+        "edition": edition,
+        "window_label": window_label,
+        "month_tag": month_tag,
+    }
+
 
 CITIES_META: list[dict[str, Any]] = [
     {
@@ -130,7 +177,7 @@ MODULES_META: list[dict[str, Any]] = [
         "sheet_tab": "A_明星与顶流现场",
         "desc": "体育场馆演唱会 / 音乐节主力阵容 / 明星见面会签售 / 品牌代言人一日店长 / 明星领衔戏剧",
         "best_window": "体育场演唱会提前30-60天抢票；品牌明星空降/一日店长通常在活动当周【周二至周四】官宣",
-        "formula": "城市名 + (一日店长 OR 明星空降 OR 演唱会 OR 见面会) + 11月",
+        "formula": "城市名 + (一日店长 OR 明星空降 OR 演唱会 OR 见面会) + 本周末",
     },
     {
         "code": "B",
@@ -156,17 +203,17 @@ MODULES_META: list[dict[str, Any]] = [
         "en": "LIVEHOUSE & STAND-UP COMEDY",
         "sheet_tab": "D_Livehouse与喜剧现场",
         "desc": "独立摇滚/爵士/电子/说唱巡演 / 单口喜剧脱口秀 / 即兴喜剧 / 漫才专场与开放麦",
-        "best_window": "巡演开票后至演出当天（开演前2小时秀动/大麦常有余票或现场票）",
-        "formula": "城市名 + (Livehouse OR 山丘 OR 瓦肆 OR 1701 OR 脱口秀开放麦) + 本周末",
+        "best_window": "巡演开票后至演出当天（开演前2小时秀动/大麦/猫眼常有余票或现场票）",
+        "formula": "城市名 + (Livehouse OR 山丘 OR 瓦肆 OR 1701 OR 脱口秀专场) + 本周末",
     },
     {
         "code": "E",
         "name": "主题市集与美食微醺节",
         "en": "ARTISAN MARKETS & BISTRO FESTS",
         "sheet_tab": "E_主题市集与美食微醺节",
-        "desc": "咖啡文化节 / 精酿啤酒节 / 面包甜品节 / 本色东西桥水上美学市集 / 独立艺术书展",
+        "desc": "咖啡文化节 / 精酿啤酒节 / 面包甜品节 / 本色东西桥水上美学市集 / 大学路周末市集",
         "best_window": "每周四、周五检索（市集多为周五至周日3天限时举办）",
-        "formula": "城市名 + (咖啡节 OR 精酿节 OR 面包节 OR 本色市集 OR 周末市集) + 11月",
+        "formula": "城市名 + (咖啡节 OR 精酿节 OR 面包节 OR 本色市集 OR 周末市集) + 本周末",
     },
     {
         "code": "F",
@@ -175,7 +222,7 @@ MODULES_META: list[dict[str, Any]] = [
         "sheet_tab": "F_二次元与ACGN泛娱乐",
         "desc": "B站会员购6城漫展 / 单一IP同人Only展 / 谷子痛楼快闪 / 地下偶像 Idol Live / 电竞联赛主场",
         "best_window": "漫展与同人Only提前1-3周；主题谷子咖啡需提前在B站会员购或小程序预约时段",
-        "formula": "城市名 + (漫展 OR 同人ONLY OR 痛楼 OR 谷子快闪 OR 地下偶像) + 11月",
+        "formula": "城市名 + (漫展 OR 同人ONLY OR 痛楼 OR 谷子快闪 OR 地下偶像) + 本周末",
     },
     {
         "code": "G",
@@ -191,7 +238,7 @@ MODULES_META: list[dict[str, Any]] = [
         "name": "江南在地文化与古镇夜游",
         "en": "JIANGNAN HERITAGE & NIGHT GARDENS",
         "sheet_tab": "H_江南在地文化与古镇夜游",
-        "desc": "苏州园林夜游与红枫菊花展 / 厅堂昆曲与平江路评弹 / 古镇无人机烟花秀 / 古刹秋日赏银杏",
+        "desc": "苏州园林夜游与红枫银杏季 / 厅堂昆曲与平江路评弹 / 古镇无人机烟花秀 / 古刹冬日祈福",
         "best_window": "提前1-3天预约园林夜场门票（周末黄金时段易约满）",
         "formula": "苏州 OR 无锡 + (拙政问雅 OR 网师园夜游 OR 拈花湾无人机 OR 天平山红枫 OR 评弹昆曲)",
     },
@@ -200,30 +247,26 @@ MODULES_META: list[dict[str, Any]] = [
         "name": "大型商业展会与科技创客",
         "en": "MEGA EXPOS & TECH SUMMITS",
         "sheet_tab": "I_大型商业展会与科技创客",
-        "desc": "国家会展中心/博览中心消费级大展(长三角文博会/车展/潮玩展/宠物展) / AI与科技创客沙龙",
+        "desc": "国家会展中心/博览中心消费级大展(文博会/婚博会/潮玩展/宠物展) / AI与科技创客沙龙",
         "best_window": "每月月初查看展馆排期；公众开放日通常需提前1天实名登记领票",
-        "formula": "(国家会展中心 OR 新国际博览中心 OR 苏州国际博览中心) + 展会排期 + 11月",
+        "formula": "(国家会展中心 OR 新国际博览中心 OR 苏州国际博览中心 OR 杭州国际博览中心) + 展会排期",
     },
     {
         "code": "J",
         "name": "高端生活、运动赛事与亲子",
         "en": "GASTRONOMY, SPORTS & FAMILY",
         "sheet_tab": "J_高端生活与运动亲子",
-        "desc": "黑珍珠/五星酒店主厨限时晚宴与秋蟹品鉴 / 马拉松与联赛主场 / 游船亲子魔幻剧场 / 博物馆奇妙夜",
+        "desc": "黑珍珠/五星酒店主厨限时晚宴与冬日飨宴 / 马拉松与羽超联赛主场 / 亲子魔术剧场 / 博物馆奇妙夜",
         "best_window": "提前3-7天预订席位",
-        "formula": "城市名 + (主厨晚宴 OR 亲子剧场 OR 马拉松 OR 博物馆奇妙夜) + 周末",
+        "formula": "城市名 + (主厨晚宴 OR 亲子剧场 OR 马拉松 OR 联赛主场 OR 博物馆奇妙夜) + 周末",
     },
 ]
 
 
-def now_cst_str() -> str:
-    tz = dt.timezone(dt.timedelta(hours=8))
-    return dt.datetime.now(tz).strftime("%Y-%m-%d %H:%M:%S")
-
-
 def normalize_event_title(title: str) -> str:
     t = re.sub(r"【[^】]*】|\[[^\]]*\]", "", title or "")
-    return re.sub(r"[·\s\-—_《》【】()（）:：,，×x]", "", t.lower())
+    t = re.sub(r"^(上海|苏州|杭州|南京|无锡|常州)[·\s\-—:：]+", "", t.strip())
+    return re.sub(r"[·\s\-—_《》【】()（）:：,，×x丨|]", "", t.lower())
 
 
 def compute_event_id(city: str, title: str, start_date: str = "", venue: str = "") -> str:
@@ -240,8 +283,6 @@ def find_existing_event_id(
     conn: sqlite3.Connection, city: str, title: str, start_date: str = "", venue: str = ""
 ) -> str | None:
     """Fuzzy deduplication across multi-source scrapes within the same city."""
-    import difflib
-
     norm_new = normalize_event_title(title)
     if not norm_new:
         return None
@@ -252,7 +293,6 @@ def find_existing_event_id(
     for r in rows:
         norm_old = normalize_event_title(r["title"])
         if norm_new == norm_old:
-            # If exact same normalized title, only keep separate if start_date AND venue clearly differ
             if start_date and r["start_date"] and start_date != r["start_date"]:
                 v_new = (venue or "").strip()[:6]
                 v_old = (r["venue"] or "").strip()[:6]
@@ -307,6 +347,18 @@ def init_db(db_path: Path = DB_PATH) -> None:
             CREATE INDEX IF NOT EXISTS idx_events_module ON events(module_code);
             CREATE INDEX IF NOT EXISTS idx_events_heat ON events(heat_score DESC);
 
+            CREATE TABLE IF NOT EXISTS archived_events (
+                event_id TEXT PRIMARY KEY,
+                city TEXT NOT NULL,
+                module_code TEXT NOT NULL,
+                title TEXT NOT NULL,
+                start_date TEXT,
+                end_date TEXT,
+                venue TEXT,
+                source TEXT,
+                archived_at TEXT
+            );
+
             CREATE TABLE IF NOT EXISTS venues (
                 venue_id TEXT PRIMARY KEY,
                 seq INTEGER,
@@ -329,6 +381,51 @@ def init_db(db_path: Path = DB_PATH) -> None:
             );
             """
         )
+
+
+def archive_expired_events(conn: sqlite3.Connection, today_iso: str) -> int:
+    """
+    Automatically move any event whose end_date < today_iso from `events` into `archived_events`
+    so expired weekend shows never clutter the active magazine or Spotlight wall.
+    """
+    expired_rows = conn.execute(
+        """
+        SELECT event_id, city, module_code, title, start_date, end_date, venue, source
+        FROM events
+        WHERE end_date IS NOT NULL
+          AND LENGTH(TRIM(end_date)) >= 10
+          AND SUBSTR(TRIM(end_date), 1, 10) < ?
+        """,
+        (today_iso,),
+    ).fetchall()
+
+    if not expired_rows:
+        return 0
+
+    ts = now_cst_str()
+    for r in expired_rows:
+        conn.execute(
+            """
+            INSERT INTO archived_events (
+                event_id, city, module_code, title, start_date, end_date, venue, source, archived_at
+            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+            ON CONFLICT(event_id) DO UPDATE SET archived_at = excluded.archived_at
+            """,
+            (
+                r["event_id"],
+                r["city"],
+                r["module_code"],
+                r["title"],
+                r["start_date"],
+                r["end_date"],
+                r["venue"],
+                r["source"],
+                ts,
+            ),
+        )
+        conn.execute("DELETE FROM events WHERE event_id = ?", (r["event_id"],))
+
+    return len(expired_rows)
 
 
 def upsert_event(conn: sqlite3.Connection, item: dict[str, Any]) -> str:
@@ -393,10 +490,10 @@ def upsert_event(conn: sqlite3.Connection, item: dict[str, Any]) -> str:
             heat_label,
             heat_score,
             item.get("time_display", "").strip(),
-            item.get("start_date", "").strip(),
+            start_date,
             item.get("end_date", "").strip(),
             item.get("district", "").strip(),
-            item.get("venue", "").strip(),
+            venue,
             item.get("price", "").strip(),
             item.get("is_free", "付费").strip(),
             item.get("highlights", "").strip(),
@@ -450,13 +547,22 @@ def upsert_venue(conn: sqlite3.Connection, v: dict[str, Any]) -> str:
 
 
 def export_snapshot(db_path: Path = DB_PATH, snapshot_path: Path = SNAPSHOT_PATH) -> dict[str, Any]:
+    wmeta = compute_weekend_meta()
+
     with get_conn(db_path) as conn:
+        # Active weekend events rank first, followed by upcoming events, ordered by heat_score DESC
         event_rows = conn.execute(
-            "SELECT * FROM events ORDER BY heat_score DESC, seq ASC"
+            """
+            SELECT * FROM events
+            ORDER BY
+                CASE WHEN weekend_status LIKE '本周末%' THEN 0 ELSE 1 END ASC,
+                heat_score DESC,
+                start_date ASC,
+                seq ASC
+            """
         ).fetchall()
-        venue_rows = conn.execute(
-            "SELECT * FROM venues ORDER BY seq ASC"
-        ).fetchall()
+        venue_rows = conn.execute("SELECT * FROM venues ORDER BY seq ASC").fetchall()
+        archived_total = conn.execute("SELECT COUNT(*) FROM archived_events").fetchone()[0]
 
     events: list[dict[str, Any]] = []
     city_counts: dict[str, int] = {c["city"]: 0 for c in CITIES_META}
@@ -495,15 +601,25 @@ def export_snapshot(db_path: Path = DB_PATH, snapshot_path: Path = SNAPSHOT_PATH
     if SEEDS_PATH.exists():
         try:
             seeds = json.loads(SEEDS_PATH.read_text(encoding="utf-8"))
-            search_formulas = seeds.get("search_formulas", [])
+            raw_formulas = seeds.get("search_formulas", [])
+            for f in raw_formulas:
+                f_copy = dict(f)
+                f_copy["formula"] = re.sub(r"11月", wmeta["month_tag"], f_copy.get("formula", ""))
+                search_formulas.append(f_copy)
         except Exception:
             pass
 
     snapshot = {
         "project": "YRD WEEKEND PULSE｜江浙沪周末活动雷达",
-        "edition": "ISSUE 2026.47 · SUZHOU 1.5H HSR ISOCHRONE",
+        "edition": wmeta["edition"],
         "updated_at": now_cst_str(),
-        "window_label": "2026.11.20 (周五) — 11.22 (周日) 及近期跨周档期",
+        "window_label": wmeta["window_label"],
+        "weekend_window": {
+            "today": wmeta["today_iso"],
+            "friday": wmeta["fri_iso"],
+            "sunday": wmeta["sun_iso"],
+            "month_tag": wmeta["month_tag"],
+        },
         "cloud_endpoints": {
             "spreadsheet_id": SPREADSHEET_ID,
             "spreadsheet_url": SPREADSHEET_URL,
@@ -515,7 +631,9 @@ def export_snapshot(db_path: Path = DB_PATH, snapshot_path: Path = SNAPSHOT_PATH
         "stats": {
             "total_events": len(events),
             "active_weekend_events": active_weekend_count,
+            "upcoming_events": max(0, len(events) - active_weekend_count),
             "free_events": free_count,
+            "archived_expired_events": archived_total,
             "total_cities": len(CITIES_META),
             "total_modules": len(MODULES_META),
             "total_venues": len(venues),

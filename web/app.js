@@ -52,20 +52,129 @@
   /* ========================================================================
      2. INITIALIZATION & DATA LOADING
      ======================================================================== */
+  function getBeijingWeekendMeta() {
+    // Compute current Beijing (UTC+8) date and active/upcoming Friday–Sunday window in browser
+    const nowUtcMs = Date.now() + new Date().getTimezoneOffset() * 60000;
+    const cst = new Date(nowUtcMs + 8 * 3600 * 1000);
+    const today = new Date(Date.UTC(cst.getFullYear(), cst.getMonth(), cst.getDate()));
+    const jsDay = today.getUTCDay(); // 0=Sun, 1=Mon ... 5=Fri, 6=Sat
+    const pyWeekday = (jsDay + 6) % 7; // 0=Mon ... 4=Fri, 5=Sat, 6=Sun
+    const daysToFri = 4 - pyWeekday;
+
+    const fri = new Date(today.getTime() + daysToFri * 86400000);
+    const sun = new Date(fri.getTime() + 2 * 86400000);
+
+    const fmtIso = (d) =>
+      `${d.getUTCFullYear()}-${String(d.getUTCMonth() + 1).padStart(2, "0")}-${String(
+        d.getUTCDate()
+      ).padStart(2, "0")}`;
+    const fmtDot = (d) =>
+      `${d.getUTCFullYear()}.${String(d.getUTCMonth() + 1).padStart(2, "0")}.${String(
+        d.getUTCDate()
+      ).padStart(2, "0")}`;
+    const fmtShort = (d) =>
+      `${String(d.getUTCMonth() + 1).padStart(2, "0")}.${String(d.getUTCDate()).padStart(2, "0")}`;
+
+    // ISO week number of Sunday
+    const tmp = new Date(Date.UTC(sun.getUTCFullYear(), sun.getUTCMonth(), sun.getUTCDate()));
+    const dayNum = tmp.getUTCDay() || 7;
+    tmp.setUTCDate(tmp.getUTCDate() + 4 - dayNum);
+    const yearStart = new Date(Date.UTC(tmp.getUTCFullYear(), 0, 1));
+    const weekNo = Math.ceil(((tmp - yearStart) / 86400000 + 1) / 7);
+
+    const windowLabel =
+      fri.getUTCMonth() === sun.getUTCMonth()
+        ? `${fmtDot(fri)} (周五) — ${fmtShort(sun)} (周日) 及近期跨周档期`
+        : `${fmtDot(fri)} (周五) — ${fmtDot(sun)} (周日) 及跨月档期`;
+
+    return {
+      todayIso: fmtIso(today),
+      friIso: fmtIso(fri),
+      sunIso: fmtIso(sun),
+      yearMonthLabel: `${fri.getUTCFullYear()}年${fri.getUTCMonth() + 1}月`,
+      monthShort: `${fri.getUTCMonth() + 1}月`,
+      edition: `ISSUE ${tmp.getUTCFullYear()}.${String(weekNo).padStart(
+        2,
+        "0"
+      )} · SUZHOU 1.5H HSR ISOCHRONE`,
+      windowLabel,
+    };
+  }
+
+  function applyClientLiveDateGuard(snap) {
+    if (!snap || !Array.isArray(snap.events)) return snap;
+    const wmeta = getBeijingWeekendMeta();
+    snap.edition = wmeta.edition;
+    snap.window_label = wmeta.windowLabel;
+
+    const liveEvents = [];
+    const cityCounts = {};
+    const modCounts = {};
+    let activeWeekendCount = 0;
+    let freeCount = 0;
+
+    for (const ev of snap.events) {
+      const sIso = String(ev.start_date || "").trim().slice(0, 10);
+      const eIso = String(ev.end_date || sIso).trim().slice(0, 10);
+      // Automatically drop any event that ended before today (Beijing time)
+      if (eIso.length === 10 && eIso < wmeta.todayIso) {
+        continue;
+      }
+      if (sIso.length === 10 && eIso.length === 10) {
+        ev.weekend_status =
+          sIso <= wmeta.sunIso && eIso >= wmeta.todayIso ? "本周末进行中" : "即将开场";
+      }
+      liveEvents.push(ev);
+      cityCounts[ev.city] = (cityCounts[ev.city] || 0) + 1;
+      modCounts[ev.module_code] = (modCounts[ev.module_code] || 0) + 1;
+      if (String(ev.weekend_status || "").includes("本周末")) activeWeekendCount++;
+      if (String(ev.is_free || "").includes("免费") || String(ev.price || "").includes("免费")) {
+        freeCount++;
+      }
+    }
+
+    liveEvents.sort((a, b) => {
+      const aWk = String(a.weekend_status || "").includes("本周末") ? 0 : 1;
+      const bWk = String(b.weekend_status || "").includes("本周末") ? 0 : 1;
+      if (aWk !== bWk) return aWk - bWk;
+      return (b.heat_score || 0) - (a.heat_score || 0);
+    });
+
+    snap.events = liveEvents;
+    if (Array.isArray(snap.cities)) {
+      snap.cities.forEach((c) => {
+        c.count = cityCounts[c.city] || 0;
+      });
+    }
+    if (Array.isArray(snap.modules)) {
+      snap.modules.forEach((m) => {
+        m.count = modCounts[m.code] || 0;
+      });
+    }
+    snap.stats = Object.assign({}, snap.stats || {}, {
+      total_events: liveEvents.length,
+      active_weekend_events: activeWeekendCount,
+      free_events: freeCount,
+    });
+    return snap;
+  }
+
   async function loadSnapshotData() {
     if (window.__YRD_PRELOADED_SNAPSHOT__) {
-      return window.__YRD_PRELOADED_SNAPSHOT__;
+      return applyClientLiveDateGuard(window.__YRD_PRELOADED_SNAPSHOT__);
     }
+    const cacheBust = Math.floor(Date.now() / 60000);
     const candidates = [
-      "./data/dashboard_snapshot.json",
-      "../data/dashboard_snapshot.json",
-      "data/dashboard_snapshot.json",
+      `./data/dashboard_snapshot.json?v=${cacheBust}`,
+      `../data/dashboard_snapshot.json?v=${cacheBust}`,
+      `data/dashboard_snapshot.json?v=${cacheBust}`,
     ];
     for (const url of candidates) {
       try {
         const resp = await fetch(url, { cache: "no-store" });
         if (resp.ok) {
-          return await resp.json();
+          const raw = await resp.json();
+          return applyClientLiveDateGuard(raw);
         }
       } catch (_) {
         // try next
@@ -118,6 +227,10 @@
     if (!snap) return;
     const stats = snap.stats || {};
 
+    const editionEl = document.getElementById("telemetryEditionTag");
+    if (editionEl && snap.edition) {
+      editionEl.textContent = `[${snap.edition}]`;
+    }
     const syncText = document.getElementById("telemetrySyncText");
     if (syncText) {
       syncText.textContent = `SYNCED ${snap.updated_at || ""} · 6H ACTIONS CRON`;
@@ -128,21 +241,21 @@
     }
     const totalMeta = document.getElementById("heroBtnTotalMeta");
     if (totalMeta) {
-      totalMeta.textContent = `${stats.total_events || 198} EVENTS`;
+      totalMeta.textContent = `${stats.total_events || 0} EVENTS`;
     }
 
     const setNum = (id, val) => {
       const el = document.getElementById(id);
       if (el) el.textContent = String(val);
     };
-    setNum("statTotalEvents", stats.total_events || 198);
-    setNum("statWeekendActive", stats.active_weekend_events || 133);
-    setNum("statFreeEvents", stats.free_events || 31);
+    setNum("statTotalEvents", stats.total_events || 0);
+    setNum("statWeekendActive", stats.active_weekend_events || 0);
+    setNum("statFreeEvents", stats.free_events || 0);
     setNum("statTotalVenues", stats.total_venues || 20);
 
     const footerUpdated = document.getElementById("footerUpdatedAt");
     if (footerUpdated) {
-      footerUpdated.textContent = snap.updated_at || "2026-11-21";
+      footerUpdated.textContent = snap.updated_at || "";
     }
   }
 
@@ -389,20 +502,31 @@
       pool = pool.filter((e) => e.city === state.selectedCity);
     }
 
-    const sorted = [...pool].sort((a, b) => (b.heat_score || 0) - (a.heat_score || 0));
+    // Prioritize events active THIS weekend first, then sort by heat_score DESC
+    const sorted = [...pool].sort((a, b) => {
+      const aWk = String(a.weekend_status || "").includes("本周末") ? 0 : 1;
+      const bWk = String(b.weekend_status || "").includes("本周末") ? 0 : 1;
+      if (aWk !== bWk) return aWk - bWk;
+      return (b.heat_score || 0) - (a.heat_score || 0);
+    });
     const seenTitles = new Set();
     const topEvents = [];
 
-    // First pass: pick highest heat with unique normalized titles (and diverse cities when ALL is selected)
+    // First pass: pick highest heat with unique normalized titles, diverse cities (max 2) AND diverse modules (max 2)
     const cityQuota = {};
+    const modQuota = {};
     for (const ev of sorted) {
       const tKey = normalizeTitleKey(ev.title);
       if (!tKey || seenTitles.has(tKey)) continue;
       if (state.selectedCity === "ALL" && (cityQuota[ev.city] || 0) >= 2 && sorted.length > 12) {
         continue;
       }
+      if ((modQuota[ev.module_code] || 0) >= 2 && sorted.length > 12) {
+        continue;
+      }
       seenTitles.add(tKey);
       cityQuota[ev.city] = (cityQuota[ev.city] || 0) + 1;
+      modQuota[ev.module_code] = (modQuota[ev.module_code] || 0) + 1;
       topEvents.push(ev);
       if (topEvents.length >= 6) break;
     }
@@ -890,19 +1014,23 @@
     ALL: "(苏州 OR 上海 OR 无锡 OR 常州 OR 杭州 OR 南京)",
   };
 
-  const MODULE_SCENARIO_KEYWORDS = {
-    A: "(一日店长 OR 明星空降 OR 演唱会 OR 品牌见面会) 2026年11月",
-    B: "(快闪 OR Pop-up OR 限时店 OR 打卡领礼) 本周末",
-    C: "(美术馆特展 OR 新书沙龙 OR 原版音乐剧 OR 交响乐) 本周末",
-    D: "(Livehouse巡演 OR 脱口秀开放麦 OR 摇滚现场) 本周末",
-    E: "(咖啡节 OR 精酿啤酒节 OR 本色市集 OR 周末市集) 11月",
-    F: "(漫展 OR 同人ONLY OR 谷子痛楼 OR 地下偶像) 11月",
-    G: "(Citywalk OR 环湖骑行 OR 宠物友好派对 OR 市民夜校) 周末",
-    H: "(园林夜游 OR 昆曲评弹 OR 无人机烟花秀 OR 红枫银杏) 本周末",
-    I: "(会展排期 OR 文博会 OR 潮玩展 OR 宠物展) 11月",
-    J: "(主厨限时晚宴 OR 亲子剧场 OR 马拉松 OR 博物馆奇妙夜) 周末",
-    ALL: "(演唱会 OR 快闪 OR 特展 OR 市集 OR 漫展 OR 夜游) 本周末",
-  };
+  function getModuleScenarioKeyword(modCode) {
+    const wm = getBeijingWeekendMeta();
+    const map = {
+      A: `(一日店长 OR 明星空降 OR 演唱会 OR 品牌见面会) ${wm.yearMonthLabel}`,
+      B: "(快闪 OR Pop-up OR 限时店 OR 打卡领礼) 本周末",
+      C: "(美术馆特展 OR 新书沙龙 OR 原版音乐剧 OR 交响乐) 本周末",
+      D: "(Livehouse巡演 OR 脱口秀开放麦 OR 摇滚现场) 本周末",
+      E: `(咖啡节 OR 精酿啤酒节 OR 本色市集 OR 周末市集) ${wm.monthShort}`,
+      F: `(漫展 OR 同人ONLY OR 谷子痛楼 OR 地下偶像) ${wm.monthShort}`,
+      G: "(Citywalk OR 环湖骑行 OR 宠物友好派对 OR 市民夜校) 周末",
+      H: "(园林夜游 OR 昆曲评弹 OR 无人机烟花秀 OR 红枫银杏) 本周末",
+      I: `(会展排期 OR 文博会 OR 潮玩展 OR 宠物展) ${wm.monthShort}`,
+      J: "(主厨限时晚宴 OR 亲子剧场 OR 马拉松 OR 博物馆奇妙夜) 周末",
+      ALL: "(演唱会 OR 快闪 OR 特展 OR 市集 OR 漫展 OR 夜游) 本周末",
+    };
+    return map[modCode] || "本周末 活动";
+  }
 
   const SYNONYM_EXPANSION_MAP = {
     一日店长: ["一日店长", "明星", "快闪", "代言", "空降", "见面会"],
@@ -919,6 +1047,7 @@
   };
 
   function expandQueryTokens(rawInput) {
+    const wm = getBeijingWeekendMeta();
     const cleaned = String(rawInput || "")
       .replace(/[()（）+]/g, " ")
       .replace(/\bOR\b|\bAND\b|site:\S+/gi, " ")
@@ -927,7 +1056,11 @@
     const baseTokens = cleaned
       .split(/[\s,，、/]+/)
       .map((t) => t.trim().toLowerCase())
-      .filter((t) => t.length >= 2 && !["城市名", "本周末", "周末", "11月", "2026年11月"].includes(t));
+      .filter(
+        (t) =>
+          t.length >= 2 &&
+          !["城市名", "本周末", "周末", wm.monthShort, wm.yearMonthLabel].includes(t)
+      );
 
     const expanded = new Set(baseTokens);
     baseTokens.forEach((tok) => {
@@ -949,13 +1082,14 @@
     const launchGrid = document.getElementById("platformLaunchGrid");
     if (!citySel || !modSel || !queryEl || !launchGrid) return;
 
+    const wm = getBeijingWeekendMeta();
     const city = citySel.value || "苏州";
     const modCode = modSel.value || "A";
     const custom = (customIn ? customIn.value : "").trim();
 
     const cityDisplay = city === "ALL" ? "江浙沪6城" : city;
     const landmarkPart = CITY_LANDMARK_KEYWORDS[city] || cityDisplay;
-    const scenarioPart = MODULE_SCENARIO_KEYWORDS[modCode] || "本周末 活动";
+    const scenarioPart = getModuleScenarioKeyword(modCode);
     const synthesized = custom
       ? `${city === "ALL" ? "(苏州 OR 上海 OR 无锡 OR 杭州 OR 南京 OR 常州)" : city} ${custom} ${scenarioPart}`
       : `${city === "ALL" ? "" : city + " "}${landmarkPart} ${scenarioPart}`.trim();
@@ -974,7 +1108,7 @@
     const enc = encodeURIComponent(synthesized);
     const simpleKw = `${city === "ALL" ? "江浙沪" : city} ${
       custom || (modObj ? modObj.name : "周末活动")
-    } 11月`;
+    } ${wm.monthShort}`;
     const simpleEnc = encodeURIComponent(simpleKw);
 
     const platforms = [
@@ -1138,7 +1272,10 @@
     } catch (_) {}
 
     // 2. Curated Multi-Platform Live Verification Channels for the selected City & Module
-    const enc = encodeURIComponent(`${city === "ALL" ? "江浙沪" : city} ${customKw || modName} 2026年11月`);
+    const wm = getBeijingWeekendMeta();
+    const enc = encodeURIComponent(
+      `${city === "ALL" ? "江浙沪" : city} ${customKw || modName} ${wm.yearMonthLabel}`
+    );
     results.push(
       {
         source: "小红书同城实时流",
